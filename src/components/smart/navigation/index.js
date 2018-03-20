@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Logo from '../../dumb/logo/index';
 
 class Navigation extends React.Component {
@@ -35,10 +35,10 @@ class Navigation extends React.Component {
                     <ul className="nav-list">
                         {menus.map((value, id) => <li key={id}>
                             <Link to={value.path.toLowerCase()}
-                                  className={ `${(this.state.isActive === value.linkName.toLowerCase()) ?
+                                  className={ `${(this.state.isActive === 'active-' + value.linkName.toLowerCase()) ?
                                       'active-' + value.linkName.toLowerCase() : value.linkName.toLowerCase() }`}
                                   onClick={ () => {
-                                      this.toggleActive(value.linkName.toLowerCase());
+                                      this.toggleActive('active-' + value.linkName.toLowerCase());
                                   }}
                             />
                         </li>)}

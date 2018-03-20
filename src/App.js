@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
+
 import Sign from "./containers/sign";
-import Navigation from "./components/smart/navigation/index";
-import MainHeader from "./components/smart/main-header/index";
-import HomePage from "./containers/home-page/index";
+import Navigation from "./components/smart/navigation";
+import MainHeader from "./components/smart/main-header";
+import HomePage from "./containers/home-page";
+
 
 const customHistory = createBrowserHistory();
 
@@ -20,6 +22,7 @@ class App extends Component {
 
                 <Switch>
                     <Route path='/home' render={(routeProps) => <HomePage routeProps={routeProps}/>}/>
+
                 </Switch>
             </div>
         </Router>
