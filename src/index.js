@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './main.sass';
 import 'bootstrap/dist/css/bootstrap.css';
+import './main.sass';
 import registerServiceWorker from './registerServiceWorker';
 
 

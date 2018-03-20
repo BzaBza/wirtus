@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import MdAccountCircle from 'react-icons/lib/md/account-circle';
 import MdHttps from 'react-icons/lib/md/https';
@@ -27,14 +28,29 @@ class Login extends Component {
         };
         this.password.value = '';
 
-        const userData = JSON.parse(localStorage.getItem('userData'));
+        axios.post('http://aelmod.sytes.net:8080/users',
+            JSON.stringify(this.state),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
 
-        if (userLoginInfo.username === userData.username && userData.password === userLoginInfo.password) {
-            this.props.setRootUserData(userData);
-            this.props.routeProps.history.push('/home');
-        } else {
-            alert('Login failed');
-        }
+            }
+        );
+
+        axios.get('http://aelmod.sytes.net:8080/users')
+            .then(function (response) {
+                console.log(response);
+                if (userLoginInfo.username === response.data.value.username && response.data.value.password === userLoginInfo.password) {
+                    this.props.setRootUserData(response);
+                    console.log('eeeeee');
+                } else {
+                    alert('Login failed');
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
 

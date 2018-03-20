@@ -8,4 +8,4 @@ INSTALLATION
 Run commands:
 
 * npm install
-* npm run start
+* npm start

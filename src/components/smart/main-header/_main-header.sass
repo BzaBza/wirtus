@@ -1,0 +1,44 @@
+.main-header-wrap
+  box-shadow: 0 3px 80px rgba(23, 24, 32, 0.2)
+  background-color: #2f3242
+  z-index: 90000
+  position: fixed
+  width: 100%
+
+.main-header
+  padding: 1.2em 2em 1.2em 1em
+
+.drop-menu
+  border: none
+  background: none
+
+.icon
+  width: 20px
+  height: 30px
+
+.triangle-left
+  color: #5384ff
+
+.hide
+  display: none
+
+.header-side-menu-drop
+  display: none
+
+.user-image
+  height: 40px
+
+@media (max-width: 769px)
+  .header-side-menu
+    display: none !important
+  .header-side-menu-drop
+    display: block !important
+
+@media (max-width: 909px)
+  .main-header
+    justify-content: space-around!important
+
+@media (min-width: 1500px)
+  .header-side-menu
+    justify-content: flex-end
+

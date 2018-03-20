@@ -1,0 +1,56 @@
+.nav-list
+  padding: 1em 0 0 0
+  margin: 0
+  li
+    margin-top: 1em
+    list-style: none
+    font-size: 18px
+    width: 100%
+    a
+      color: #ffffff
+      display: block
+      width: 100%
+      text-decoration: none
+      padding: 1em 3em 1em 1em
+
+
+a:before
+  box-sizing: content-box
+
+.navigation
+  box-shadow: 0 3px 80px rgba(23, 24, 32, 0.2)
+  background-color: #2f3242
+  height: 100vh
+  padding: 0
+  position: fixed
+  z-index: 80000
+  .logo
+    background-position: center
+    background-size: cover
+    height: 33px
+    width: 33px
+    margin: 0
+  li
+    a
+      padding-right: 1em
+
+.active
+  background-color: #122143
+  border-left: 3px solid #5584ff
+
+.home:before
+  padding-right: 0.5em
+  content: url("./icons/home.png")
+
+.menu:before
+  padding-right: 0.5em
+  content: url("./icons/menu--3-.png")
+
+.trending:before
+  padding-right: 0.5em
+  content: url("./icons/trending-up.png")
+
+.email:before
+  padding-right: 0.5em
+  content: url("./icons/email--2-.png")
+
