@@ -28,7 +28,7 @@ class Sign extends Component {
     render() {
         return (
             <section className="authentication-background d-flex justify-content-center align-items-center">
-                <div className="col-5 sign">
+                <div className="col-md-5 col-sm-12 sign">
                     <header className="authentication-header d-flex justify-content-between align-items-center">
                         <Logo/>
                         <Nav tabs className="pointer sign-nav">
