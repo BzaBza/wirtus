@@ -6,7 +6,7 @@ import Sign from "./containers/sign";
 import Navigation from "./components/smart/navigation";
 import MainHeader from "./components/smart/main-header";
 import HomePage from "./containers/home-page";
-
+import Menus from "./containers/menu";
 
 const customHistory = createBrowserHistory();
 
@@ -22,7 +22,7 @@ class App extends Component {
 
                 <Switch>
                     <Route path='/home' render={(routeProps) => <HomePage routeProps={routeProps}/>}/>
-
+                    <Route path='/menu' render={(routeProps) => <Menus routeProps={routeProps}/>}/>
                 </Switch>
             </div>
         </Router>

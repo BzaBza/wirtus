@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SideHeader from "../../components/smart/side-header/index";
+
 
 class HomePage extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class HomePage extends Component {
     render() {
         return (
             <section className="authentication-background">
-                <SideHeader/>
+
                 <div className="col-5 sign">
                 </div>
             </section>

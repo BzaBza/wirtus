@@ -3,11 +3,14 @@
 @import "components/dumb/user-menu/user-menu"
 
 @import "components/smart/navigation/navigation"
-@import "components/smart/side-header/side-header"
+@import "containers/menu/side-header"
 @import "components/smart/main-header/main-header"
 @import "components/smart/all-projects/all-projects"
 
 @import "containers/sign/sign"
+
+body
+  background-color: #2b2d3c
 
 .button
   padding-right: 4em
@@ -21,5 +24,15 @@ button
   cursor: pointer
 
 .containers
-  margin-top: 6em
-  padding-left: 5em
+  padding-top: 96px
+  padding-left: 2cm
+
+.online
+  position: absolute
+  width: 18px
+  height: 18px
+  border: 4px solid #ffffff
+  background-color: #00bf1b
+  border-radius: 50%
+  top: 10px
+  left: 60px
