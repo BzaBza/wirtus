@@ -91,5 +91,5 @@ export const getWorkflowData = () => dispatch => {
   dispatch(
    {type: 'FETCH_WORKFLOW_DATA_SUCCESS', payload: mocWorkflowData}
    );
- }, 3000)
+ }, 500)
 };

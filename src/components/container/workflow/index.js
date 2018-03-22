@@ -10,6 +10,7 @@ class Workflow extends Component {
   this.state = {
    tasks: this.props.tasks
   };
+  this.onDragEnd = this.onDragEnd.bind(this);
  }
 
  componentWillReceiveProps() {
@@ -18,13 +19,22 @@ class Workflow extends Component {
   });
  }
 
- componentDidMount(){
-  const toDoData = keyIndex(this.props.tasks[0].toDoData, 1);
-  const inProgressData = keyIndex(this.props.tasks[0].inProgressData, 2);
-  const completedData = keyIndex(this.props.tasks[0].completedData, 3);
-  console.log(this.state.tasks)
+ onDragEnd(result) {
+  if (!result.destination) return;
+  const from = result.source;
+  const to = result.destination;
+  const { tasks } = this.state;
+  console.log(tasks);
+  const [removed] = tasks[0][from.droppableId].splice(from.index, 1);
+  if (from.droppableId === 'completed' && to.droppableId !== 'completed') {
+   removed.status = to.droppableId;
+  }
+  if (to.droppableId === 'completed') removed.status = 'completed';
+  tasks[0][to.droppableId].splice(to.index, 0, removed);
+  this.setState({
+   tasks
+  });
  }
-
 
  render() {
   return (
@@ -32,7 +42,7 @@ class Workflow extends Component {
     <Container>
      <DragDropContext onDragEnd={this.onDragEnd}>
       <Row>
-       <Droppable direction="vertical" droppableId="toDo">
+       <Droppable direction="vertical" droppableId="toDoData">
         {provided => (
          <Col md="4" className="workflow-section">
           <h3 className="workflow-section-title">
@@ -43,8 +53,8 @@ class Workflow extends Component {
            className="workflow-list"
            ref={provided.innerRef}
           >
-           {this.state.tasks[0].toDoData.map((value, index) => (
-            <Draggable key={value.id} draggableId={value.id} index={index}>
+           {this.state.tasks[0].toDoData.map((item, index) => (
+            <Draggable key={item.id} draggableId={item.id} index={index}>
              {provided => (
               <li>
                <div
@@ -54,11 +64,11 @@ class Workflow extends Component {
                 className="workflow-item-wrapper"
                >
                 <WorkflowItem
-                 name={value.name}
-                 time={value.time}
-                 locate={`/tasks/${value.id}`}
-                 status={value.status}
-                 key={value.id}
+                 name={item.name}
+                 time={item.time}
+                 locate={`/tasks/${item.id}`}
+                 status={item.status}
+                 key={item.id}
                 />
                </div>
                {provided.placeholder}
@@ -70,7 +80,7 @@ class Workflow extends Component {
          </Col>
         )}
        </Droppable>
-       <Droppable direction="vertical" droppableId="inProgress">
+       <Droppable direction="vertical" droppableId="inProgressData">
         {provided => (
          <Col md="4" className="workflow-section">
           <h3 className="workflow-section-title">
@@ -81,8 +91,8 @@ class Workflow extends Component {
            className="workflow-list"
            ref={provided.innerRef}
           >
-           {this.state.tasks[0].inProgressData.map((value, index) => (
-            <Draggable key={value.id} draggableId={value.name} index={index}>
+           {this.state.tasks[0].inProgressData.map((item, index) => (
+            <Draggable key={item.id} draggableId={item.name} index={index}>
              {provided => (
               <li>
                <div
@@ -92,11 +102,11 @@ class Workflow extends Component {
                 className="workflow-item-wrapper"
                >
                 <WorkflowItem
-                 name={value.name}
-                 time={value.time}
-                 locate={`/tasks/${value.id}`}
-                 status={value.status}
-                 key={value.id}
+                 name={item.name}
+                 time={item.time}
+                 locate={`/tasks/${item.id}`}
+                 status={item.status}
+                 key={item.id}
                 />
                </div>
                {provided.placeholder}
@@ -108,7 +118,7 @@ class Workflow extends Component {
          </Col>
         )}
        </Droppable>
-       <Droppable direction="vertical" droppableId="completed">
+       <Droppable direction="vertical" droppableId="completedData">
         {provided => (
          <Col md="4" className="workflow-section">
           <h3 className="workflow-section-title">
@@ -119,8 +129,8 @@ class Workflow extends Component {
            className="workflow-list"
            ref={provided.innerRef}
           >
-           {this.state.tasks[0].completedData.map((value, index) => (
-            <Draggable key={value.id} draggableId={value.name} index={index}>
+           {this.state.tasks[0].completedData.map((item, index) => (
+            <Draggable key={item.id} draggableId={item.name} index={index}>
              {provided => (
               <li>
                <div
@@ -130,11 +140,11 @@ class Workflow extends Component {
                 className="workflow-item-wrapper"
                >
                 <WorkflowItem
-                 name={value.name}
-                 time={value.time}
-                 locate={`/tasks/${value.id}`}
-                 status={value.status}
-                 key={value.id}
+                 name={item.name}
+                 time={item.time}
+                 locate={`/tasks/${item.id}`}
+                 status={item.status}
+                 key={item.id}
                 />
                </div>
                {provided.placeholder}
