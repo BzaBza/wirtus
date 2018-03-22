@@ -2,15 +2,16 @@
 @import "components/dumb/logo/logo"
 @import "components/dumb/user-menu/user-menu"
 
-@import "components/smart/navigation/navigation"
-@import "containers/menu/side-header"
-@import "components/smart/main-header/main-header"
-@import "components/smart/all-projects/all-projects"
+@import "components/container/navigation/navigation"
+@import "components/container/main-header/main-header"
+@import "components/container/all-projects/all-projects"
 
-@import "containers/sign/sign"
+@import "screens/menu/side-header"
+@import "screens/menu/menu-section"
+@import "screens/sign/sign"
 
 body
-  background-color: #2b2d3c
+  background-color: #2f3242
 
 .button
   padding-right: 4em
@@ -24,8 +25,8 @@ button
   cursor: pointer
 
 .containers
-  padding-top: 96px
-  padding-left: 2cm
+  padding-top: 1cm
+  padding-left: 3cm
 
 .online
   position: absolute

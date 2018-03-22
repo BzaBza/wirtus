@@ -1,9 +1,9 @@
-import React, {component} from 'react';
+import React, {Component} from 'react';
 import FaEllipsisV from 'react-icons/lib/fa/ellipsis-v';
 import MdAccessTime from 'react-icons/lib/md/access-time';
-import userData from '../../../data/users-data';
+import userData from '../../../redux/data/users-data';
 
-class AllProjects extends React.Component {
+class AllProjects extends Component {
     constructor(props) {
         super(props);
         this.state = {
