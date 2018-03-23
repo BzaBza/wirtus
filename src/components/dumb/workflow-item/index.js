@@ -21,69 +21,23 @@ class WorkflowItem extends Component {
  }
 
  render() {
-  if (this.props.isAtHome) {
-   return (
-    <li className="service-item">
-
-          <span className="task-icon">
-            {this.props.name[0]}
-          </span>
-
-     <div className="task-data">
-
-      <h5>
-       <Link to={this.props.locate} href={this.props.locate} className="task-name">
-        {this.props.name}
-       </Link>
-      </h5>
-      {
-       (this.props.status === 'completed') ?
-        <span className="task-status completed">
-                      Completed!
-                </span>
-        :
-        <span className={`task-status ${this.props.status === 'delay' ? 'delay' : 'work'}`}>
-                  {this.props.time}
-                </span>
-      }
-     </div>
-
-     <button className="task-options" onClick={this.onOptionsOpen}>
-
-     </button>
-
-    </li>
-   );
-  } return (
-   <div className="workflow-item">
-
-        <span className="task-icon">
-          {this.props.name[0]}
-        </span>
-
+  return (
+   <div className="workflow-item d-flex">
     <div className="task-data">
-
      <h5 className="task-title">
       <Link to={this.props.locate} href={this.props.locate} className="task-name">
-       {this.props.name}
+       {this.props.task}
       </Link>
      </h5>
-
-     {
-      (this.props.status === 'completed') ?
-       <span className="task-status completed">
-                    Completed!
-              </span>
-       :
-       <span className={`task-status ${this.props.status === 'delay' ? 'delay' : 'work'}`}>
-                {this.props.time}
-              </span>
-     }
-
+     <div>
+      <p>
+       <span>{this.props.company}</span>
+       <span>{this.props.price}</span>
+      </p>
+     </div>
     </div>
 
-    <button className="task-options" onClick={this.onOptionsOpen}>
-    </button>
+    <button className="task-options" onClick={this.onOptionsOpen}/>
 
    </div>
   );
