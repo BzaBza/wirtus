@@ -7,14 +7,14 @@ class Workflow extends Component {
  constructor(props) {
   super(props);
   this.state = {
-   tasks: this.props.tasks
+   projects: this.props.projects
   };
   this.onDragEnd = this.onDragEnd.bind(this);
  }
 
  componentWillReceiveProps() {
   this.setState({
-   tasks: this.props.tasks
+   projects: this.props.projects
   });
  }
 
@@ -22,40 +22,44 @@ class Workflow extends Component {
   if (!result.destination) return;
   const from = result.source;
   const to = result.destination;
-  const {tasks} = this.state;
+  const {projects} = this.state;
 
-   const [removed] = tasks[from.droppableId].splice(from.index, 1);
+   const [removed] = projects[from.droppableId].splice(from.index, 1);
    if (from.droppableId === 'completed' && to.droppableId !== 'completed') {
     removed.status = to.droppableId;
    }
    if (to.droppableId === 'completed') removed.status = 'completed';
-   tasks[to.droppableId].splice(to.index, 0, removed);
+  projects[to.droppableId].splice(to.index, 0, removed);
    this.setState({
-    tasks
+    projects
    });
  }
 
  render() {
   let taskContainer = [];
 
-  for(let task in this.state.tasks){
+  for(let project in this.state.projects){
    taskContainer.push(
-    <Droppable key={task} direction="vertical" droppableId={task}>
+    <Droppable key={project} direction="vertical" droppableId={project}>
      {provided => (
       <Col md="4" className="workflow-section">
        <h3 className="workflow-section-title">
-        {task}
-        <span className="number"> ({this.state.tasks[task].length}) </span>
+        {project}
        </h3>
+       <div>
+        <span className="number"> ({this.state.projects[project].length}) </span>
+         <span>
+          {this.state.projects[project].length > 0 ? this.state.projects[project].reduce(function (acc, obj) { return acc + obj.price; }, 0):0
+          }</span>
+       </div>
        <ul
         className="workflow-list"
         ref={provided.innerRef}
        >
-        {this.state.tasks[task].map((item, index) => (
+        {this.state.projects[project].map((item, index) => (
          <Draggable key={item.id} draggableId={item.id} index={index}>
           {provided => (
            <li>
-            {index}
             <div
              ref={provided.innerRef}
              {...provided.draggableProps}
@@ -63,10 +67,10 @@ class Workflow extends Component {
              className="workflow-item-wrapper"
             >
              <WorkflowItem
-              name={item.name}
-              time={item.time}
-              locate={`/tasks/${item.id}`}
-              status={item.status}
+              task={item.task}
+              company={item.company}
+              locate={`/projects/${item.id}`}
+              price={item.price}
               key={item.id}
              />
             </div>
@@ -86,9 +90,9 @@ class Workflow extends Component {
    <section>
     <Container>
      <DragDropContext onDragEnd={this.onDragEnd}>
-      <Row>
+      <div className="d-flex">
        {taskContainer}
-      </Row>
+      </div>
      </DragDropContext>
     </Container>
    </section>

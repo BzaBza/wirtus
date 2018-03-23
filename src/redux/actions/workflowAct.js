@@ -1,91 +1,137 @@
 var mocWorkflowData = {
 
-  quenedData: [
-   {
-    name: 'New website for JCD.pl',
-    time: '5 days left',
-    status: 'work',
-    id: '1a',
-   },
-   {
-    name: 'Free PSD Template vol. 3',
-    time: '5 days left',
-    status: 'work',
-    id: '1b',
-   },
-   {
-    name: 'New logo for Google',
-    time: '5 days left',
-    status: 'work',
-    id: '1c',
-   },
-   {
-    name: 'New website for Windu.org',
-    time: '5 days left',
-    status: 'work',
-    id: '1d',
-   },
-   {
-    name: 'Free PSD Template vol. 2',
-    time: '5 days left',
-    status: 'work',
-    id: '1e',
-   },
-   {
-    name: 'Iconset Vol. 3',
-    time: '5 days left',
-    status: 'work',
-    id: '1f',
-   },
-  ],
-
- inProgressData: [
-  {
-   name: 'New logo for Apple',
-   time: '1 day left',
-   status: 'work',
-   id: '2a',
-  },
-  {
-   name: 'Daily UI Kit',
-   time: '5 days left',
-   status: 'work',
-   id: '2b',
-  },
-  {
-   name: 'Business Cards',
-   time: '2 days delays',
-   status: 'delay',
-   id: '2c',
-  },
-  ],
-
-completedData: [
- {
-  name: 'Free PSD Template vol. 1',
-  time: '5 days left',
-  status: 'completed',
+ Quened: [{
+  task: 'Wordpress theme',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '1a',
+ }, ],
+ Planning: [{
+  task: 'Landing page',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '2a',
+ }, {
+  task: 'New website',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '2b',
+ }, {
+  task: 'Dashboard',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '2c',
+ }, {
+  task: 'Mobile App',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '2d',
+ }, ],
+ Design: [{
+  task: 'Free PSD Template vol. 1',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
   id: '3a',
- },
- {
-  name: 'Iconset vol. 1',
-  time: '5 days left',
-  status: 'completed',
+ }, {
+  task: 'Iconset vol. 1',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
   id: '3b',
- },
- {
-  name: 'New website for Symu.co',
-  time: '5 days left',
-  status: 'completed',
+ }, {
+  task: 'New website for Symu.co',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
   id: '3c',
- },
- {
-  name: 'Iconset vol. 2',
-  time: '5 days left',
-  status: 'completed',
+ }, {
+  task: 'Iconset vol. 2',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
   id: '3d',
- },
-],
+ }, ],
+ Development: [{
+  task: 'Free PSD Template vol. 1',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '4a',
+ }, {
+  task: 'Iconset vol. 1',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '4b',
+ }, {
+  task: 'New website for Symu.co',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '4c',
+ }, {
+  task: 'Iconset vol. 2',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '4d',
+ }, ],
+ Testing: [{
+  task: 'Free PSD Template vol. 1',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '5a',
+ }, {
+  task: 'Iconset vol. 1',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '5b',
+ }, {
+  task: 'New website for Symu.co',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '5c',
+ }, {
+  task: 'Iconset vol. 2',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '5d',
+ }, ],
+ Completed: [{
+  task: 'Free PSD Template vol. 1',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '6a',
+ }, {
+  task: 'Iconset vol. 1',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '6b',
+ }, {
+  task: 'New website for Symu.co',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '6c',
+ }, {
+  task: 'Iconset vol. 2',
+  company: 'Symu.co',
+  price: 1500,
+  url: '',
+  id: '6d',
+ }, ]
 };
 
 export const getWorkflowData = () => dispatch => {

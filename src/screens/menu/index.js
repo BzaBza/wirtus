@@ -61,7 +61,7 @@ class Menu extends Component {
       <AllProjects/>
      </TabPane>
      <TabPane tabId="Workflow">
-      <Workflow tasks={this.props.workflowData} onGetWorkflowData={this.props.onGetWorkflowData()}/>
+      <Workflow projects={this.props.workflowData} onGetWorkflowData={this.props.onGetWorkflowData()}/>
      </TabPane>
     </TabContent>
    </section>
