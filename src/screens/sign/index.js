@@ -6,70 +6,70 @@ import Login from '../../components/container/login/index';
 import Logo from '../../components/dumb/logo/index';
 
 class Sign extends Component {
- constructor(props) {
-  super(props);
+  constructor(props) {
+    super(props);
 
-  this.state = {
-   currentTab: 'login',
-  };
+    this.state = {
+      currentTab: 'login',
+    };
 
-  this.toggleTab = this.toggleTab.bind(this);
- }
-
- toggleTab(tab) {
-  if (this.state.currentTab !== tab) {
-   this.setState({
-    currentTab: tab,
-   });
-  } else if (this.props.isSubmit === true) {
-   this.setState({
-    currentTab: tab,
-   });
+    this.toggleTab = this.toggleTab.bind(this);
   }
- }
+
+  toggleTab(tab) {
+    if (this.state.currentTab !== tab) {
+      this.setState({
+        currentTab: tab,
+      });
+    } else if (this.props.isSubmit === true) {
+      this.setState({
+        currentTab: tab,
+      });
+    }
+  }
 
 
- render() {
-  return (
-   <section className="authentication-background d-flex justify-content-center align-items-center">
-    <div className="col-md-5 col-sm-12 sign">
-     <header className="authentication-header d-flex justify-content-between align-items-center">
-      <Logo/>
-      <Nav tabs className="pointer sign-nav">
-       <NavItem className={ (this.state.currentTab === 'register') ?
-        'active-link' : '' }>
-        <NavLink
-         className={ (this.state.currentTab === 'register') ?
-          'active-link' : '' } onClick={ () => {
-         this.toggleTab('register');
-        }}>
-         Register
-        </NavLink>
-       </NavItem>
-       <NavItem className={ (this.state.currentTab === 'login') ?
-        'active-link' : '' }>
-        <NavLink
-         className={ (this.state.currentTab === 'login') ?
-          'active-link' : '' } onClick={ () => {
-         this.toggleTab('login');
-        }}>
-         Login
-        </NavLink>
-       </NavItem>
-      </Nav>
-     </header>
-     <TabContent activeTab={this.state.currentTab}>
-      <TabPane tabId="register">
-       <Register/>
-      </TabPane>
-      <TabPane tabId="login">
-       <Login routeProps={this.props.routeProps} setRootUserData={this.props.setUserData}/>
-      </TabPane>
-     </TabContent>
-    </div>
-   </section>
-  );
- }
+  render() {
+    return (
+     <section className="authentication-background d-flex justify-content-center align-items-center">
+       <div className="col-md-5 col-sm-12 sign">
+         <header className="authentication-header d-flex justify-content-between align-items-center">
+           <Logo/>
+           <Nav tabs className="pointer sign-nav">
+             <NavItem className={ (this.state.currentTab === 'register') ?
+              'active-link' : '' }>
+               <NavLink
+                className={ (this.state.currentTab === 'register') ?
+                 'active-link' : '' } onClick={ () => {
+                 this.toggleTab('register');
+               }}>
+                 Register
+               </NavLink>
+             </NavItem>
+             <NavItem className={ (this.state.currentTab === 'login') ?
+              'active-link' : '' }>
+               <NavLink
+                className={ (this.state.currentTab === 'login') ?
+                 'active-link' : '' } onClick={ () => {
+                 this.toggleTab('login');
+               }}>
+                 Login
+               </NavLink>
+             </NavItem>
+           </Nav>
+         </header>
+         <TabContent activeTab={this.state.currentTab}>
+           <TabPane tabId="register">
+             <Register/>
+           </TabPane>
+           <TabPane tabId="login">
+             <Login routeProps={this.props.routeProps} setRootUserData={this.props.setUserData}/>
+           </TabPane>
+         </TabContent>
+       </div>
+     </section>
+    );
+  }
 }
 
 export default Sign;

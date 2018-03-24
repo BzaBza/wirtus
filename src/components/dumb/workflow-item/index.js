@@ -1,63 +1,59 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import FaEllipsisV from 'react-icons/lib/fa/ellipsis-v';
 
 
 class WorkflowItem extends Component {
- constructor(props) {
-  super(props);
+  constructor(props) {
+    super(props);
 
-  this.state = {
-   isOptionsOpen: false,
-  };
+    this.state = {
+      isOptionsOpen: false,
+    };
 
-  this.onOptionsOpen = this.onOptionsOpen.bind(this);
- }
+    this.onOptionsOpen = this.onOptionsOpen.bind(this);
+  }
 
- onOptionsOpen() {
-  this.setState({
-   isOptionsOpen: !this.state.isOptionsOpen,
-  });
- }
+  onOptionsOpen() {
+    this.setState({
+      isOptionsOpen: !this.state.isOptionsOpen,
+    });
+  }
 
- render() {
-  return (
-   <div className="workflow-item d-flex">
-    <div className="task-data">
-     <h5 className="task-title">
-      <Link to={this.props.locate} href={this.props.locate} className="task-name">
-       {this.props.task}
-      </Link>
-     </h5>
-     <div>
-      <p>
-       <span>{this.props.company}</span>
-       <span>{this.props.price}</span>
-      </p>
+  render() {
+    return (
+     <div className="workflow-item d-flex align-items-center justify-content-between">
+       <div>
+         <img src={this.props.url} alt="user_photo"/>
+       </div>
+       <div className="project-data d-flex flex-wrap justify-content-center align-items-center">
+         <div className="project-name col-12 text-white">
+           {this.props.task}
+         </div>
+         <div className="col-12 gray project-content">
+           <span>{this.props.company + ' · '}</span>
+           <span>{'$' + this.props.price}</span>
+         </div>
+       </div>
+       <button className="project-options bg-transparent gray border-0" onClick={this.onOptionsOpen}><FaEllipsisV/></button>
      </div>
-    </div>
-
-    <button className="task-options" onClick={this.onOptionsOpen}/>
-
-   </div>
-  );
- }
+    );
+  }
 }
 
 WorkflowItem.propTypes = {
- name: PropTypes.string,
- locate: PropTypes.string,
- status: PropTypes.string,
- time: PropTypes.string,
- isAtHome: PropTypes.bool
+  task: PropTypes.string,
+  company: PropTypes.string,
+  price: PropTypes.number,
+  url: PropTypes.string,
 };
 
 WorkflowItem.defaultProps = {
- name: '',
- locate: '',
- status: '',
- time: '',
- isAtHome: false
+  task: '',
+  company: '',
+  price: null,
+  url: '',
+  isAtHome: false
 };
 
 export default WorkflowItem;
