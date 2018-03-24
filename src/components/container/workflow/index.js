@@ -77,6 +77,7 @@ class Workflow extends Component {
                      className="workflow-item-wrapper"
                     >
                       <WorkflowItem
+                       projects={this.state.projects}
                        task={item.task}
                        company={item.company}
                        price={item.price}

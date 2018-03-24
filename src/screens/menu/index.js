@@ -27,6 +27,12 @@ class Menu extends Component {
 
 
   render() {
+    let counter = [];
+    for (let project in this.props.workflowData) {
+      {
+        counter.push(this.props.workflowData[project].length)
+      }
+    }
     return (
      <section className="d-flex justify-content-center menu-section flex-wrap">
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
@@ -38,7 +44,11 @@ class Menu extends Component {
                'active-side-header-link' : '' } onClick={ () => {
                this.toggleTab('AllProjects');
              }}>
-               All Projects
+               All Projects({
+                 counter.length > 0 ? counter.reduce(function (acc, item) {
+                   return acc + item;
+                 }, 0) : 0
+               })
              </NavLink>
            </NavItem>
            <NavItem className={ (this.state.currentTab === 'Workflow') ?

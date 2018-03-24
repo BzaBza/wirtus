@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import FaEllipsisV from 'react-icons/lib/fa/ellipsis-v';
+import DropPeriod from "../drop-period/index";
 
 
 class WorkflowItem extends Component {
@@ -35,7 +35,7 @@ class WorkflowItem extends Component {
            <span>{'$' + this.props.price}</span>
          </div>
        </div>
-       <button className="project-options bg-transparent gray border-0" onClick={this.onOptionsOpen}><FaEllipsisV/></button>
+       <DropPeriod projects={this.props.projects}/>
      </div>
     );
   }

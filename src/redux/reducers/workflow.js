@@ -1,7 +1,10 @@
 const initialState = {
-  toDoData: [],
-  inProgressData: [],
-  completedData: [],
+  Quened: [],
+  Planning: [],
+  Design: [],
+  Development: [],
+  Testing: [],
+  Completed: [],
 };
 
 export default function workflowData(state = initialState, action) {
