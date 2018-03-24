@@ -20,10 +20,10 @@ export default class DropPeriod extends Component {
 
 
     render() {
-        let projects = [];
-      for (let project in this.props.projects) {
-        projects.push(
-          <DropdownItem key={project}>{project}</DropdownItem>
+        let value = [];
+      for (let valueItem in this.props.value) {
+        value.push(
+          <DropdownItem key={valueItem}>{valueItem}</DropdownItem>
         )}
         return (
             <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="drop-period project-options" >
@@ -31,7 +31,7 @@ export default class DropPeriod extends Component {
                     <FaEllipsisV/>
                 </DropdownToggle>
                 <DropdownMenu>
-                  {projects}
+                  {value}
                 </DropdownMenu>
             </ButtonDropdown>
 

@@ -35,7 +35,9 @@ class WorkflowItem extends Component {
            <span>{'$' + this.props.price}</span>
          </div>
        </div>
-       <DropPeriod projects={this.props.projects}/>
+       <div className="dropButton">
+         <DropPeriod value={this.props.projects}/>
+       </div>
      </div>
     );
   }

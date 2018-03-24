@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 
 import AllProjects from "../../components/container/all-projects/index";
 import Workflow from "../../components/container/workflow/index";
-import {getWorkflowData} from '../../redux/actions/workflowAct'
+import {getWorkflowData} from '../../redux/actions/workflowAct';
+import {getProjectsData} from '../../redux/actions/projectsAct'
 
 class Menu extends Component {
   constructor(props) {
@@ -29,10 +30,8 @@ class Menu extends Component {
   render() {
     let counter = [];
     for (let project in this.props.workflowData) {
-      {
         counter.push(this.props.workflowData[project].length)
       }
-    }
     return (
      <section className="d-flex justify-content-center menu-section flex-wrap">
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
@@ -68,7 +67,7 @@ class Menu extends Component {
        </header>
        <TabContent activeTab={this.state.currentTab} className="containers col-12">
          <TabPane tabId="AllProjects">
-           <AllProjects/>
+           <AllProjects projects={this.props.projectsData} onGetProjectsData={this.props.onGetProjectsData()}/>
          </TabPane>
          <TabPane tabId="Workflow">
            <Workflow projects={this.props.workflowData} onGetWorkflowData={this.props.onGetWorkflowData()}/>
@@ -81,10 +80,14 @@ class Menu extends Component {
 
 export default connect(
  state => ({
+   projectsData: state.allProjects,
    workflowData: state.workflow
  }),
  dispatch => ({
    onGetWorkflowData: () => {
      dispatch(getWorkflowData());
+   },
+   onGetProjectsData: () => {
+     dispatch(getProjectsData());
    }
  }))(Menu);

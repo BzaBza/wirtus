@@ -1,79 +1,88 @@
 import React, {Component} from 'react';
-import FaEllipsisV from 'react-icons/lib/fa/ellipsis-v';
 import MdAccessTime from 'react-icons/lib/md/access-time';
-import userData from '../../../redux/data/users-data';
+import DropPeriod from "../../dumb/drop-period/index";
+import ProgressBar from "../../dumb/progress-bar/index";
 
 class AllProjects extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userData: [],
+      projectsData: this.props.projects,
     };
   }
 
-  getUserData() {
+  componentWillReceiveProps() {
     this.setState((state, props) => (
      {
-       userData,
+       projectsData: this.props.projects
      }
     ));
   }
 
-
-  componentWillMount() {
-    this.getUserData();
-  }
-
   render() {
     return (
-     <section>
+     <section className="text-white">
        <ul className="tasks-list">
-         <li className="justify-content-between d-flex gray">
+         <li className="d-flex gray projects-title justify-content-between">
            <div className="col-md-2">Project title</div>
-           <div className="col-md-2">Value</div>
+           <div className="col-md-1">Value</div>
            <div className="col-md-2">Deadline</div>
            <div className="col-md-1">Time spent</div>
-           <div className="col-md-1">Progress</div>
+           <div className="col-md-2">Progress</div>
            <div className="col-md-1">Status</div>
-           <div className="col-md-1">Assigned to</div>
+           <div className="col-md-2">Assigned to</div>
          </li>
-         {this.state.userData.map((value, index) => <li key={index}
-                                                        className="d-flex justify-content-between align-items-center  flex-wrap col-12 project-row">
-           <div className="d-flex col-md-2 project-table ">
-             <div className="d-flex flex-wrap">
-               <div className="col-12 user-name">{value.userName}</div>
-               <div className="gray col-12">{value.position}</div>
+         {this.state.projectsData.map((value, index) => <li key={index}
+                                                        className="d-flex justify-content-between align-items-center  flex-wrap project-row">
+           <div className="d-flex col-md-2 project-table projects-name-block">
+             <div>
+               <div className="user-name">{value.project}</div>
+               <div className="gray">{value.company}</div>
              </div>
            </div>
-           <div className="col-md-2 project-table">
+           <div className="col-md-1 project-table">
              <div
               className='align-items-center d-flex'>
-               <MdAccessTime/> {value.lastActivity}
+               {value.price}
              </div>
            </div>
            <div className="col-md-2 project-table">
              <div>
-               {value.email}
+               {value.deadline}
              </div>
            </div>
            <div className="col-md-1 project-table">
              <div>
-               {value.phone}
+               {value.timeSpent}
+             </div>
+           </div>
+           <div className="col-md-2 project-table">
+             <div className="progress-bar-container d-flex justify-content-start">
+               <ProgressBar/>
              </div>
            </div>
            <div className="col-md-1 project-table">
              <div>
-               {value.phone}
+               {value.status}
              </div>
            </div>
-           <div className="col-md-1 project-table">
-             <div>
-               {value.phone}
+           <div className="col-md-2 project-table justify-content-between">
+             <div className="d-flex align-items-center">
+               <div>
+                 <img src={value.url} alt="developer"/>
+               </div>
+               <div>
+                 <div>
+                   {value.devName}
+                 </div>
+                 <div>
+                   {value.devPosition}
+                 </div>
+               </div>
              </div>
-           </div>
-           <div className="users-table col-md-1 justify-content-center d-flex">
-             <button type="button" className="tasks-button"><FaEllipsisV className="tasks-button-icon"/>
-             </button>
+             <div className="users-table justify-content-center d-flex">
+               <DropPeriod value={this.state.projectsData}/>
+             </div>
            </div>
          </li>)}
        </ul>

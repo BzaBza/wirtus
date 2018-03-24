@@ -74,7 +74,6 @@ class Workflow extends Component {
                      ref={provided.innerRef}
                      {...provided.draggableProps}
                      {...provided.dragHandleProps}
-                     className="workflow-item-wrapper"
                     >
                       <WorkflowItem
                        projects={this.state.projects}
