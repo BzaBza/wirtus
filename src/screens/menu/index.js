@@ -35,7 +35,7 @@ class Menu extends Component {
     return (
      <section className="d-flex justify-content-center menu-section flex-wrap">
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
-         <Nav tabs className="pointer sign-nav align-items-center">
+         <Nav tabs className="pointer side-header-nav align-items-center">
            <NavItem className={ (this.state.currentTab === 'AllProjects') ?
             'active-side-header-link' : '' }>
              <NavLink

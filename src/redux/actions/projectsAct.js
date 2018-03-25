@@ -5,8 +5,8 @@ var mocProjectsData = [
     company: 'Microsoft',
     deadline: '21 May 2016',
     timeSpent: '40 hours',
-    status:'Development',
-    url: './workflow/photo-1457084882212-4a6bb2240588.png',
+    status: 'Testing',
+    url: './workflow/photo-1441622915984-05d13dfb3d8c.png',
     devName:'Dominic Lynton',
     devPosition:'Front End Dev'
   },
@@ -16,7 +16,7 @@ var mocProjectsData = [
     company: 'Google',
     deadline: '21 May 2016',
     timeSpent: '40 hours',
-    status:'Development',
+    status:'Quened',
     url: './workflow/photo-1457459588520-2ae325c92c09.png',
     devName:'Lyan Roach',
     devPosition:'UX/UI Designer'
@@ -38,8 +38,8 @@ var mocProjectsData = [
     company: 'JCD.pl',
     deadline: '21 May 2016',
     timeSpent: '40 hours',
-    status:'Development',
-    url: './workflow/photo-1457084882212-4a6bb2240588.png',
+    status:'Completed',
+    url: './workflow/photo-1457459588520-2ae325c92c09.png',
     devName:'Lyan Roach',
     devPosition:'UX/UI Designer'
   },
@@ -49,7 +49,7 @@ var mocProjectsData = [
     company: 'Facebook ',
     deadline: '15 May 2016',
     timeSpent: '40 hours',
-    status:'Development',
+    status:'Quened',
     url: './workflow/photo-1457084882212-4a6bb2240588.png',
     devName:'Michelle Stewart',
     devPosition:'Front End Dev'
@@ -60,8 +60,8 @@ var mocProjectsData = [
     company: 'Themeforest',
     deadline: '15 May 2016',
     timeSpent: '40 hours',
-    status:'Development',
-    url: './workflow/photo-1457084882212-4a6bb2240588.png',
+    status:'Planning',
+    url: './workflow/photo-1441622915984-05d13dfb3d8c.png',
     devName:'Dominic Lynton',
     devPosition:'Front End Dev'
   },
@@ -82,8 +82,8 @@ var mocProjectsData = [
     company: 'Themeforest',
     deadline: '15 June 2015',
     timeSpent: '40 hours',
-    status:'Development',
-    url: './workflow/photo-1457084882212-4a6bb2240588.png',
+    status:'Design',
+    url: './workflow/photo-1441622915984-05d13dfb3d8c.png',
     devName:'Dominic Lynton',
     devPosition:'Front End Dev'
   },
