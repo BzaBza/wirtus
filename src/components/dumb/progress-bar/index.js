@@ -2,40 +2,23 @@ import React, {Component} from 'react';
 import Progress from 'react-progressbar';
 
 class ProgressBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      progressData: this.props.progressData
-    };
-  }
 
-  componentWillMount(){
-    this.setState({
-      progressData: this.props.progressData
-    })
-  }
 
-  componentWillReceiveProps() {
-    this.setState({
-      progressData: this.props.progressData
-    });
-  }
 
   render() {
-    let progressValue = this.state.progressData === 'Quened' ? 0 :
-     this.state.progressData === 'Planning' ? 15 :
-      this.state.progressData === 'Design' ? 40 :
-       this.state.progressData === 'Development' ? 70 :
-        this.state.progressData === 'Testing' ? 90 :
-         this.state.progressData === 'Completed' ? 100 : 100;
-    console.log(this.state.progressData);
+    let progressValue = this.props.progressData === 'Quened' ? 0 :
+     this.props.progressData === 'Planning' ? 15 :
+      this.props.progressData === 'Design' ? 40 :
+       this.props.progressData === 'Development' ? 70 :
+        this.props.progressData === 'Testing' ? 90 :
+         this.props.progressData === 'Completed' ? 100 : 100;
 
-    let progressColor = this.state.progressData === 'Quened' ? '' :
-     this.state.progressData === 'Planning' ? '#2196f3' :
-      this.state.progressData === 'Design' ? '#2196f3' :
-       this.state.progressData === 'Development' ? '#2196f3' :
-        this.state.progressData === 'Testing' ? '#2196f3' :
-         this.state.progressData === 'Completed' ? '#4caf50' : '';
+    let progressColor = this.props.progressData === 'Quened' ? '' :
+     this.props.progressData === 'Planning' ? '#2196f3' :
+      this.props.progressData === 'Design' ? '#2196f3' :
+       this.props.progressData === 'Development' ? '#2196f3' :
+        this.props.progressData === 'Testing' ? '#2196f3' :
+         this.props.progressData === 'Completed' ? '#4caf50' : '';
 
     return (
      <div className="progress-wrapper1 d-flex align-items-center">
