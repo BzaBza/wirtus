@@ -19,6 +19,7 @@ class MixChart extends Component {
   }
 
   render() {
+
     return (
      <Bar
       data={this.state.lineChartConfig}

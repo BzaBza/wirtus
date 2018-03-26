@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import MixChart from "../../dumb/mix-chart/index";
 import mixChartData from '../../../redux/config/mix-trending-chartdata-data';
-
+import MyCircularProgressbar from "../../dumb/circular-progressbar";
 
 class TrendingCharts extends Component {
 
@@ -24,9 +24,9 @@ class TrendingCharts extends Component {
             id: 'x-axis-1',
             display: true,
             position: 'bottom',
-            showBorder:false,
+            showBorder: false,
             gridLines: {
-              showBorder:false,
+              showBorder: false,
               display: true
             },
             ticks: {
@@ -37,9 +37,9 @@ class TrendingCharts extends Component {
           },
           {
             id: 'x-axis-2',
-            display: true,
+            display: false,
             position: 'top',
-            showBorder:false,
+            showBorder: false,
             gridLines: {
               display: false,
             },
@@ -47,12 +47,11 @@ class TrendingCharts extends Component {
               display: false
             },
             ticks: {
-              beginAtZero:true,
+              beginAtZero: true,
               display: false
             },
           }
         ],
-
         yAxes: [
           {
             stacked: true,
@@ -67,7 +66,7 @@ class TrendingCharts extends Component {
               display: false
             },
             ticks: {
-              beginAtZero:true,
+              beginAtZero: true,
               display: false
             },
             labels: {
@@ -95,7 +94,7 @@ class TrendingCharts extends Component {
         pointHoverRadius: 5,
         pointHoverBackgroundColor: '#ffffff',
         pointHoverBorderColor: '#256faf',
-        pointHoverBorderWidth: 3,
+        pointHoverBorderWidth: 4,
         pointRadius: 1,
         pointHitRadius: 1,
       }, {
@@ -105,6 +104,35 @@ class TrendingCharts extends Component {
     };
     return (
      <section className="col-12">
+       <div className="col-md-5 d-flex justify-content-between">
+         <div className="d-flex align-items-center">
+           <MyCircularProgressbar/>
+           <div className="gray statistics-pie-cart-info">
+             <div>
+               <h4>1,250$</h4>
+               <p>Channel Sales</p>
+             </div>
+           </div>
+         </div>
+         <div className="d-flex  align-items-center">
+           <MyCircularProgressbar/>
+           <div className="gray statistics-pie-cart-info">
+             <div>
+               <h4>1,250$</h4>
+               <p>Channel Sales</p>
+             </div>
+           </div>
+         </div>
+         <div className="d-flex align-items-center">
+           <MyCircularProgressbar/>
+           <div className="gray statistics-pie-cart-info">
+             <div>
+               <h4>1,250$</h4>
+               <p>Channel Sales</p>
+             </div>
+           </div>
+         </div>
+       </div>
        <MixChart lineChartConfig={lineChartConfig} options={options}/>
      </section>
     );
