@@ -9,15 +9,20 @@ class LineChart extends Component {
     };
   }
   componentWillMount(){
+
     this.setState({
-      lineChartConfig: this.props.lineChartConfig
+      lineChartConfig: {
+        labels: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN', ''],
+        datasets: [
+          this.props.lineChartConfig
+        ]
+      }
+
     })
   }
 
   render() {
     return (
-     <div className="chart col-12">
-       <div>
          <Line
           data={this.state.lineChartConfig}
           height={600}
@@ -25,6 +30,11 @@ class LineChart extends Component {
           options={{
             legend: false,
             scales: {
+              xAxes: [{
+                gridLines: {
+                  color: "#3e4050"
+                },
+              }],
               yAxes: [{
                 gridLines: {
                   display: false,
@@ -39,8 +49,6 @@ class LineChart extends Component {
             }
           }}
          />
-       </div>
-     </div>
     );
   }
 }
