@@ -26,6 +26,7 @@ class TrendingCharts extends Component {
             position: 'bottom',
             showBorder: false,
             gridLines: {
+              color: '#3d404f',
               showBorder: false,
               display: true
             },
@@ -103,37 +104,26 @@ class TrendingCharts extends Component {
       }],
     };
     return (
-     <section className="col-12">
-       <div className="col-md-5 d-flex justify-content-between">
-         <div className="d-flex align-items-center">
-           <MyCircularProgressbar/>
-           <div className="gray statistics-pie-cart-info">
-             <div>
-               <h4>1,250$</h4>
-               <p>Channel Sales</p>
-             </div>
+     <section className="trending-charts">
+       <div className="col-md-12 d-flex justify-content-between align-items-center">
+         <div className="col-md-4 d-flex justify-content-between">
+           <div className="d-flex align-items-center">
+             <MyCircularProgressbar/>
+           </div>
+           <div className="d-flex  align-items-center">
+             <MyCircularProgressbar/>
+           </div>
+           <div className="d-flex align-items-center">
+             <MyCircularProgressbar/>
            </div>
          </div>
-         <div className="d-flex  align-items-center">
-           <MyCircularProgressbar/>
-           <div className="gray statistics-pie-cart-info">
-             <div>
-               <h4>1,250$</h4>
-               <p>Channel Sales</p>
-             </div>
-           </div>
-         </div>
-         <div className="d-flex align-items-center">
-           <MyCircularProgressbar/>
-           <div className="gray statistics-pie-cart-info">
-             <div>
-               <h4>1,250$</h4>
-               <p>Channel Sales</p>
-             </div>
-           </div>
+         <div>
+           <button>
+             TEST
+           </button>
          </div>
        </div>
-       <MixChart lineChartConfig={lineChartConfig} options={options}/>
+        <MixChart lineChartConfig={lineChartConfig} options={options}/>
      </section>
     );
   }

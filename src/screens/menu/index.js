@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
 import {connect} from 'react-redux';
 
-import AllProjects from "../../components/container/all-projects/index";
-import Workflow from "../../components/container/workflow/index";
+import AllProjects from "../../components/container/all-projects";
+import Workflow from "../../components/container/workflow";
 import {getWorkflowData} from '../../redux/actions/workflowAct';
 import {getProjectsData} from '../../redux/actions/projectsAct'
 
@@ -28,12 +28,13 @@ class Menu extends Component {
 
 
   render() {
+    console.log(this.props.projectsData);
     let counter = [];
     for (let project in this.props.workflowData) {
         counter.push(this.props.workflowData[project].length)
       }
     return (
-     <section className="d-flex justify-content-center menu-section flex-wrap">
+     <section className="d-flex justify-content-center menu-section flex-wrap containers">
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
          <Nav tabs className="pointer side-header-nav align-items-center">
            <NavItem className={ (this.state.currentTab === 'AllProjects') ?
@@ -65,7 +66,7 @@ class Menu extends Component {
            TEST >
          </button>
        </header>
-       <TabContent activeTab={this.state.currentTab} className="containers col-12">
+       <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
          <TabPane tabId="AllProjects">
            <AllProjects projects={this.props.projectsData} onGetProjectsData={this.props.onGetProjectsData()}/>
          </TabPane>

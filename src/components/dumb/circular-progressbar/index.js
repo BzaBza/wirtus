@@ -11,9 +11,11 @@ class MyCircularProgressbar extends Component {
   }
 
   getChartData() {
-    this.setState({
-      chartData: this.props.chartData,
-    });
+    this.setState((initialState, props) => (
+     {
+       chartData: props.chartData
+     }
+    ));
   }
 
   componentWillMount() {
@@ -22,12 +24,22 @@ class MyCircularProgressbar extends Component {
 
   render () {
     return (
-     <CircularProgressbar
-      percentage={75}
-      styles={{
-        path: { stroke: `rgba(33, 149, 242, ${75 / 100})` },
-      }}
-     />
+     <div className="d-flex align-items-center justify-content-between flex-wrap">
+      <div className="col-6">
+        <CircularProgressbar
+         percentage={75}
+         styles={{
+           path: { stroke: `rgba(33, 149, 242, ${75 / 100})` },
+         }}
+        />
+      </div>
+       <div className="gray statistics-pie-cart-info col-6">
+         <div>
+           <h4>1,250$</h4>
+           <p>Channel Sales</p>
+         </div>
+       </div>
+     </div>
     );
   }
 }

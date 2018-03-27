@@ -7,15 +7,17 @@ class Workflow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: this.props.projects
+      projects: props.projects
     };
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
   componentWillReceiveProps() {
-    this.setState({
-      projects: this.props.projects
-    });
+    this.setState((initialState, props) => (
+     {
+       projects: props.projects
+     }
+    ));
   }
 
   onDragEnd(result) {
@@ -37,7 +39,6 @@ class Workflow extends Component {
 
   render() {
     let taskContainer = [];
-
     for (let project in this.state.projects) {
       taskContainer.push(
        <Droppable key={project} direction="vertical" droppableId={project}>

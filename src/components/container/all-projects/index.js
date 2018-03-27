@@ -6,14 +6,14 @@ class AllProjects extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projectsData: this.props.projects,
+      projectsData: props.projects,
     };
   }
 
   componentWillReceiveProps() {
     this.setState((defaultState, props) => (
      {
-       projectsData: this.props.projects
+       projectsData: props.projects
      }
     ));
   }
