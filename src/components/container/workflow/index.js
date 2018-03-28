@@ -13,6 +13,7 @@ class Workflow extends Component {
   }
 
   componentWillReceiveProps() {
+
     this.setState((initialState, props) => (
      {
        projects: props.projects

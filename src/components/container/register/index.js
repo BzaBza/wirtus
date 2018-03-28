@@ -126,7 +126,7 @@ class Register extends Component {
                />
              </div>
              <button type="submit"
-                     className="button btn btn-primary authentication-button bg-transparent text-dark">
+                     className="btn btn-primary authentication-button bg-transparent text-dark">
                Enter
                <FaAngleRight className="authentication-button-icon"/>
              </button>

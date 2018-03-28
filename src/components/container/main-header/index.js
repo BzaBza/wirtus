@@ -26,7 +26,7 @@ class MainHeader extends React.Component {
         className='main-header d-flex align-content-center justify-content-between col-md-12'>
          <Logo/>
          <div className="d-flex header-side-menu align-items-center justify-content-between">
-           <button type="submit" className="button btn btn-primary bg-transparent">
+           <button type="button" className="button btn btn-primary bg-transparent">
              Add<span className="text-primary">+</span>
            </button>
            <div className="d-flex">

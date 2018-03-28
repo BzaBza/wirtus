@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux';
-import workflow from './workflow';
+import menu from './menu';
 import allProjects from './allProjects';
 import allTrending from './allTrending';
 
 export default combineReducers({
   allTrending,
-  workflow,
+  menu,
   allProjects,
 
 });

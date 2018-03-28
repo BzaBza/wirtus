@@ -7,8 +7,8 @@ const initialState = {
   Completed: [],
 };
 
-export default function workflowData(state = initialState, action) {
-  if (action.type === 'FETCH_WORKFLOW_DATA_SUCCESS') {
+export default function menuData(state = initialState, action) {
+  if (action.type === 'FETCH_MENU_DATA_SUCCESS') {
     return action.payload;
   }
   return state;

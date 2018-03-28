@@ -94,7 +94,7 @@ class Login extends Component {
              />
            </div>
            <button type="submit"
-                   className="button btn btn-primary bg-transparent authentication-button  text-dark">
+                   className="btn btn-primary bg-transparent authentication-button  text-dark">
              Enter <FaAngleRight className="authentication-button-icon"/>
            </button>
          </form>

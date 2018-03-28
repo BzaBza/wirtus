@@ -4,8 +4,9 @@ import {connect} from 'react-redux';
 
 import AllProjects from "../../components/container/all-projects";
 import Workflow from "../../components/container/workflow";
-import {getWorkflowData} from '../../redux/actions/workflowAct';
+import {getMenuData} from '../../redux/actions/menuAct';
 import {getProjectsData} from '../../redux/actions/projectsAct'
+import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 
 class Menu extends Component {
   constructor(props) {
@@ -28,10 +29,9 @@ class Menu extends Component {
 
 
   render() {
-    console.log(this.props.projectsData);
     let counter = [];
-    for (let project in this.props.workflowData) {
-        counter.push(this.props.workflowData[project].length)
+    for (let project in this.props.menuData) {
+        counter.push(this.props.menuData[project].length)
       }
     return (
      <section className="d-flex justify-content-center menu-section flex-wrap containers">
@@ -62,16 +62,14 @@ class Menu extends Component {
              </NavLink>
            </NavItem>
          </Nav>
-         <button>
-           TEST >
-         </button>
+         <DropdownSideBtn/>
        </header>
        <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
          <TabPane tabId="AllProjects">
-           <AllProjects projects={this.props.projectsData} onGetProjectsData={this.props.onGetProjectsData()}/>
+           <AllProjects projects={this.props.menuData} onGetProjectsData={this.props.onGetMenuData()}/>
          </TabPane>
          <TabPane tabId="Workflow">
-           <Workflow projects={this.props.workflowData} onGetWorkflowData={this.props.onGetWorkflowData()}/>
+           <Workflow projects={this.props.menuData} onGetWorkflowData={this.props.onGetMenuData()}/>
          </TabPane>
        </TabContent>
      </section>
@@ -81,14 +79,10 @@ class Menu extends Component {
 
 export default connect(
  state => ({
-   projectsData: state.allProjects,
-   workflowData: state.workflow
+   menuData: state.menu
  }),
  dispatch => ({
-   onGetWorkflowData: () => {
-     dispatch(getWorkflowData());
-   },
-   onGetProjectsData: () => {
-     dispatch(getProjectsData());
+   onGetMenuData: () => {
+     dispatch(getMenuData());
    }
  }))(Menu);
