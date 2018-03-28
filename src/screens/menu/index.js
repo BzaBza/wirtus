@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import AllProjects from "../../components/container/all-projects";
 import Workflow from "../../components/container/workflow";
 import {getMenuData} from '../../redux/actions/menuAct';
-import {getProjectsData} from '../../redux/actions/projectsAct'
 import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 
 class Menu extends Component {
