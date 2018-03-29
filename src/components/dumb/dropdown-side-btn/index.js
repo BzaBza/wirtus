@@ -6,8 +6,11 @@ class DropdownSideBtn extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+    this.currentCompany = this.currentCompany.bind(this);
     this.state = {
-      dropdownOpen: false
+      dropdownOpen: false,
+      company:['Microsoft', 'Google','Symu.co','JCD.pl','Facebook','Themeforest'],
+      currentCompany:'All'
     };
   }
 
@@ -17,17 +20,25 @@ class DropdownSideBtn extends Component {
     });
   }
 
+  currentCompany(event){
+    this.setState({
+      currentCompany: event.target.innerText
+    });
+    if(event.target.innerText === 'All')  event.target.innerText = '';
+    this.props.filterData(event.target.innerText);
+  }
 
   render () {
     return (
      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
        <DropdownToggle caret className="button btn btn-primary bg-transparent">
-         Dropdown
+         {this.state.currentCompany}
        </DropdownToggle>
        <DropdownMenu>
-
-          <DropdownItem key>Another Action</DropdownItem>
-
+         <DropdownItem onClick={this.currentCompany}>All</DropdownItem>
+         {this.state.company.map((item, index) => (
+          <DropdownItem key={index} onClick={this.currentCompany}>{item}</DropdownItem>
+         ))}
        </DropdownMenu>
      </Dropdown>
     );

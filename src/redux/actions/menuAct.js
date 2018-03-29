@@ -242,7 +242,7 @@ var mocMenuData = {
 export const getMenuData = () => dispatch => {
   setTimeout(() => {
     dispatch(
-     {type: 'FETCH_MENU_DATA_SUCCESS', payload: mocMenuData}
+     {type: 'FETCH_MENU_DATA_SUCCESS', payload: mocMenuData},
     );
   }, 500)
 };

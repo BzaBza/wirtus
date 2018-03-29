@@ -14,7 +14,7 @@ class Menu extends Component {
     this.state = {
       currentTab: 'AllProjects',
     };
-
+    this.filterData = this.filterData.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
   }
 
@@ -26,49 +26,56 @@ class Menu extends Component {
     }
   }
 
+  filterData(currentCompany) {
+    this.props.onFilterMenuData(currentCompany)
+  }
+
 
   render() {
+    for (let project in  this.props.menuData) {
+      console.log(this.props.menuData[project].filter(item => item.company.includes(this.props.filter)))
+    }
     let counter = [];
     for (let project in this.props.menuData) {
-        counter.push(this.props.menuData[project].length)
-      }
+      counter.push(this.props.menuData[project].filter(item => item.company.includes(this.props.filter)).length);
+    }
     return (
      <section className="d-flex justify-content-center menu-section flex-wrap containers">
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
          <Nav tabs className="pointer side-header-nav align-items-center">
-           <NavItem className={ (this.state.currentTab === 'AllProjects') ?
-            'active-side-header-link' : '' }>
+           <NavItem className={(this.state.currentTab === 'AllProjects') ?
+            'active-side-header-link' : ''}>
              <NavLink
-              className={ (this.state.currentTab === 'AllProjects') ?
-               'active-side-header-link' : '' } onClick={ () => {
+              className={(this.state.currentTab === 'AllProjects') ?
+               'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('AllProjects');
              }}>
                All Projects({
-                 counter.length > 0 ? counter.reduce(function (acc, item) {
-                   return acc + item;
-                 }, 0) : 0
-               })
+               counter.length > 0 ? counter.reduce(function (acc, item) {
+                 return acc + item;
+               }, 0) : 0
+             })
              </NavLink>
            </NavItem>
-           <NavItem className={ (this.state.currentTab === 'Workflow') ?
-            'active-side-header-link' : '' }>
+           <NavItem className={(this.state.currentTab === 'Workflow') ?
+            'active-side-header-link' : ''}>
              <NavLink
-              className={ (this.state.currentTab === 'Workflow') ?
-               'active-side-header-link' : '' } onClick={ () => {
+              className={(this.state.currentTab === 'Workflow') ?
+               'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('Workflow');
              }}>
                Workflow
              </NavLink>
            </NavItem>
          </Nav>
-         <DropdownSideBtn/>
+         <DropdownSideBtn filterData={this.filterData}/>
        </header>
        <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
          <TabPane tabId="AllProjects">
-           <AllProjects projects={this.props.menuData} onGetProjectsData={this.props.onGetMenuData()}/>
+           <AllProjects projects={this.props.menuData} filter={this.props.filter} onGetProjectsData={this.props.onGetMenuData()}/>
          </TabPane>
          <TabPane tabId="Workflow">
-           <Workflow projects={this.props.menuData} onGetWorkflowData={this.props.onGetMenuData()}/>
+           <Workflow projects={this.props.menuData} filter={this.props.filter} onGetWorkflowData={this.props.onGetMenuData()}/>
          </TabPane>
        </TabContent>
      </section>
@@ -78,10 +85,14 @@ class Menu extends Component {
 
 export default connect(
  state => ({
-   menuData: state.menu
+   menuData: state.menu,
+   filter: state.menuFilter
  }),
  dispatch => ({
    onGetMenuData: () => {
      dispatch(getMenuData());
+   },
+   onFilterMenuData: (currentCompany) => {
+     dispatch({type: 'FILTER_MENU_DATA', payload: currentCompany});
    }
  }))(Menu);

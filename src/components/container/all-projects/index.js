@@ -22,7 +22,7 @@ class AllProjects extends Component {
     const projectContainer = [];
     for (let project in this.state.projectsData) {
       projectContainer.push(
-       this.state.projectsData[project].map((value, index) => <li key={index} className="d-flex justify-content-between align-items-center  flex-wrap project-row">
+       this.state.projectsData[project].filter(item => item.company.includes(this.props.filter)).map((value, index) => <li key={index} className="d-flex justify-content-between align-items-center  flex-wrap project-row">
       <div className="d-flex col-md-2 project-table projects-name-block "
            style={{borderColor:
               project === 'Quened' ? '#e1e2e7' :

@@ -51,9 +51,9 @@ class Workflow extends Component {
                   {project}
                 </h5>
                 <div>
-                  <span className="number gray"> {this.state.projects[project].length + ' project ·'} </span>
+                  <span className="number gray"> {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length + ' project ·'} </span>
                   <span className="text-primary">{'$'}
-                    {this.state.projects[project].length > 0 ? this.state.projects[project].reduce(function (acc, obj) {
+                    {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length > 0 ? this.state.projects[project].reduce(function (acc, obj) {
                       return acc + obj.price;
                     }, 0) : 0
                     }
@@ -68,7 +68,7 @@ class Workflow extends Component {
              className="workflow-list"
              ref={provided.innerRef}
             >
-              {this.state.projects[project].map((item, index) => (
+              {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).map((item, index) => (
                <Draggable key={item.id} draggableId={item.id} index={index}>
                  {provided => (
                   <li>
