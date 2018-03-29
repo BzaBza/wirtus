@@ -32,9 +32,6 @@ class Menu extends Component {
 
 
   render() {
-    for (let project in  this.props.menuData) {
-      console.log(this.props.menuData[project].filter(item => item.company.includes(this.props.filter)))
-    }
     let counter = [];
     for (let project in this.props.menuData) {
       counter.push(this.props.menuData[project].filter(item => item.company.includes(this.props.filter)).length);
@@ -50,7 +47,7 @@ class Menu extends Component {
                'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('AllProjects');
              }}>
-               All Projects({
+               All Projects ({
                counter.length > 0 ? counter.reduce(function (acc, item) {
                  return acc + item;
                }, 0) : 0
@@ -68,7 +65,10 @@ class Menu extends Component {
              </NavLink>
            </NavItem>
          </Nav>
-         <DropdownSideBtn filterData={this.filterData}/>
+         <div className="d-flex align-items-center justify-content-between">
+           <div className="text-white container">Show projects:</div>
+           <DropdownSideBtn filterData={this.filterData}/>
+         </div>
        </header>
        <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
          <TabPane tabId="AllProjects">

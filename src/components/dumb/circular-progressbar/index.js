@@ -29,6 +29,7 @@ class MyCircularProgressbar extends Component {
         <CircularProgressbar
          percentage={75}
          styles={{
+           fontSize: "22em" ,
            path: { stroke: `rgba(33, 149, 242, ${75 / 100})` },
          }}
         />

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {getTrendingData} from '../../redux/actions/trendingAct'
 import TrendingCharts from "../../components/container/trending-charts";
 import TrendingTable from "../../components/container/trending-table";
+import {getTrendingData} from '../../redux/actions/trendingAct';
 
 
 class Trending extends Component {

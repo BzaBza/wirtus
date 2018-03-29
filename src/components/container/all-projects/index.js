@@ -11,7 +11,7 @@ class AllProjects extends Component {
   }
 
   componentWillReceiveProps() {
-    this.setState((defaultState, props) => (
+    this.setState((initialState, props) => (
      {
        projectsData: props.projects
      }
@@ -40,7 +40,7 @@ class AllProjects extends Component {
       <div className="col-md-1 project-table">
         <div
          className='align-items-center d-flex'>
-          {value.price}
+          ${value.price}
         </div>
       </div>
       <div className="col-md-2 project-table">
