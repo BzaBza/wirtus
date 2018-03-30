@@ -13,11 +13,11 @@ class TrendingCharts extends Component {
     this.filterPeriodData = this.filterPeriodData.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
@@ -151,10 +151,11 @@ class TrendingCharts extends Component {
                <MyCircularProgressbar/>
              </div>
            </div>
-           <div>
-             <DropdownSideBtn filterData={this.filterPeriodData} currentData='Week' data={['Week', 'Month']}/>
+           <div className="d-flex align-items-center justify-content-between">
+             <div className="container gray">Show: </div>
+             <DropdownSideBtn text={'gray'} filterData={this.filterPeriodData} currentData='Week' data={['Week', 'Month']}/>
            </div>
-           </div>
+         </div>
        </div>
        <div className="trending-charts-footer">
          <MixChart lineChartConfig={lineChartConfig} options={options}/>
@@ -163,6 +164,7 @@ class TrendingCharts extends Component {
     );
   }
 }
+
 export default connect(
  state => ({
    filter: state.periodFilter
