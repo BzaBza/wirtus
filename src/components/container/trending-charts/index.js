@@ -110,7 +110,7 @@ class TrendingCharts extends Component {
      <section className="trending-charts">
        <div className="trending-charts-header">
          <div className="circular-progress-bars-container d-flex justify-content-between align-items-center">
-           <div className="col-md-4 d-flex">
+           <div className="d-flex  my-circular-container">
              <div className="d-flex align-items-center">
                <MyCircularProgressbar/>
              </div>

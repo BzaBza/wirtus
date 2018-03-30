@@ -24,8 +24,8 @@ class MyCircularProgressbar extends Component {
 
   render() {
     return (
-     <div className="d-flex align-items-center text-center flex-wrap">
-       <div className="col-lg-6">
+     <div className="d-flex align-items-center text-center flex-wrap justify-content-center">
+       <div className="circular-container">
          <CircularProgressbar
           percentage={75}
           styles={{
@@ -33,7 +33,7 @@ class MyCircularProgressbar extends Component {
           }}
          />
        </div>
-       <div className="col-lg-6 text-white progress-info justify-content-center d-flex flex-wrap">
+       <div className="text-white progress-info justify-content-center d-flex flex-wrap">
          <h5 className="progress-info-count" >1 250</h5>
          <p className="progress-info-foo">VIEWS</p>
        </div>
