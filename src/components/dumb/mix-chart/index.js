@@ -23,7 +23,7 @@ class MixChart extends Component {
     return (
      <Bar
       data={this.state.lineChartConfig}
-      height={500}
+      height={700}
       width={2000}
       options={this.state.option}
      />

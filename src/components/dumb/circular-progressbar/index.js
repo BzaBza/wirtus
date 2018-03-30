@@ -22,28 +22,26 @@ class MyCircularProgressbar extends Component {
     this.getChartData();
   }
 
-  render () {
+  render() {
     return (
-     <div className="d-flex align-items-center justify-content-between flex-wrap">
-      <div className="col-6">
-        <CircularProgressbar
-         percentage={75}
-         styles={{
-           fontSize: "22em" ,
-           path: { stroke: `rgba(33, 149, 242, ${75 / 100})` },
-         }}
-        />
-      </div>
-       <div className="gray statistics-pie-cart-info col-6">
-         <div>
-           <h4>1,250$</h4>
-           <p>Channel Sales</p>
-         </div>
+     <div className="d-flex align-items-center text-center flex-wrap">
+       <div className="col-lg-6">
+         <CircularProgressbar
+          percentage={75}
+          styles={{
+            path: {stroke: `rgba(33, 149, 242, ${75 / 100})`},
+          }}
+         />
+       </div>
+       <div className="col-lg-6 text-white progress-info justify-content-center d-flex flex-wrap">
+         <h5 className="progress-info-count" >1 250</h5>
+         <p className="progress-info-foo">VIEWS</p>
        </div>
      </div>
     );
   }
 }
+
 export default MyCircularProgressbar;
 
 

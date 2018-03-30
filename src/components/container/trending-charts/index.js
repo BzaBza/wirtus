@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import MixChart from "../../dumb/mix-chart/index";
 import mixChartData from '../../../redux/config/mix-trending-chartdata-data';
 import MyCircularProgressbar from "../../dumb/circular-progressbar";
+import "./headerScroll"
 
 class TrendingCharts extends Component {
 
   render() {
 
     const options = {
+      maintainAspectRatio: false,
       legend: false,
       responsive: true,
       tooltips: {
@@ -68,7 +70,8 @@ class TrendingCharts extends Component {
             },
             ticks: {
               beginAtZero: true,
-              display: false
+              display: false,
+              max: 120
             },
             labels: {
               show: false
@@ -105,25 +108,29 @@ class TrendingCharts extends Component {
     };
     return (
      <section className="trending-charts">
-       <div className="col-md-12 d-flex justify-content-between align-items-center">
-         <div className="col-md-4 d-flex justify-content-between">
-           <div className="d-flex align-items-center">
-             <MyCircularProgressbar/>
+       <div className="trending-charts-header">
+         <div className="circular-progress-bars-container d-flex justify-content-between align-items-center">
+           <div className="col-md-4 d-flex">
+             <div className="d-flex align-items-center">
+               <MyCircularProgressbar/>
+             </div>
+             <div className="d-flex  align-items-center">
+               <MyCircularProgressbar/>
+             </div>
+             <div className="d-flex align-items-center">
+               <MyCircularProgressbar/>
+             </div>
            </div>
-           <div className="d-flex  align-items-center">
-             <MyCircularProgressbar/>
+           <div>
+             <button>
+               TEST
+             </button>
            </div>
-           <div className="d-flex align-items-center">
-             <MyCircularProgressbar/>
            </div>
-         </div>
-         <div>
-           <button>
-             TEST
-           </button>
-         </div>
        </div>
-        <MixChart lineChartConfig={lineChartConfig} options={options}/>
+       <div className="trending-charts-footer">
+         <MixChart lineChartConfig={lineChartConfig} options={options}/>
+       </div>
      </section>
     );
   }
