@@ -9,7 +9,7 @@ import {getTrendingData} from '../../redux/actions/trendingAct';
 class Trending extends Component {
   render() {
     return (
-     <section className="containers">
+     <section className="containers trending-section">
        <TrendingCharts/>
        <TrendingTable trendingData={this.props.trendingData} onGetTrendingData={this.props.onGetTrendingData()} />
      </section>

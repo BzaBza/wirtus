@@ -2,10 +2,26 @@ import React, {Component} from 'react';
 import MixChart from "../../dumb/mix-chart/index";
 import mixChartData from '../../../redux/config/mix-trending-chartdata-data';
 import MyCircularProgressbar from "../../dumb/circular-progressbar";
-import "./headerScroll"
 
 class TrendingCharts extends Component {
 
+  componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    let scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    let header = document.querySelector('.trending-charts-header').style;
+    if (scrolled >= 400) {
+      header.position = 'inherit';
+    } else {
+      header.position = 'fixed';
+    }
+  };
   render() {
 
     const options = {
