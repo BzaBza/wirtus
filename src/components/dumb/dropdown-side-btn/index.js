@@ -6,23 +6,30 @@ class DropdownSideBtn extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
-    this.currentCompany = this.currentCompany.bind(this);
+    this.currentData = this.currentData.bind(this);
     this.state = {
       dropdownOpen: false,
-      company:['Microsoft', 'Google','Symu.co','JCD.pl','Facebook','Themeforest'],
-      currentCompany:'All'
+      data: this.props.data,
+      currentData: this.props.currentData
     };
+  }
+
+  componentWillMount(){
+    this.setState({
+      currentData: this.props.currentData,
+      data: this.props.data
+    })
   }
 
   toggle() {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
+      dropdownOpen: !this.state.dropdownOpen,
     });
   }
 
-  currentCompany(event){
+  currentData(event){
     this.setState({
-      currentCompany: event.target.innerText
+      currentData: event.target.innerText
     });
     if(event.target.innerText === 'All')  event.target.innerText = '';
     this.props.filterData(event.target.innerText);
@@ -32,12 +39,11 @@ class DropdownSideBtn extends Component {
     return (
      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="side-drop-btn">
        <DropdownToggle caret className="button btn btn-primary bg-transparent justify-content-between d-flex  align-items-center side-drop-btn">
-         {this.state.currentCompany}
+         {this.state.currentData}
        </DropdownToggle>
        <DropdownMenu>
-         <DropdownItem onClick={this.currentCompany}>All</DropdownItem>
-         {this.state.company.map((item, index) => (
-          <DropdownItem key={index} onClick={this.currentCompany}>{item}</DropdownItem>
+         {this.state.data.map((item, index) => (
+          <DropdownItem key={index} onClick={this.currentData}>{item}</DropdownItem>
          ))}
        </DropdownMenu>
      </Dropdown>

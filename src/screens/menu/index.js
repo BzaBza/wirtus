@@ -67,7 +67,7 @@ class Menu extends Component {
          </Nav>
          <div className="d-flex align-items-center justify-content-between">
            <div className="text-white container">Show projects:</div>
-           <DropdownSideBtn filterData={this.filterData}/>
+           <DropdownSideBtn filterData={this.filterData} currentData='All' data={['All', 'Microsoft', 'Google','Symu.co','JCD.pl','Facebook','Themeforest']}/>
          </div>
        </header>
        <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">

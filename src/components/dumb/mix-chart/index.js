@@ -6,24 +6,28 @@ class MixChart extends Component {
     super(props);
     this.state = {
       lineChartConfig: {},
-      option: {}
+      option: {},
     };
   }
 
   componentWillMount() {
-
     this.setState({
       lineChartConfig: this.props.lineChartConfig,
-      option: this.props.options
-    })
+      option: this.props.options,
+    });
   }
 
   render() {
-
+    let chartCustomHeight;
+    if (window.screen.width <= 1500){
+      chartCustomHeight = 400
+    }else{
+      chartCustomHeight = 700
+    }
     return (
      <Bar
       data={this.state.lineChartConfig}
-      height={700}
+      height={chartCustomHeight}
       width={2000}
       options={this.state.option}
      />

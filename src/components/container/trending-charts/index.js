@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
+
+import DropdownSideBtn from "../../dumb/dropdown-side-btn";
 import MixChart from "../../dumb/mix-chart/index";
 import mixChartData from '../../../redux/config/mix-trending-chartdata-data';
 import MyCircularProgressbar from "../../dumb/circular-progressbar";
 
+
 class TrendingCharts extends Component {
+  constructor(props) {
+    super(props);
+    this.filterPeriodData = this.filterPeriodData.bind(this);
+  }
 
   componentDidMount(){
     window.addEventListener('scroll', this.handleScroll);
@@ -12,6 +20,7 @@ class TrendingCharts extends Component {
   componentWillUnmount(){
     window.removeEventListener('scroll', this.handleScroll);
   }
+
 
   handleScroll() {
     let scrolled = window.pageYOffset || document.documentElement.scrollTop;
@@ -22,8 +31,13 @@ class TrendingCharts extends Component {
       header.position = 'fixed';
     }
   };
-  render() {
 
+  filterPeriodData(currentPeriod) {
+    this.props.onFilterPeriod(currentPeriod)
+  }
+
+  render() {
+    console.log(this.props.filter);
     const options = {
       maintainAspectRatio: false,
       legend: false,
@@ -138,9 +152,7 @@ class TrendingCharts extends Component {
              </div>
            </div>
            <div>
-             <button>
-               TEST
-             </button>
+             <DropdownSideBtn filterData={this.filterPeriodData} currentData='Week' data={['Week', 'Month']}/>
            </div>
            </div>
        </div>
@@ -151,5 +163,12 @@ class TrendingCharts extends Component {
     );
   }
 }
-
-export default TrendingCharts;
+export default connect(
+ state => ({
+   filter: state.periodFilter
+ }),
+ dispatch => ({
+   onFilterPeriod: (currentPeriod) => {
+     dispatch({type: 'FILTER_PERIOD_DATA', payload: currentPeriod});
+   }
+ }))(TrendingCharts);
