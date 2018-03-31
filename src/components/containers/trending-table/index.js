@@ -19,9 +19,9 @@ class TrendingTable extends Component {
 
   render() {
     return (
-     <div className="col-12">
-       <ul className="tasks-list">
-         <li className="d-flex gray projects-title justify-content-between project-row ">
+     <div className="trending-list-wrap">
+       <ul className="trending-list">
+         <li className="d-flex gray justify-content-between trending-row align-items-center">
            <div className="col-md-3">Campaing</div>
            <div className="col-md-1">Time</div>
            <div className="col-md-1">Views</div>
@@ -33,7 +33,7 @@ class TrendingTable extends Component {
            <div className="col-md-2">Status</div>
          </li>
          {this.state.trendingData.map((value, index) => <li key={index}
-                                                            className="d-flex justify-content-between align-items-center  flex-wrap text-white">
+                                                            className="d-flex justify-content-between align-items-center  flex-wrap text-white trending-table-row">
            <div className="d-flex col-md-3">
              <div>{value.Campaing}</div>
            </div>
@@ -41,25 +41,25 @@ class TrendingTable extends Component {
              <div>{value.Time}</div>
            </div>
            <div className="col-md-1">
-             {value.Views}
+             <div>{value.Views}</div>
            </div>
            <div className="col-md-1">
-             {value.Visitors}
+            <div>{value.Visitors}</div>
            </div>
            <div className="col-md-1">
-             {value.CTR}
+             <div>{value.CTR}</div>
            </div>
            <div className="col-md-1">
-             {value.CPC}
+             <div>{value.CPC}</div>
            </div>
            <div className="col-md-1">
-             {value.CPV}
+             <div>{value.CPV}</div>
            </div>
            <div className="col-md-1">
-             {value.CPM}
+             <div>{value.CPM}</div>
            </div>
            <div className="col-md-2">
-             {value.Status}
+             <div>{value.Status}</div>
            </div>
          </li>)}
        </ul>

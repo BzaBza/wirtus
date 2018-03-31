@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
 
-import Register from '../../components/container/register/index';
-import Login from '../../components/container/login/index';
+import Register from '../../components/containers/register/index';
+import Login from '../../components/containers/login/index';
 import Logo from '../../components/dumb/logo/index';
 
 class Sign extends Component {

@@ -22,7 +22,7 @@ class ProgressBar extends Component {
 
     return (
      <div className="progress-wrapper1 d-flex align-items-center">
-       <div className="col-3">
+       <div className="col-3 text-left progress-side-text">
          {progressValue + '%'}
        </div>
        <Progress completed={progressValue} color={progressColor}/>

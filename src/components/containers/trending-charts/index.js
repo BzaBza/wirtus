@@ -5,6 +5,7 @@ import DropdownSideBtn from "../../dumb/dropdown-side-btn";
 import MixChart from "../../dumb/mix-chart/index";
 import mixChartData from '../../../redux/config/mix-trending-chartdata-data';
 import MyCircularProgressbar from "../../dumb/circular-progressbar";
+import options from '../../../redux/config/mix-trending-charts-options';
 
 
 class TrendingCharts extends Component {
@@ -25,7 +26,7 @@ class TrendingCharts extends Component {
   handleScroll() {
     let scrolled = window.pageYOffset || document.documentElement.scrollTop;
     let header = document.querySelector('.trending-charts-header').style;
-    if (scrolled >= 400) {
+    if (scrolled >= 220 ) {
       header.position = 'inherit';
     } else {
       header.position = 'fixed';
@@ -37,80 +38,6 @@ class TrendingCharts extends Component {
   }
 
   render() {
-    console.log(this.props.filter);
-    const options = {
-      maintainAspectRatio: false,
-      legend: false,
-      responsive: true,
-      tooltips: {
-        mode: 'label'
-      },
-      elements: {
-        line: {
-          fill: true,
-        }
-      },
-      scales: {
-        xAxes: [
-          {
-            id: 'x-axis-1',
-            display: true,
-            position: 'bottom',
-            showBorder: false,
-            gridLines: {
-              color: '#3d404f',
-              showBorder: false,
-              display: true
-            },
-            ticks: {
-              beginAtZero: false,
-              min: 0,
-              padding: -40,
-            },
-          },
-          {
-            id: 'x-axis-2',
-            display: false,
-            position: 'top',
-            showBorder: false,
-            gridLines: {
-              display: false,
-            },
-            scaleLabel: {
-              display: false
-            },
-            ticks: {
-              beginAtZero: true,
-              display: false
-            },
-          }
-        ],
-        yAxes: [
-          {
-            stacked: true,
-            type: 'linear',
-            display: true,
-            position: 'left',
-            id: 'y-axis-1',
-            gridLines: {
-              display: false,
-            },
-            scaleLabel: {
-              display: false
-            },
-            ticks: {
-              beginAtZero: true,
-              display: false,
-              max: 120
-            },
-            labels: {
-              show: false
-            }
-          },
-        ]
-      },
-    };
-
 
     let lineChartConfig = {
       labels: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'],

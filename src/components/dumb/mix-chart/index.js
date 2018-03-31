@@ -22,7 +22,7 @@ class MixChart extends Component {
     if (window.screen.width <= 1500){
       chartCustomHeight = 400
     }else{
-      chartCustomHeight = 700
+      chartCustomHeight = 600
     }
     return (
      <Bar

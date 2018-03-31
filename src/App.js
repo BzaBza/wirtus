@@ -3,11 +3,11 @@ import {Router, Route, Switch} from 'react-router-dom';
 
 import createBrowserHistory from 'history/createBrowserHistory';
 import Sign from "./screens/sign";
-import Navigation from "./components/container/navigation";
-import MainHeader from "./components/container/main-header";
+import Navigation from "./components/containers/navigation";
+import MainHeader from "./components/containers/main-header";
 import HomePage from "./screens/home-page";
 import Menus from "./screens/menu";
-import Trending from "./screens/trendig/index";
+import Trending from "./screens/trending/index";
 
 const customHistory = createBrowserHistory();
 

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
 import {connect} from 'react-redux';
 
-import AllProjects from "../../components/container/all-projects";
-import Workflow from "../../components/container/workflow";
+import AllProjects from "../../components/containers/all-projects";
+import Workflow from "../../components/containers/workflow";
 import {getMenuData} from '../../redux/actions/menuAct';
 import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 
