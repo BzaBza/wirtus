@@ -24,18 +24,18 @@ class MyCircularProgressbar extends Component {
 
   render() {
     return (
-     <div className="d-flex align-items-center text-center flex-wrap justify-content-center">
+     <div className="d-flex align-items-center flex-wrap justify-content-center">
        <div className="circular-container">
          <CircularProgressbar
-          percentage={75}
+          percentage={this.props.circularProgressData.value / 100}
           styles={{
-            path: {stroke: `rgba(33, 149, 242, ${75 / 100})`},
+            path: {stroke: `rgba(33, 149, 242, ${this.props.circularProgressData.value / 100})`},
           }}
          />
        </div>
        <div className="text-white progress-info justify-content-center d-flex flex-wrap">
-         <h5 className="progress-info-count" >1 250</h5>
-         <p className="progress-info-foo">VIEWS</p>
+         <h5 className="progress-info-count" >{this.props.circularProgressData.value}</h5>
+         <p className="progress-info-foo">{this.props.circularProgressData.description}</p>
        </div>
      </div>
     );

@@ -6,6 +6,7 @@ import MixChart from "../../dumb/mix-chart/index";
 import mixChartData from '../../../redux/config/mix-trending-chartdata-data';
 import MyCircularProgressbar from "../../dumb/circular-progressbar";
 import options from '../../../redux/config/mix-trending-charts-options';
+import circularData from '../../../redux/config/trending-progress-data'
 
 
 class TrendingCharts extends Component {
@@ -69,13 +70,13 @@ class TrendingCharts extends Component {
          <div className="circular-progress-bars-container d-flex justify-content-between align-items-center">
            <div className="d-flex  my-circular-container">
              <div className="d-flex align-items-center">
-               <MyCircularProgressbar/>
+               <MyCircularProgressbar circularProgressData={circularData.progressOne}/>
              </div>
              <div className="d-flex  align-items-center">
-               <MyCircularProgressbar/>
+               <MyCircularProgressbar circularProgressData={circularData.progressTwo}/>
              </div>
              <div className="d-flex align-items-center">
-               <MyCircularProgressbar/>
+               <MyCircularProgressbar circularProgressData={circularData.progressThree}/>
              </div>
            </div>
            <div className="d-flex align-items-center justify-content-between">
