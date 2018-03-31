@@ -28,7 +28,7 @@ class Navigation extends React.Component {
   render() {
     return (
 
-     <aside className='navigation'>
+     <aside className="navigation">
        <Logo/>
        <nav>
          <NavItem menus={this.state.menus}/>
