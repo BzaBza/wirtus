@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import FaAngleUp from 'react-icons/lib/fa/angle-up';
+import FaAngleDown from 'react-icons/lib/fa/angle-down';
 
 class TrendingTable extends Component {
   constructor(props) {
@@ -17,10 +19,11 @@ class TrendingTable extends Component {
      }
     ));
   }
-  customSort(event){
-    let sortedArr = this.state.trendingData.sort((a, b)=>{
+
+  customSort(event) {
+    let sortedArr = this.state.trendingData.sort((a, b) => {
       let columnSort = event.target.innerText;
-      if (a[columnSort] > b[columnSort]){
+      if (a[columnSort] > b[columnSort]) {
         return 1;
       }
       if (a[columnSort] < b[columnSort]) {
@@ -28,12 +31,10 @@ class TrendingTable extends Component {
       }
       return 0;
     });
-    this.setState(() => (
-     {
-       trendingData: sortedArr
-     }
-    ));
-    console.log(sortedArr)
+    this.setState({
+      trendingData: sortedArr,
+      activeSort: event.target.innerText
+    });
   }
 
   render() {
@@ -48,14 +49,14 @@ class TrendingTable extends Component {
       {text: 'CPM', className: 'col-md-1', id: 8},
       {text: 'Status', className: 'col-md-2', id: 9}
     ];
-
     return (
      <div className="trending-list-wrap">
        <ul className="trending-list">
          <li className="d-flex gray justify-content-between trending-row align-items-center">
            {lostHeader.map((value, index) =>
-            <div key={value.id} className={value.className} onClick={this.customSort}>
-              {value.text}
+            <div key={value.id} className={`d-flex ${value.className} ${this.state.activeSort === value.text ? 'text-white' : ''}`}>
+              <div onClick={this.customSort}>{value.text}</div>
+              <div>{this.state.activeSort === value.text ? <FaAngleUp/> : <FaAngleDown/>}</div>
             </div>
            )}
          </li>
