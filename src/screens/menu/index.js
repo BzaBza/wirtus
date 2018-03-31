@@ -47,7 +47,7 @@ class Menu extends Component {
                'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('AllProjects');
              }}>
-               All Projects ({
+               <span className="menu-links">All Projects</span> ({
                counter.length > 0 ? counter.reduce(function (acc, item) {
                  return acc + item;
                }, 0) : 0
@@ -61,12 +61,12 @@ class Menu extends Component {
                'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('Workflow');
              }}>
-               Workflow
+               <span className="menu-links">Workflow</span>
              </NavLink>
            </NavItem>
          </Nav>
-         <div className="d-flex align-items-center justify-content-between">
-           <div className="text-white container">Show projects:</div>
+         <div className="d-flex align-items-center justify-content-between drop-side-wrap">
+           <div className="text-white container drop-description">Show projects:</div>
            <DropdownSideBtn filterData={this.filterData} currentData='All' data={['All', 'Microsoft', 'Google','Symu.co','JCD.pl','Facebook','Themeforest']}/>
          </div>
        </header>
@@ -74,7 +74,7 @@ class Menu extends Component {
          <TabPane tabId="AllProjects">
            <AllProjects projects={this.props.menuData} filter={this.props.filter} onGetProjectsData={this.props.onGetMenuData()}/>
          </TabPane>
-         <TabPane tabId="Workflow">
+         <TabPane tabId="Workflow" >
            <Workflow projects={this.props.menuData} filter={this.props.filter} onGetWorkflowData={this.props.onGetMenuData()}/>
          </TabPane>
        </TabContent>

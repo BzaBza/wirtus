@@ -50,7 +50,8 @@ class Workflow extends Component {
                   {project}
                 </h5>
                 <div>
-                  <span className="number gray"> {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length + ' project ·'} </span>
+                  <span
+                   className="number gray"> {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length + ' project ·'} </span>
                   <span className="text-primary">{'$'}
                     {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length > 0 ? this.state.projects[project].reduce(function (acc, obj) {
                       return acc + obj.price;
@@ -99,14 +100,13 @@ class Workflow extends Component {
 
 
     return (
-     <section>
+     <section className="workflow-section">
        <DragDropContext onDragEnd={this.onDragEnd}>
          <div className="d-flex">
            {taskContainer}
          </div>
        </DragDropContext>
      </section>
-
     );
   }
 }
