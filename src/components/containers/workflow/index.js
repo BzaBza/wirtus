@@ -53,7 +53,9 @@ class Workflow extends Component {
                   <span
                    className="number gray"> {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length + ' project ·'} </span>
                   <span className="text-primary">{'$'}
-                    {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length > 0 ? this.state.projects[project].reduce(function (acc, obj) {
+                    {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length
+                    >
+                    0 ? this.state.projects[project].filter(item => item.company.includes(this.props.filter)).reduce(function (acc, obj) {
                       return acc + obj.price;
                     }, 0) : 0
                     }
