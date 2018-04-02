@@ -1,4 +1,12 @@
 export default {
+  layout: {
+    padding: {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0
+    }
+  },
   maintainAspectRatio: false,
   legend: false,
   responsive: true,
@@ -13,6 +21,7 @@ export default {
   scales: {
     xAxes: [
       {
+        mirror: true,
         id: 'x-axis-1',
         display: true,
         position: 'bottom',
@@ -29,6 +38,7 @@ export default {
         },
       },
       {
+        mirror: true,
         id: 'x-axis-2',
         display: false,
         position: 'top',

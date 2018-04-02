@@ -2,9 +2,9 @@ import React from 'react';
 
 import FaSearch from 'react-icons/lib/fa/search';
 import TiBell from 'react-icons/lib/ti/bell';
-
 import UserMenu from '../../dumb/user-menu/index';
 import Logo from "../../dumb/logo/index";
+import ButtonAdd from "../../dumb/main-header-add-btn";
 
 class MainHeader extends React.Component {
   constructor(props) {
@@ -27,9 +27,7 @@ class MainHeader extends React.Component {
          <Logo/>
          <div className="d-flex header-side-menu align-items-center justify-content-between">
            <div>
-             <button type="button" className="button btn btn-primary bg-transparent">
-               Add<span className="text-primary">+</span>
-             </button>
+             <ButtonAdd/>
            </div>
            <div className="d-flex">
              <button type="button" className="drop-menu text-white" onClick={this.handleSearchClick}>

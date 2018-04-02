@@ -24,6 +24,16 @@ class TrendingCharts extends Component {
   }
 
 
+  handleScroll() {
+    let scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    let header = document.querySelector('.trending-charts-header').style;
+    if (scrolled >= 220 ) {
+      header.position = 'inherit';
+    } else {
+      header.position = 'fixed';
+    }
+  };
+
   filterPeriodData(currentPeriod) {
     this.props.onFilterPeriod(currentPeriod)
   }

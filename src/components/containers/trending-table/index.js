@@ -69,10 +69,22 @@ class TrendingTable extends Component {
              <div>{value.Time}</div>
            </div>
            <div className="col-md-1">
-             <div>{value.Views}</div>
+             <div>
+               {
+                 Number(value.Views).toFixed(0).replace(/./g, function (c, i, a) {
+                   return i > 0 && c !== " " && (a.length - i) % 3 === 0 ? " " + c : c;
+                 })
+               }
+             </div>
            </div>
            <div className="col-md-1">
-             <div>{value.Visitors}</div>
+             <div>
+               {
+               Number(value.Visitors).toFixed(0).replace(/./g, function (c, i, a) {
+                 return i > 0 && c !== " " && (a.length - i) % 3 === 0 ? " " + c : c;
+               })
+               }
+             </div>
            </div>
            <div className="col-md-1">
              <div>{value.CTR}</div>
