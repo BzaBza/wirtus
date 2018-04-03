@@ -26,7 +26,6 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password,
     };
-    this.password.value = '';
 
     axios.post('http://aelmod.sytes.net:8080/users',
      JSON.stringify(this.state),
@@ -35,7 +34,8 @@ class Login extends Component {
          'Content-Type': 'application/json',
        }
 
-     }
+     },
+     this.password.value = ''
     );
 
     axios.get('http://aelmod.sytes.net:8080/users')

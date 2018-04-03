@@ -19,11 +19,8 @@ class MixChart extends Component {
 
   render() {
     let chartCustomHeight;
-    if (window.screen.width <= 1500){
-      chartCustomHeight = 400
-    }else{
-      chartCustomHeight = 600
-    }
+    window.screen.width <= 1500 ? chartCustomHeight = 400 : chartCustomHeight = 600;
+
     return (
      <Bar
       data={this.state.lineChartConfig}

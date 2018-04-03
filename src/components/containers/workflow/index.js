@@ -37,6 +37,13 @@ class Workflow extends Component {
     });
   }
 
+  viewsData(project) {
+    return this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length > 0
+     ? this.state.projects[project].filter(item => item.company.includes(this.props.filter)).reduce(function (acc, obj) {
+      return acc + obj.price;
+    }, 0) : 0;
+  }
+
   render() {
     let taskContainer = [];
     for (let project in this.state.projects) {
@@ -53,12 +60,7 @@ class Workflow extends Component {
                   <span
                    className="number gray"> {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length + ' project ·'} </span>
                   <span className="text-primary">{'$'}
-                    {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length
-                    >
-                    0 ? this.state.projects[project].filter(item => item.company.includes(this.props.filter)).reduce(function (acc, obj) {
-                      return acc + obj.price;
-                    }, 0) : 0
-                    }
+                    {this.viewsData(project)}
               </span>
                 </div>
               </div>

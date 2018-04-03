@@ -1,38 +1,99 @@
 import React, {Component} from 'react';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
+import {connect} from "react-redux";
+import {addProjectData} from "../../../redux/actions/addProject";
 
 class ButtonAdd extends Component {
   constructor(props) {
     super(props);
     this.state = {
       openForm: false,
+      projectData: [],
     };
-    this.show= this.show.bind(this)
+    this.show = this.show.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  show(){
+
+  show() {
     this.setState({
-      openForm:  !this.state.openForm
+      openForm: !this.state.openForm
     })
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.onAddProjectData({
+       task: this.taskName.value,
+       project: this.projectName.value,
+       company: this.company.value,
+       price: Number(this.projectPrice.value),
+       deadline: this.deadline.value,
+       timeSpent: 0,
+       devName: 'user name',
+       devPosition: 'user position',
+       url: './workflow/photo-1457084882212-4a6bb2240588.png',
+       id: '0d',
+     }
+    )
+    ;
+  }
 
-  render () {
+
+  render() {
     return (
      <div>
        <button type="button" className="button btn btn-primary bg-transparent" onClick={this.show}>
          Add<span className="text-primary">+</span>
        </button>
-       <form action="#" className={`add-project-form ${this.state.openForm ? 'd-block' : 'd-none'}`}>
+       <form action="#" className={`add-project-form ${this.state.openForm ? 'd-block' : 'd-none'}`}
+             onSubmit={this.handleSubmit}>
          <ul className="form-list text-center">
            <li className="text-primary"><h4>Create new project</h4></li>
-           <li><input type="text" placeholder="Project name"/></li>
-           <li><input type="text" placeholder="Company"/></li>
-           <li><input type="text" placeholder="Project sum"/></li>
+           <li>
+             <input type="text"
+                    placeholder="Project name"
+                    ref={(input => {
+                      this.projectName = input
+                    })}
+             />
+           </li>
+           <li>
+             <input type="text"
+                    placeholder="Task name"
+                    ref={(input => {
+                      this.taskName = input
+                    })}
+             />
+           </li>
+           <li>
+             <input type="text"
+                    placeholder="Company"
+                    ref={(input => {
+                      this.company = input
+                    })}
+             />
+           </li>
+           <li>
+             <input type="number"
+                    placeholder="Project price"
+                    ref={(input => {
+                      this.projectPrice = input
+                    })}
+             />
+           </li>
+           <li>
+             <input type="text"
+                    placeholder="Deadline"
+                    ref={(input => {
+                      this.deadline = input
+                    })}
+             />
+           </li>
            <li className="d-flex justify-content-center">
-             <button type="submit"
-                       className="btn btn-primary bg-transparent authentication-button  text-white">
-             Enter <FaAngleRight className="authentication-button-icon"/>
-           </button>
+             <button type="submit" onClick={this.show}
+                     className="btn btn-primary bg-transparent authentication-button  text-white">
+               Enter <FaAngleRight className="authentication-button-icon"/>
+             </button>
            </li>
          </ul>
        </form>
@@ -40,7 +101,16 @@ class ButtonAdd extends Component {
     );
   }
 }
-export default ButtonAdd;
+
+export default connect(
+ state => ({
+   menuData: state.menu,
+ }),
+ dispatch => ({
+   onAddProjectData: (project) => {
+     dispatch(addProjectData(project));
+   }
+ }))(ButtonAdd);
 
 
 

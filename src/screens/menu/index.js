@@ -25,6 +25,9 @@ class Menu extends Component {
       });
     }
   }
+  componentWillMount(){
+    this.props.onGetMenuData()
+  }
 
   filterData(currentCompany) {
     this.props.onFilterMenuData(currentCompany)
@@ -72,10 +75,10 @@ class Menu extends Component {
        </header>
        <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
          <TabPane tabId="AllProjects">
-           <AllProjects projects={this.props.menuData} filter={this.props.filter} onGetProjectsData={this.props.onGetMenuData()}/>
+           <AllProjects projects={this.props.menuData} filter={this.props.filter} />
          </TabPane>
          <TabPane tabId="Workflow" >
-           <Workflow projects={this.props.menuData} filter={this.props.filter} onGetWorkflowData={this.props.onGetMenuData()}/>
+           <Workflow projects={this.props.menuData} filter={this.props.filter}/>
          </TabPane>
        </TabContent>
      </section>
