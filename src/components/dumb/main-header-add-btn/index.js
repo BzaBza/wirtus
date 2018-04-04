@@ -82,11 +82,13 @@ class ButtonAdd extends Component {
              />
            </li>
            <li>
-             <input type="text"
+             <input type="date"
                     placeholder="Deadline"
                     ref={(input => {
                       this.deadline = input
                     })}
+                    required
+                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
              />
            </li>
            <li className="d-flex justify-content-center">

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TrendingCharts from "../../components/containers/trending-charts";
+import HomeProject from "../../components/containers/home-project";
 
 
 class HomePage extends Component {
@@ -25,13 +26,13 @@ class HomePage extends Component {
   render() {
     return (
      <section className="containers">
-       <div className="d-flex flex-wrap">
-         <div className="col-md-8 home-trending-wrap">
+       <div className="d-flex flex-wrap justify-content-between">
+         <div className="col-md-8 home-trending-wrap ">
            <div className="home-trending">
-             <TrendingCharts/>
+             <TrendingCharts chartCustomHeight={475}/>
            </div>
          </div>
-         <div className="col-md-4">s</div>
+         <div className="col-md-3"><HomeProject/></div>
        </div>
        <div className="d-flex flex-wrap">
          <div className="col-md-6">sales</div>

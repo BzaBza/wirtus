@@ -78,7 +78,7 @@ class Menu extends Component {
            <AllProjects projects={this.props.menuData} filter={this.props.filter} />
          </TabPane>
          <TabPane tabId="Workflow" >
-           <Workflow projects={this.props.menuData} filter={this.props.filter}/>
+           <Workflow projects={this.props.menuData} filter={this.props.filter} />
          </TabPane>
        </TabContent>
      </section>

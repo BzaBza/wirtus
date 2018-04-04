@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {getMenuData} from "../../../redux/actions/menuAct";
 import HomeProjectsItem from "../../dumb/home-projects-item";
 
 class HomeProject extends Component {
@@ -8,21 +7,22 @@ class HomeProject extends Component {
 
   render() {
     let taskContainer = [];
-    for (let project in this.state.projects) {
+    for (let project in this.props.menuData) {
       taskContainer.push(
-       <ul>
-         <li key={project}>
-           {this.state.projects[project].filter(item => item.company.includes(this.props.filter)).map((item, index) => (
-            <HomeProjectsItem key={index} data={item}/>
-           ))}
-         </li>
-       </ul>
+           <div>
+             {this.props.menuData[project].filter(item => item.devName.includes("user name")).map((item, index) => (
+              <li key={project}>
+                <HomeProjectsItem key={index} data={item} data={item}/>
+              </li>
+             ))}
+           </div>
       )
     }
     return (
-     <section className="trending-charts">
+     <ul className="home-project">
+       <li className="home-project-title"><h4 className="text-white">Your projects</h4></li>
        {taskContainer}
-     </section>
+     </ul>
     );
   }
 }
@@ -30,10 +30,5 @@ class HomeProject extends Component {
 export default connect(
  state => ({
    menuData: state.menu,
-   filter: state.menuFilter
  }),
- dispatch => ({
-   onGetMenuData: () => {
-     dispatch(getMenuData());
-   }
- }))(HomeProject);
+ )(HomeProject);

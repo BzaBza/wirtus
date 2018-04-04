@@ -76,7 +76,7 @@ class TrendingCharts extends Component {
          </div>
        </div>
        <div className="trending-charts-footer">
-         <MixChart lineChartConfig={lineChartConfig} options={options}/>
+         <MixChart lineChartConfig={lineChartConfig} options={options} chartCustomHeight={this.props.chartCustomHeight}/>
        </div>
      </section>
     );

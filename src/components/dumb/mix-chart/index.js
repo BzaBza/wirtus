@@ -18,13 +18,11 @@ class MixChart extends Component {
   }
 
   render() {
-    let chartCustomHeight;
-    window.screen.width <= 1500 ? chartCustomHeight = 400 : chartCustomHeight = 600;
 
     return (
      <Bar
       data={this.state.lineChartConfig}
-      height={chartCustomHeight}
+      height={this.props.chartCustomHeight}
       width={2000}
       options={this.state.option}
      />
