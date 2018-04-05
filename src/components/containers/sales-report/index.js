@@ -82,7 +82,7 @@ class SalesReport extends Component {
        <Bar
         data={data}
         width={100}
-        height={41}
+        height={this.props.chartCustomHeight}
         options={options}
        />
      </div>

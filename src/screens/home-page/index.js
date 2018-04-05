@@ -30,17 +30,17 @@ class HomePage extends Component {
     return (
      <section className="containers home-page">
        <div className="d-flex flex-wrap justify-content-between">
-         <div className="col-md-9 home-trending-wrap ">
+         <div className="col-lg-9 home-trending-wrap ">
            <div className="home-trending">
              <TrendingCharts chartCustomHeight={400}/>
            </div>
          </div>
-         <div className="col-md-3"><HomeProject/></div>
+         <div className="col-lg-3"><HomeProject/></div>
        </div>
        <div className="d-flex flex-wrap home-footer">
-         <div className="col-md-6 sales-report-home-wrap"><SalesReport chartCustomHeight={32}/></div>
-         <div className="col-md-3 home-inbox-wrap"><HomeInbox/></div>
-         <div className="col-md-3"><Calendar/></div>
+         <div className="col-xl-6 sales-report-home-wrap"><SalesReport chartCustomHeight={40}/></div>
+         <div className="col-xl-3 col-lg-6 home-inbox-wrap"><HomeInbox/></div>
+         <div className="col-xl-3 col-lg-6"><Calendar/></div>
        </div>
      </section>
     );
