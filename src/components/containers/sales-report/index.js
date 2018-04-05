@@ -1,104 +1,34 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
+import {Bar} from 'react-chartjs-2'
 
-import DropdownSideBtn from "../../dumb/dropdown-side-btn";
-import MixChart from "../../dumb/mix-chart/index";
-import mixChartData from '../../../redux/config/mix-trending-chartdata-data';
-import MyCircularProgressbar from "../../dumb/circular-progressbar";
-import options from '../../../redux/config/mix-trending-charts-options';
-import circularData from '../../../redux/config/trending-progress-data'
-
-
-class TrendingCharts extends Component {
-  constructor(props) {
-    super(props);
-    this.filterPeriodData = this.filterPeriodData.bind(this);
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-
-  handleScroll() {
-    let scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    let header = document.querySelector('.trending-charts-header').style;
-    if (scrolled >= 220 ) {
-      header.position = 'inherit';
-    } else {
-      header.position = 'fixed';
-    }
-  };
-
-  filterPeriodData(currentPeriod) {
-    this.props.onFilterPeriod(currentPeriod)
-  }
+class SalesReport extends Component {
 
   render() {
-
-    let lineChartConfig = {
-      labels: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'],
-      datasets: [{
-        xAxisID: 'x-axis-2',
-        type: 'line',
-        data: mixChartData.data,
-        fill: true,
-        borderColor: '#2196f3',
-        backgroundColor: 'rgba(41, 66, 97, 0.5)',
-        borderJoinStyle: 'miter',
-        pointBorderColor: '#ffffff',
-        pointBackgroundColor: '#fff',
-        pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: '#ffffff',
-        pointHoverBorderColor: '#256faf',
-        pointHoverBorderWidth: 4,
-        pointRadius: 1,
-        pointHitRadius: 1,
-      }, {
-        type: 'bar',
-        fill: false,
-      }],
+    const data = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label: 'My First dataset',
+          backgroundColor: 'rgba(255,99,132,0.2)',
+          borderColor: 'rgba(255,99,132,1)',
+          borderWidth: 1,
+          hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+          hoverBorderColor: 'rgba(255,99,132,1)',
+          data: [65, 59, 80, 81, 56, 55, 40]
+        }
+      ]
     };
     return (
-     <section className="trending-charts">
-       <div className="trending-charts-header">
-         <div className="circular-progress-bars-container d-flex justify-content-between align-items-center">
-           <div className="d-flex  my-circular-container">
-             <div className="d-flex align-items-center">
-               <MyCircularProgressbar circularProgressData={circularData.progressOne}/>
-             </div>
-             <div className="d-flex  align-items-center">
-               <MyCircularProgressbar circularProgressData={circularData.progressTwo}/>
-             </div>
-             <div className="d-flex align-items-center">
-               <MyCircularProgressbar circularProgressData={circularData.progressThree}/>
-             </div>
-           </div>
-           <div className="d-flex align-items-center justify-content-between">
-             <div className="container gray">Show: </div>
-             <DropdownSideBtn text={'gray'} filterData={this.filterPeriodData} currentData='Week' data={['Week', 'Month']}/>
-           </div>
-         </div>
-       </div>
-       <div className="trending-charts-footer">
-         <MixChart lineChartConfig={lineChartConfig} options={options}/>
-       </div>
-     </section>
+     <div>
+       <h2>Bar Example (custom size)</h2>
+       <Bar
+        data={data}
+        width={100}
+        height={40}
+       />
+     </div>
     );
   }
 }
 
-export default connect(
- state => ({
-   filter: state.periodFilter
- }),
- dispatch => ({
-   onFilterPeriod: (currentPeriod) => {
-     dispatch({type: 'FILTER_PERIOD_DATA', payload: currentPeriod});
-   }
- }))(TrendingCharts);
+export default SalesReport;
