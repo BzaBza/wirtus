@@ -28,7 +28,7 @@ class HomeInbox extends Component {
     ];
 
     return (
-     <ul className="home-project">
+     <ul className="home-inbox">
        <li className="home-project-title"><h4 className="text-white">Inbox (<span className="text-primary">2</span>)</h4></li>
        <div>
          {data.map((item, index) => (

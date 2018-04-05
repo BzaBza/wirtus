@@ -20,11 +20,11 @@ class SalesReport extends Component {
     };
     return (
      <div>
-       <h2>Bar Example (custom size)</h2>
+       <h2 className="text-white">Sales report</h2>
        <Bar
         data={data}
         width={100}
-        height={40}
+        height={this.props.chartCustomHeight}
        />
      </div>
     );
