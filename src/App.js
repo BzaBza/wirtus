@@ -7,7 +7,8 @@ import Navigation from "./components/containers/navigation";
 import MainHeader from "./components/containers/main-header";
 import HomePage from "./screens/home-page";
 import Menus from "./screens/menu";
-import Trending from "./screens/trending/index";
+import Trending from "./screens/trending";
+import UsersPage from "./screens/users";
 
 const customHistory = createBrowserHistory();
 
@@ -25,6 +26,7 @@ class App extends Component {
            <Route path='/home' render={(routeProps) => <HomePage routeProps={routeProps}/>}/>
            <Route path='/menu' render={(routeProps) => <Menus routeProps={routeProps}/>}/>
            <Route path='/trending' render={(routeProps) => <Trending routeProps={routeProps}/>}/>
+           <Route path='/users' render={(routeProps) => <UsersPage routeProps={routeProps}/>}/>
          </Switch>
        </div>
      </Router>
