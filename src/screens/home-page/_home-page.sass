@@ -4,22 +4,25 @@
   background-color: #2f3242
 
 .home-page
-  margin-top: 64px
-  margin-left: 60px
+  margin-top: 50px
+  margin-left: 50px
 
-@media (max-width: 993px)
-  .home-page
-    margin-top: 10px
-    margin-left: 10px
+.sales-report-title
+  margin: 0
 
+.sales-report-header
+  margin-bottom: 1em
+  justify-content: space-between
+
+.home-item
+  box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2)
 
 .home-trending-wrap
   overflow: hidden!important
-  height: 400px
-  box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2)
+  height: 450px
 
 .sales-report-home-wrap
-  padding: 2em 2em 0 2em
+  padding: 2em 1em 0 1em
   background-color: #2f3242
 
 .home-inbox-wrap
@@ -27,3 +30,25 @@
 
 .home-footer
   margin-top: 15px
+
+@media (max-width: 993px)
+  .home-page
+    margin-top: 10px
+    margin-left: 10px
+  .home-item
+    padding: 0
+    margin: 15px 10px 15px 0
+  .sales-report-home-wrap
+    padding: 1em 0.5em 0 0.5em
+
+@media (max-width: 700px)
+  .sales-report-home-wrap
+    padding: 0 0.2em 0 0.2em
+  .sales-report-btn-description
+    font-size: 14px
+  .sales-report-title
+    font-size: 14px
+    display: flex
+    align-items: center
+  .sales-report-header
+    justify-content: space-around

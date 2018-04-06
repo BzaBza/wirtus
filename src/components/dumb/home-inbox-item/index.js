@@ -6,10 +6,12 @@ class HomeInboxItem extends Component {
 
     return (
      <div className="d-flex inbox-item">
-       <div><img src={this.props.data.url} alt="user"/></div>
+       <div className="inbox-item-image"><img src={this.props.data.url} alt="user"/></div>
        <div>
-         <div className="d-flex justify-content-between"><span className="text-white">{this.props.data.userName}</span><span className="text-primary">{this.props.data.dataTime}</span></div>
-         <div className="gray">{this.props.data.text}</div>
+         <p className="d-flex justify-content-between"><span
+          className="text-white inbox-item-user-name">{this.props.data.userName}</span><span
+          className="text-primary inbox-item-data-time">{this.props.data.dataTime}</span></p>
+         <div className="gray inbox-item-text">{this.props.data.text}</div>
        </div>
      </div>
     );

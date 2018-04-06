@@ -29,10 +29,10 @@ class ButtonAdd extends Component {
        price: Number(this.projectPrice.value),
        deadline: this.deadline.value,
        timeSpent: 0,
-       devName: 'user name',
+       devName: 'Michelle Stewart',
        devPosition: 'user position',
        url: './workflow/photo-1457084882212-4a6bb2240588.png',
-       id: '0d',
+       id: new Date() + '',
      }
     )
     ;

@@ -10,7 +10,7 @@ class HomeProject extends Component {
     for (let project in this.props.menuData) {
       taskContainer.push(
            <div key={project}>
-             {this.props.menuData[project].filter(item => item.devName.includes("user name")).map((item, index) => (
+             {this.props.menuData[project].filter(item => item.devName.includes("Michelle Stewart")).map((item, index) => (
               <li key={item.id}>
                 <HomeProjectsItem data={item}/>
               </li>
