@@ -12,6 +12,8 @@ class Navigation extends React.Component {
         {linkName: 'Menu', path: '/Menu', id: '2'},
         {linkName: 'Trending', path: '/Trending', id: '3'},
         {linkName: 'Email', path: '/Email', id: '4'},
+        {linkName: 'Users', path: '/Users', id: '5'},
+        {linkName: 'Settings', path: '/Settings', id: '6'},
       ]
     };
     this.toggleActive = this.toggleActive.bind(this);

@@ -34,7 +34,7 @@ class SalesReport extends Component {
        <div className="d-flex sales-report-header">
          <h2 className="text-white sales-report-title">Sales report</h2>
          <div className="d-flex align-items-center">
-           <span className="container text-white sales-report-btn-description">Show: </span>
+           <span className="container gray sales-report-btn-description">Show: </span>
            <DropdownSideBtn text={'gray'} filterData={this.filterPeriodData} currentData='Week' data={['Week', 'Month']}/>
          </div>
        </div>
