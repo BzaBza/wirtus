@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import TrendingCharts from "../../components/containers/trending-charts";
 import HomeProject from "../../components/containers/home-project";
 import SalesReport from "../../components/containers/sales-report";

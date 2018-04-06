@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import HomeProjectsItem from "../../dumb/home-projects-item";
+import {getMenuData} from "../../../redux/actions/menuAct";
 
 class HomeProject extends Component {
 
+  componentWillMount(){
+    this.props.onGetMenuData()
+  }
 
   render() {
     let taskContainer = [];
@@ -30,5 +34,8 @@ class HomeProject extends Component {
 export default connect(
  state => ({
    menuData: state.menu,
- }),
- )(HomeProject);
+ }),dispatch => ({
+   onGetMenuData: () => {
+     dispatch(getMenuData());
+   }
+ }))(HomeProject);
