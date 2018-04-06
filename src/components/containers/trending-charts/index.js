@@ -69,7 +69,7 @@ class TrendingCharts extends Component {
                <MyCircularProgressbar circularProgressData={circularData.progressThree}/>
              </div>
            </div>
-           <div className="d-flex align-items-center justify-content-between">
+           <div className="d-flex align-items-center justify-content-between trending-filter-drop">
              <div className="container gray">Show: </div>
              <DropdownSideBtn text={'gray'} filterData={this.filterPeriodData} currentData='Week' data={['Week', 'Month']}/>
            </div>

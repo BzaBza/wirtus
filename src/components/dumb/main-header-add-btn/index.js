@@ -48,7 +48,7 @@ class ButtonAdd extends Component {
        <form action="#" className={`add-project-form ${this.state.openForm ? 'd-block' : 'd-none'}`}
              onSubmit={this.handleSubmit}>
          <ul className="form-list text-center">
-           <li className="text-primary"><h4>Create new project</h4></li>
+           <li className="text-white"><h4>Create new project</h4></li>
            <li>
              <input type="text"
                     placeholder="Project name"
