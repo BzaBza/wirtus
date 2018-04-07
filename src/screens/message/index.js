@@ -69,8 +69,8 @@ class Message extends Component {
                             data={['All', 'Microsoft', 'Google', 'Symu.co', 'JCD.pl', 'Facebook', 'Themeforest']}/>
          </div>
        </header>
-       <div className="content-wrap d-flex">
-          <div className="col-md-3 message-content-coversation">
+       <div className="content-wrap d-flex message-content">
+          <div className="col-3 message-content-coversation">
             <Coversation chatData={this.props.chatData}/>
           </div>
        </div>

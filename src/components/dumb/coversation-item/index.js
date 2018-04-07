@@ -18,7 +18,7 @@ class CoversationItem extends Component {
            {this.props.coversationData.interlocutorMessages[0].date}
          </div>
        </div>
-       <div className="gray">
+       <div className="gray coversation-last-message">
          {this.props.coversationData.interlocutorMessages[0].message}
        </div>
      </div>

@@ -1,9 +1,34 @@
 .coversation-item-wrap
   overflow-y: scroll
-  height: 90%
+  height: 70vh
+  transition: display 4s
 
 .coversation-item-wrap::-webkit-scrollbar
   display: none
 
-//.coversation-btn
+.coversation-wrap-btn
+  position: fixed
+  bottom: 0
+  border-top: 1px solid rgba(77, 80, 95, 0.3)
+  padding: 1em 1em 1em 1em
+  width: 24%
+  background-color: #2b2d3c
 
+.coversation-btn
+  text-overflow: ellipsis
+  padding: .5em 0
+  border: none
+
+.coversation-toggle-btn
+  display: none
+  width: 100%
+
+@media (max-width: 850px)
+  .coversation-toggle-btn
+    display: block
+  .coversation-hidden
+    display: none
+
+@media (max-width: 550px)
+  .coversation-btn-cov
+    display: none
