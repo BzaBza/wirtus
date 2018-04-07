@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
+import {NavItem, Nav, NavLink} from 'reactstrap';
 import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 import {connect} from "react-redux";
 import {getChatData} from "../../redux/actions/chatAct";
+import Coversation from "../../components/containers/coversation";
 
 class Message extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Message extends Component {
 
   render() {
     return (
-     <section className="message-section containers">
+     <section className="message-section message-section d-flex justify-content-center flex-wrap containers">
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
          <Nav tabs className="pointer side-header-nav align-items-center">
            <NavItem className={(this.state.currentTab === 'Inbox') ?
@@ -63,17 +64,16 @@ class Message extends Component {
            </NavItem>
          </Nav>
          <div className="d-flex align-items-center justify-content-between drop-side-wrap">
-           <div className="text-white container drop-description">Show projects:</div>
+           <div className="text-white container drop-description">Filter messages:</div>
+           <DropdownSideBtn filterData={this.filterData} currentData='All'
+                            data={['All', 'Microsoft', 'Google', 'Symu.co', 'JCD.pl', 'Facebook', 'Themeforest']}/>
          </div>
        </header>
-       <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
-         <TabPane tabId="AllProjects">
-
-         </TabPane>
-         <TabPane tabId="Workflow">
-
-         </TabPane>
-       </TabContent>
+       <div className="content-wrap d-flex">
+          <div className="col-md-3 message-content-coversation">
+            <Coversation chatData={this.props.chatData}/>
+          </div>
+       </div>
      </section>
     );
   }

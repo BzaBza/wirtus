@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import DropPeriod from "../../dumb/drop-period/index";
-import ProgressBar from "../../dumb/progress-bar/index";
 
 class AllUsers extends Component {
   constructor(props) {
