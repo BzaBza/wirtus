@@ -54,7 +54,8 @@ class TrendingTable extends Component {
        <ul className="trending-list">
          <li className="d-flex gray justify-content-between trending-row align-items-center">
            {lostHeader.map((value, index) =>
-            <div key={value.id} className={`d-flex ${value.className} ${this.state.activeSort === value.text ? 'text-white' : ''}`}>
+            <div key={value.id}
+                 className={`d-flex ${value.className} ${this.state.activeSort === value.text ? 'text-white' : ''}`}>
               <div onClick={this.customSort}>{value.text}</div>
               <div>{this.state.activeSort === value.text ? <FaAngleUp/> : <FaAngleDown/>}</div>
             </div>
@@ -80,9 +81,9 @@ class TrendingTable extends Component {
            <div className="col-md-1">
              <div>
                {
-               Number(value.Visitors).toFixed(0).replace(/./g, function (c, i, a) {
-                 return i > 0 && c !== " " && (a.length - i) % 3 === 0 ? " " + c : c;
-               })
+                 Number(value.Visitors).toFixed(0).replace(/./g, function (c, i, a) {
+                   return i > 0 && c !== " " && (a.length - i) % 3 === 0 ? " " + c : c;
+                 })
                }
              </div>
            </div>

@@ -9,6 +9,7 @@ import HomePage from "./screens/home-page";
 import Menus from "./screens/menu";
 import Trending from "./screens/trending";
 import UsersPage from "./screens/users";
+import Message from "./screens/message";
 
 const customHistory = createBrowserHistory();
 
@@ -27,6 +28,7 @@ class App extends Component {
            <Route path='/menu' render={(routeProps) => <Menus routeProps={routeProps}/>}/>
            <Route path='/trending' render={(routeProps) => <Trending routeProps={routeProps}/>}/>
            <Route path='/users' render={(routeProps) => <UsersPage routeProps={routeProps}/>}/>
+           <Route path='/message' render={(routeProps) => <Message routeProps={routeProps}/>}/>
          </Switch>
        </div>
      </Router>

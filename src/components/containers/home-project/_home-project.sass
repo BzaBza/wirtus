@@ -1,10 +1,16 @@
 .home-project
   height: 450px
   box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2)
-  overflow-y: hidden
   list-style: none
   margin: 0
   padding: 0
+  overflow-y: scroll
+
+.home-project
+  &::-webkit-scrollbar
+    display: none
+  &::-moz-scrolled-canvas
+    display: none
 
 .home-project-title
   box-shadow: 0 3px 80px rgba(23, 24, 32, 0.2)

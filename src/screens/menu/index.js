@@ -25,7 +25,8 @@ class Menu extends Component {
       });
     }
   }
-  componentWillMount(){
+
+  componentWillMount() {
     this.props.onGetMenuData()
   }
 
@@ -50,7 +51,8 @@ class Menu extends Component {
                'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('AllProjects');
              }}>
-               <span className="menu-links">All Projects</span> ({
+               <span className="menu-links">All Projects</span>
+               ({
                counter.length > 0 ? counter.reduce(function (acc, item) {
                  return acc + item;
                }, 0) : 0
@@ -70,15 +72,16 @@ class Menu extends Component {
          </Nav>
          <div className="d-flex align-items-center justify-content-between drop-side-wrap">
            <div className="text-white container drop-description">Show projects:</div>
-           <DropdownSideBtn filterData={this.filterData} currentData='All' data={['All', 'Microsoft', 'Google','Symu.co','JCD.pl','Facebook','Themeforest']}/>
+           <DropdownSideBtn filterData={this.filterData} currentData='All'
+                            data={['All', 'Microsoft', 'Google', 'Symu.co', 'JCD.pl', 'Facebook', 'Themeforest']}/>
          </div>
        </header>
        <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
          <TabPane tabId="AllProjects">
-           <AllProjects projects={this.props.menuData} filter={this.props.filter} />
+           <AllProjects projects={this.props.menuData} filter={this.props.filter}/>
          </TabPane>
-         <TabPane tabId="Workflow" >
-           <Workflow projects={this.props.menuData} filter={this.props.filter} />
+         <TabPane tabId="Workflow">
+           <Workflow projects={this.props.menuData} filter={this.props.filter}/>
          </TabPane>
        </TabContent>
      </section>

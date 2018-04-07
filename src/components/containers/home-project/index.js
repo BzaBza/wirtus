@@ -5,7 +5,7 @@ import {getMenuData} from "../../../redux/actions/menuAct";
 
 class HomeProject extends Component {
 
-  componentWillMount(){
+  componentWillMount() {
     this.props.onGetMenuData()
   }
 
@@ -13,13 +13,13 @@ class HomeProject extends Component {
     let taskContainer = [];
     for (let project in this.props.menuData) {
       taskContainer.push(
-           <div key={project}>
-             {this.props.menuData[project].filter(item => item.devName.includes("Michelle Stewart")).map((item, index) => (
-              <li key={item.id}>
-                <HomeProjectsItem data={item}/>
-              </li>
-             ))}
-           </div>
+       <div key={project}>
+         {this.props.menuData[project].filter(item => item.devName.includes("Michelle Stewart")).map((item, index) => (
+          <li key={item.id}>
+            <HomeProjectsItem data={item}/>
+          </li>
+         ))}
+       </div>
       )
     }
     return (
@@ -34,7 +34,7 @@ class HomeProject extends Component {
 export default connect(
  state => ({
    menuData: state.menu,
- }),dispatch => ({
+ }), dispatch => ({
    onGetMenuData: () => {
      dispatch(getMenuData());
    }

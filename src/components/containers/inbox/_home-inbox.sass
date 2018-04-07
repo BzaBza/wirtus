@@ -2,7 +2,13 @@
   height: 360px
   margin: 0
   padding: 0
-  overflow-y: hidden
+  overflow-y: scroll
+
+.home-inbox
+  &::-webkit-scrollbar
+    display: none
+  &::-moz-scrolled-canvas
+    display: none
 
 .inbox-item
   min-height: 110px
@@ -10,9 +16,11 @@
   align-items: center
   border-bottom: 1px solid rgba(156, 161, 178, 0.3)
   background-color: #2f3242
+  text-overflow: ellipsis
 
 .home-project-title
   height: 94px
+  text-overflow: ellipsis
 
 .inbox-item-image
   padding: 0 24px 0 24px

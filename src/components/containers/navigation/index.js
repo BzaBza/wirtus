@@ -11,9 +11,8 @@ class Navigation extends React.Component {
         {linkName: 'Home', path: '/home', id: '1'},
         {linkName: 'Menu', path: '/Menu', id: '2'},
         {linkName: 'Trending', path: '/Trending', id: '3'},
-        {linkName: 'Email', path: '/Email', id: '4'},
+        {linkName: 'Message', path: '/Message', id: '4'},
         {linkName: 'Users', path: '/Users', id: '5'},
-        {linkName: 'Settings', path: '/Settings', id: '6'},
       ]
     };
     this.toggleActive = this.toggleActive.bind(this);
@@ -39,4 +38,5 @@ class Navigation extends React.Component {
     );
   }
 }
+
 export default Navigation;
