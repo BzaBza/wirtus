@@ -13,7 +13,6 @@ class MessageContent extends Component {
     return (
      <section className="text-white message-content-section">
        <ul>
-         {this.props.chatData.map}
        </ul>
      </section>
     );

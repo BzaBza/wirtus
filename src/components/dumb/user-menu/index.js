@@ -28,7 +28,12 @@ export default class UserMenu extends React.Component {
          <FaAngleDown/>
        </DropdownToggle>
        <DropdownMenu className="text-center">
-         <Link to='/'>logout</Link>
+           <div className="text-center">
+             <Link to='/'>Logout</Link>
+           </div>
+           <div className="text-center">
+             <Link to='/settings'>Settings</Link>
+           </div>
        </DropdownMenu>
      </ButtonDropdown>
     );

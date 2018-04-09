@@ -25,24 +25,23 @@ class MainHeader extends React.Component {
        <div
         className='main-header d-flex align-content-center justify-content-between col-md-12'>
          <Logo/>
-         <div className="d-flex header-side-menu align-items-center justify-content-between">
-           <div>
+         <ul className="d-flex header-side-menu align-items-center justify-content-between">
+           <li>
              <ButtonAdd/>
-           </div>
-           <div className="d-flex">
+           </li>
+           <li className="d-flex">
              <button type="button" className="drop-menu text-white" onClick={this.handleSearchClick}>
                <FaSearch className="icon"/>
              </button>
              <input type="text" className={this.state.searchToggle ? 'hide' : ''}/>
-           </div>
-           <div>
+           </li>
+           <li>
              <button type="button" className="drop-menu text-white">
                <TiBell className="icon"/>
              </button>
-           </div>
+           </li>
            <UserMenu/>
-         </div>
-         <button type="button" className="header-side-menu-drop"/>
+         </ul>
        </div>
      </header>
     );

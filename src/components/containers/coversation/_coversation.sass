@@ -1,7 +1,9 @@
+.coversation-section
+  overflow-y: hidden
+
 .coversation-item-wrap
   overflow-y: scroll
-  height: 70vh
-  transition: display 4s
+  height: 75vh
 
 .coversation-item-wrap::-webkit-scrollbar
   display: none
@@ -23,7 +25,16 @@
 
 .coversation-toggle-btn
   display: none
-  width: 100%
+  width: 1%
+  height: 90vh
+  position: fixed
+  background: #2481ce
+  transition: width  1s
+
+.coversation-toggle-btn:hover
+  width: 4%
+  transition: width  1s
+  cursor: pointer
 
 @media (max-width: 850px)
   .coversation-toggle-btn

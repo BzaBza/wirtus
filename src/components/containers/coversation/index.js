@@ -19,9 +19,7 @@ class Coversation extends Component {
   render() {
     return (
      <section className="text-white coversation-section">
-       <button className="coversation-toggle-btn" onClick={this.coversationToggle}>
-         ->>
-       </button>
+       <div className="coversation-toggle-btn" onClick={this.coversationToggle}/>
          <div>
            <div className={`coversation-item-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
              {this.props.chatData.map((value, index) =>

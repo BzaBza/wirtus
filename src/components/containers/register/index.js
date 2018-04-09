@@ -6,6 +6,9 @@ import MdAccountCircle from 'react-icons/lib/md/account-circle';
 import MdCallEnd from 'react-icons/lib/md/call-end';
 import MdHttps from 'react-icons/lib/md/https';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
+import MdAddLocation from 'react-icons/lib/md/add-location';
+import GoFileText from 'react-icons/lib/go/file-text';
+import GoOrganization from 'react-icons/lib/go/organization';
 import Title from '../../dumb/title/index';
 
 
@@ -18,14 +21,13 @@ class Register extends Component {
         username: '',
         password: '',
         phone: '',
+        address: '',
+        organization: '',
+        description: '',
       },
       isSubmit: false,
     };
-
-    this.handelEmailChange = this.handelEmailChange.bind(this);
-    this.handelPasswordChange = this.handelPasswordChange.bind(this);
-    this.handelNumberChange = this.handelNumberChange.bind(this);
-    this.handelLoginChange = this.handelLoginChange.bind(this);
+    this.handelChange = this.handelChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -36,8 +38,11 @@ class Register extends Component {
     this.password.value = '';
     this.phone.value = '';
     this.email.value = '';
+    this.address.value = '';
+    this.organization.value = '';
+    this.description.value = '';
 
-    axios.post('http://aelmod.sytes.net:8080/users',
+    axios.post('api/users/register',
      JSON.stringify(this.state.userData),
      {
        headers: {
@@ -45,28 +50,24 @@ class Register extends Component {
        }
      }
     )
-     .then(function (response) {
+     .then(function () {
        this.setState({isSubmit: true})
      })
-     .catch(function (error) {
-       console.log(error);
-     })
+     .catch(console.log)
   }
 
-  handelEmailChange(event) {
-    this.setState({email: this.email.value});
-  }
-
-  handelPasswordChange(event) {
-    this.setState({password: this.password.value});
-  }
-
-  handelNumberChange(event) {
-    this.setState({phone: this.phone.value});
-  }
-
-  handelLoginChange(event) {
-    this.setState({username: this.login.value});
+  handelChange(event) {
+    this.setState({
+      userData: {
+        email: this.email.value,
+        username: this.login.value,
+        password: this.password.value,
+        phone: this.phone.value,
+        address: this.address.value,
+        organization: this.organization.value,
+        description: this.description.value
+      }
+    });
   }
 
 
@@ -85,7 +86,7 @@ class Register extends Component {
                 ref={(input => {
                   this.login = input
                 })}
-                onChange={this.handelLoginChange}
+                onChange={this.handelChange}
                 className="authentication-input"
                />
              </div>
@@ -97,7 +98,7 @@ class Register extends Component {
                 ref={(input => {
                   this.email = input
                 })}
-                onChange={this.handelEmailChange}
+                onChange={this.handelChange}
                 className="authentication-input"
                />
              </div>
@@ -109,7 +110,7 @@ class Register extends Component {
                 ref={(input => {
                   this.password = input
                 })}
-                onChange={this.handelPasswordChange}
+                onChange={this.handelChange}
                 className="authentication-input"
                />
              </div>
@@ -121,8 +122,43 @@ class Register extends Component {
                 ref={(input => {
                   this.phone = input
                 })}
-                onChange={this.handelNumberChange}
+                onChange={this.handelChange}
                 className="authentication-input"
+               />
+             </div>
+             <div className="d-flex inputs">
+               <MdAddLocation className="authentication-icon"/>
+               <input
+                type='text'
+                placeholder="Address"
+                ref={(input => {
+                  this.address = input
+                })}
+                onChange={this.handelChange}
+                className="authentication-input"
+               />
+             </div>
+             <div className="d-flex inputs">
+               <GoOrganization className="authentication-icon"/>
+               <input
+                type='text'
+                placeholder="Organization"
+                ref={(input => {
+                  this.organization = input
+                })}
+                onChange={this.handelChange}
+                className="authentication-input"
+               />
+             </div>
+             <div className="d-flex inputs">
+               <GoFileText className="authentication-icon"/>
+               <textarea
+                placeholder="Description "
+                ref={(textarea => {
+                  this.description = textarea
+                })}
+                onChange={this.handelChange}
+                className="description"
                />
              </div>
              <button type="submit"
