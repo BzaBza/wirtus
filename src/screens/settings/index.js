@@ -61,9 +61,9 @@ class Settings extends Component {
       userData: {
         email: this.email.value,
         password: this.password.value,
-        newPpassword: this.newPpassword.value,
+        newPpassword: this.newPassword.value,
         newPhone: this.newPhone.newPhone,
-        address: this.address.value,
+        newAddress: this.newAddress.value,
         newOrganization: this.newOrganization.value,
         newDescription: this.newDescription.value
       }
@@ -89,7 +89,7 @@ class Settings extends Component {
               className="setting-input"
              />
            </div>
-           <div className="d-flex">
+           <div className="d-flex align-items-center setting-input-pass-wrap">
              <MdHttps className="authentication-icon"/>
              <div>
                <input
@@ -99,7 +99,7 @@ class Settings extends Component {
                   this.password = input
                 })}
                 onChange={this.handelChange}
-                className="setting-input"
+                className="setting-input-pass"
                />
                <input
                 type='password'
@@ -108,7 +108,7 @@ class Settings extends Component {
                   this.newPassword = input
                 })}
                 onChange={this.handelChange}
-                className="setting-input"
+                className="setting-input-pass"
                />
              </div>
            </div>
@@ -156,7 +156,7 @@ class Settings extends Component {
                 this.newDescription = textarea
               })}
               onChange={this.handelChange}
-              className="description"
+              className="setting-description"
              />
            </div>
            <button type="submit"
