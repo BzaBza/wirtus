@@ -39,15 +39,15 @@ class TrendingTable extends Component {
 
   render() {
     let lostHeader = [
-      {text: 'Campaing', className: 'col-md-3', id: 1},
-      {text: 'Time', className: 'col-md-1', id: 2},
-      {text: 'Views', className: 'col-md-1', id: 3},
-      {text: 'Visitors', className: 'col-md-1', id: 4},
-      {text: 'CTR', className: 'col-md-1', id: 5},
-      {text: 'CPC', className: 'col-md-1', id: 6},
-      {text: 'CPV', className: 'col-md-1', id: 7},
-      {text: 'CPM', className: 'col-md-1', id: 8},
-      {text: 'Status', className: 'col-md-2', id: 9}
+      {text: 'Campaing', className: 'col-lg-3', id: 1},
+      {text: 'Time', className: 'col-lg-1', id: 2},
+      {text: 'Views', className: 'col-lg-1', id: 3},
+      {text: 'Visitors', className: 'col-lg-1', id: 4},
+      {text: 'CTR', className: 'col-lg-1', id: 5},
+      {text: 'CPC', className: 'col-lg-1', id: 6},
+      {text: 'CPV', className: 'col-lg-1', id: 7},
+      {text: 'CPM', className: 'col-lg-1', id: 8},
+      {text: 'Status', className: 'col-lg-2', id: 9}
     ];
     return (
      <div className="trending-list-wrap">
@@ -63,15 +63,15 @@ class TrendingTable extends Component {
          </li>
          {this.state.trendingData.map((value, index) => <li key={index}
                                                             className="d-flex justify-content-between align-items-center  flex-wrap text-white trending-table-row">
-           <div className="d-flex col-md-3">
+           <div className="d-flex col-lg-3">
              <div className="trending-table-side-description">Campaing</div>
              <div>{value.Campaing}</div>
            </div>
-           <div className="d-flex col-md-1 ">
+           <div className="d-flex col-lg-1 ">
              <div className="trending-table-side-description">Time</div>
              <div>{value.Time}</div>
            </div>
-           <div className="col-md-1 d-flex">
+           <div className="col-lg-1 d-flex">
              <div className="trending-table-side-description">Views</div>
              <div>
                {
@@ -81,7 +81,7 @@ class TrendingTable extends Component {
                }
              </div>
            </div>
-           <div className="col-md-1 d-flex">
+           <div className="col-lg-1 d-flex">
              <div className="trending-table-side-description">Visitors</div>
              <div>
                {
@@ -91,23 +91,23 @@ class TrendingTable extends Component {
                }
              </div>
            </div>
-           <div className="col-md-1 d-flex">
+           <div className="col-lg-1 d-flex">
              <div className="trending-table-side-description">CTR</div>
              <div>{value.CTR}</div>
            </div>
-           <div className="col-md-1 d-flex">
+           <div className="col-lg-1 d-flex">
              <div className="trending-table-side-description">CPC</div>
              <div>{value.CPC}</div>
            </div>
-           <div className="col-md-1 d-flex">
+           <div className="col-lg-1 d-flex">
              <div className="trending-table-side-description">CPV</div>
              <div>{value.CPV}</div>
            </div>
-           <div className="col-md-1 d-flex">
+           <div className="col-lg-1 d-flex">
              <div className="trending-table-side-description">CPM</div>
              <div>{value.CPM}</div>
            </div>
-           <div className="col-md-2 d-flex">
+           <div className="col-lg-2 d-flex">
              <div className="trending-table-side-description">Status</div>
              <div className="d-flex align-items-center">
                <div className={value.Status === 'Active' ? 'is-active' : 'is-unActive'}/>

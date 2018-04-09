@@ -24,7 +24,7 @@ class AllProjects extends Component {
       projectContainer.push(
        this.state.projectsData[project].filter(item => item.company.includes(this.props.filter)).map((value, index) =>
         <li key={index} className="d-flex justify-content-between align-items-center  flex-wrap project-row">
-          <div className="d-flex col-md-2 project-table projects-name-block "
+          <div className="d-flex col-lg-2 project-table projects-name-block "
                style={{
                  borderColor:
                   project === 'Quened' ? '#e1e2e7' :
@@ -40,38 +40,38 @@ class AllProjects extends Component {
               <div className="gray">{value.company}</div>
             </div>
           </div>
-          <div className="col-md-1 project-table">
+          <div className="col-lg-1 project-table">
             <div
              className='align-items-center d-flex'>
               ${value.price}
             </div>
           </div>
-          <div className="col-md-1 project-table">
+          <div className="col-lg-1 project-table">
             <div>
               {value.deadline}
             </div>
           </div>
-          <div className="col-md-1 project-table">
+          <div className="col-lg-1 project-table">
             <div>
               {value.timeSpent}
             </div>
           </div>
-          <div className="col-md-2 project-table">
+          <div className="col-lg-2 project-table">
             <div className="progress-bar-container d-flex justify-content-start">
               <ProgressBar progressData={project}/>
             </div>
           </div>
-          <div className="col-md-1 project-table">
+          <div className="col-lg-1 project-table">
             <div>
               {project}
             </div>
           </div>
-          <div className="col-md-3 project-table justify-content-around">
+          <div className="col-lg-3 project-table justify-content-around">
             <div className="d-flex align-items-center">
               <div>
                 <img src={value.url} alt="developer"/>
               </div>
-              <div className="col-md-10 all-projects-user-info">
+              <div className="col-lg-10 all-projects-user-info">
                 <div>
                   {value.devName}
                 </div>
@@ -90,13 +90,13 @@ class AllProjects extends Component {
      <section className="text-white">
        <ul className="tasks-list">
          <li className="d-flex gray projects-title justify-content-between">
-           <div className="col-md-2">Project title</div>
-           <div className="col-md-1">Value</div>
-           <div className="col-md-1">Deadline</div>
-           <div className="col-md-1">Time spent</div>
-           <div className="col-md-2">Progress</div>
-           <div className="col-md-1">Status</div>
-           <div className="col-md-3"><div className="col-md-5 text-right">Assigned to</div></div>
+           <div className="col-lg-2">Project title</div>
+           <div className="col-lg-1">Value</div>
+           <div className="col-lg-1">Deadline</div>
+           <div className="col-lg-1">Time spent</div>
+           <div className="col-lg-2">Progress</div>
+           <div className="col-lg-1">Status</div>
+           <div className="col-lg-3"><div className="col-lg-5 text-right">Assigned to</div></div>
          </li>
          {projectContainer}
        </ul>
