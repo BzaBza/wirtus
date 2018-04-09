@@ -37,9 +37,9 @@ class DropdownSideBtn extends Component {
 
   render () {
     return (
-     <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="side-drop-btn">
+     <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="side-drop">
        <DropdownToggle caret={true} className={`${this.props.text}
-       button btn btn-primary bg-transparent justify-content-between d-flex align-items-center side-drop-btn  border-white`}>
+       button btn btn-primary bg-transparent justify-content-between d-flex align-items-center side-drop-btn side-drop-btn`}>
          {this.state.currentData}
        </DropdownToggle>
        <DropdownMenu>

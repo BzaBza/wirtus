@@ -6,7 +6,6 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: 'active-home',
       menus: [
         {linkName: 'Home', path: '/home', id: '1'},
         {linkName: 'Menu', path: '/Menu', id: '2'},
@@ -15,15 +14,6 @@ class Navigation extends React.Component {
         {linkName: 'Users', path: '/Users', id: '5'},
       ]
     };
-    this.toggleActive = this.toggleActive.bind(this);
-  }
-
-  toggleActive(tab) {
-    if (this.state.isActive !== tab) {
-      this.setState({
-        isActive: tab,
-      });
-    }
   }
 
   render() {

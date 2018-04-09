@@ -70,8 +70,8 @@ class Menu extends Component {
              </NavLink>
            </NavItem>
          </Nav>
-         <div className="d-flex align-items-center justify-content-between drop-side-wrap">
-           <div className="text-white container drop-description">Show projects:</div>
+         <div className="d-flex align-items-center justify-content-end drop-side-wrap">
+           <div className="text-white drop-description">Show projects:</div>
            <DropdownSideBtn filterData={this.filterData} currentData='All'
                             data={['All', 'Microsoft', 'Google', 'Symu.co', 'JCD.pl', 'Facebook', 'Themeforest']}/>
          </div>

@@ -65,7 +65,7 @@ class Message extends Component {
            </NavItem>
          </Nav>
          <div className="d-flex align-items-center justify-content-between drop-side-wrap">
-           <div className="text-white container drop-description">Filter messages:</div>
+           <div className="text-white drop-btn-description drop-description">Filter messages:</div>
            <DropdownSideBtn filterData={this.filterData} currentData='All'
                             data={['date']}/>
          </div>

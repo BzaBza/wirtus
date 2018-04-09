@@ -5,7 +5,7 @@ class NavItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: 'active-home',
+      isActive: '',
     };
     this.toggleActive = this.toggleActive.bind(this);
   }

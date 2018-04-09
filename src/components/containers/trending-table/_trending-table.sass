@@ -35,6 +35,10 @@
   height: 14px
   background-color: #f44336
 
+.trending-table-side-description
+  color: #2196f3
+  display: none
+
 @media (max-width: 1180px)
   .trending-table-row
     div
@@ -42,12 +46,14 @@
 
 
 @media (max-width: 768px)
+  .trending-table-side-description
+   display: block
   .trending-list
     div
-      justify-content: center
+      justify-content: space-between
   .trending-table-row
     div
-      justify-content: center
+      justify-content: space-between
       text-align: center
   .trending-row
     display: none!important

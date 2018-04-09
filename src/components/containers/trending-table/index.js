@@ -64,12 +64,15 @@ class TrendingTable extends Component {
          {this.state.trendingData.map((value, index) => <li key={index}
                                                             className="d-flex justify-content-between align-items-center  flex-wrap text-white trending-table-row">
            <div className="d-flex col-md-3">
+             <div className="trending-table-side-description">Campaing</div>
              <div>{value.Campaing}</div>
            </div>
-           <div className="d-flex col-md-1">
+           <div className="d-flex col-md-1 ">
+             <div className="trending-table-side-description">Time</div>
              <div>{value.Time}</div>
            </div>
-           <div className="col-md-1">
+           <div className="col-md-1 d-flex">
+             <div className="trending-table-side-description">Views</div>
              <div>
                {
                  Number(value.Views).toFixed(0).replace(/./g, function (c, i, a) {
@@ -78,7 +81,8 @@ class TrendingTable extends Component {
                }
              </div>
            </div>
-           <div className="col-md-1">
+           <div className="col-md-1 d-flex">
+             <div className="trending-table-side-description">Visitors</div>
              <div>
                {
                  Number(value.Visitors).toFixed(0).replace(/./g, function (c, i, a) {
@@ -87,19 +91,24 @@ class TrendingTable extends Component {
                }
              </div>
            </div>
-           <div className="col-md-1">
+           <div className="col-md-1 d-flex">
+             <div className="trending-table-side-description">CTR</div>
              <div>{value.CTR}</div>
            </div>
-           <div className="col-md-1">
+           <div className="col-md-1 d-flex">
+             <div className="trending-table-side-description">CPC</div>
              <div>{value.CPC}</div>
            </div>
-           <div className="col-md-1">
+           <div className="col-md-1 d-flex">
+             <div className="trending-table-side-description">CPV</div>
              <div>{value.CPV}</div>
            </div>
-           <div className="col-md-1">
+           <div className="col-md-1 d-flex">
+             <div className="trending-table-side-description">CPM</div>
              <div>{value.CPM}</div>
            </div>
-           <div className="col-md-2">
+           <div className="col-md-2 d-flex">
+             <div className="trending-table-side-description">Status</div>
              <div className="d-flex align-items-center">
                <div className={value.Status === 'Active' ? 'is-active' : 'is-unActive'}/>
                <div>{value.Status}</div>

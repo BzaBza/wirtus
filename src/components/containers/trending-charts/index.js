@@ -70,7 +70,7 @@ class TrendingCharts extends Component {
              </div>
            </div>
            <div className="d-flex align-items-center justify-content-between trending-filter-drop">
-             <div className="container gray">Show:</div>
+             <div className="gray drop-btn-description">Show:</div>
              <DropdownSideBtn text={'gray'} filterData={this.filterPeriodData} currentData='Week'
                               data={['Week', 'Month']}/>
            </div>
