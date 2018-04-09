@@ -4,6 +4,7 @@ import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 import {connect} from "react-redux";
 import {getChatData} from "../../redux/actions/chatAct";
 import Coversation from "../../components/containers/coversation";
+import MessageContent from "../../components/containers/message-content";
 
 class Message extends Component {
   constructor(props) {
@@ -66,13 +67,19 @@ class Message extends Component {
          <div className="d-flex align-items-center justify-content-between drop-side-wrap">
            <div className="text-white container drop-description">Filter messages:</div>
            <DropdownSideBtn filterData={this.filterData} currentData='All'
-                            data={['All', 'Microsoft', 'Google', 'Symu.co', 'JCD.pl', 'Facebook', 'Themeforest']}/>
+                            data={['date']}/>
          </div>
        </header>
        <div className="content-wrap d-flex message-content">
           <div className="col-3 message-content-coversation">
             <Coversation chatData={this.props.chatData}/>
           </div>
+         <div className="col-6 text-white">
+           <MessageContent chatData={this.props.chatData}/>
+         </div>
+         <div className="col-3 text-white">
+           USER DATA
+         </div>
        </div>
      </section>
     );

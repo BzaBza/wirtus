@@ -18,7 +18,7 @@ class Coversation extends Component {
 
   render() {
     return (
-     <section className="text-white">
+     <section className="text-white coversation-section">
        <button className="coversation-toggle-btn" onClick={this.coversationToggle}>
          ->>
        </button>
@@ -29,7 +29,7 @@ class Coversation extends Component {
              )}
            </div>
          </div>
-       <div className={`coversation-wrap-btn ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
+       <div className={`coversation-wrap-btn ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-flex'}`}>
          <button className="col-md-10 btn-primary coversation-btn">+ New <span className="coversation-btn-cov">coversation</span></button>
        </div>
      </section>
