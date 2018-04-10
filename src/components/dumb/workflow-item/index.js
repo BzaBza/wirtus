@@ -10,7 +10,6 @@ class WorkflowItem extends Component {
     this.state = {
       isOptionsOpen: false,
     };
-
     this.onOptionsOpen = this.onOptionsOpen.bind(this);
   }
 
@@ -36,7 +35,7 @@ class WorkflowItem extends Component {
          </div>
        </div>
        <div className="dropButton">
-         <DropPeriod value={this.props.projects}/>
+         <DropPeriod value={this.props.projects} moveItem={this.props.moveItem} id={this.props.id} from={this.props.from}/>
        </div>
      </div>
     );

@@ -37,6 +37,7 @@ class Workflow extends Component {
     });
   }
 
+
   viewsData(project) {
     return this.state.projects[project].filter(item => item.company.includes(this.props.filter)).length > 0
      ? this.state.projects[project].filter(item => item.company.includes(this.props.filter)).reduce(function (acc, obj) {
@@ -82,12 +83,14 @@ class Workflow extends Component {
                      {...provided.dragHandleProps}
                     >
                       <WorkflowItem
+                       from={project}
                        projects={this.state.projects}
                        task={item.task}
                        company={item.company}
                        price={item.price}
-                       key={item.id}
+                       id={item.id}
                        url={item.url}
+                       moveItem={this.props.moveItem}
                       />
                     </div>
                     {provided.placeholder}

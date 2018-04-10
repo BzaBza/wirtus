@@ -7,15 +7,24 @@ import Workflow from "../../components/containers/workflow";
 import {getMenuData} from '../../redux/actions/menuAct';
 import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 
+
 class Menu extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       currentTab: 'AllProjects',
+      menuData: props.menuData
     };
     this.filterData = this.filterData.bind(this);
+    this.itemCounter = this.itemCounter.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
+    this.moveItem = this.moveItem.bind(this);
+  }
+
+
+  componentWillMount() {
+    this.props.onGetMenuData()
   }
 
   toggleTab(tab) {
@@ -26,13 +35,18 @@ class Menu extends Component {
     }
   }
 
-  componentWillMount() {
-    this.props.onGetMenuData()
+  componentWillReceiveProps() {
+    this.setState((initialState, props) => (
+     {
+       menuData: props.menuData
+     }
+    ));
   }
 
   filterData(currentCompany) {
     this.props.onFilterMenuData(currentCompany)
   }
+
 
   itemCounter() {
     let counter = [];
@@ -42,6 +56,21 @@ class Menu extends Component {
     return counter
   }
 
+  moveItem(to, id, from) {
+    console.log(to, id, from);
+    const projects = this.props.menuData;
+
+    const [removed] = projects[from].splice(from, 1);
+    if (from === 'completed' && to !== 'completed') {
+      removed.status = to;
+    }
+    if (to === 'completed') removed.status = 'completed';
+    projects[to].splice(to, 0, removed);
+
+    this.setState({
+      menuData: projects
+    });
+  }
 
   render() {
     return (
@@ -82,10 +111,10 @@ class Menu extends Component {
        </header>
        <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
          <TabPane tabId="AllProjects">
-           <AllProjects projects={this.props.menuData} filter={this.props.filter}/>
+           <AllProjects projects={this.state.menuData} filter={this.props.filter}/>
          </TabPane>
          <TabPane tabId="Workflow">
-           <Workflow projects={this.props.menuData} filter={this.props.filter}/>
+           <Workflow projects={this.state.menuData} filter={this.props.filter} moveItem={this.moveItem}/>
          </TabPane>
        </TabContent>
      </section>
