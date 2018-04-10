@@ -81,7 +81,7 @@ class AllProjects extends Component {
               </div>
             </div>
             <div className="users-table justify-content-center d-flex">
-              <DropPeriod value={this.state.projectsData}/>
+              <DropPeriod value={this.state.projectsData} moveItem={this.props.moveItem} id={value.id} from={project}/>
             </div>
           </div>
         </li>))

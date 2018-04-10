@@ -111,7 +111,7 @@ class Menu extends Component {
        </header>
        <TabContent activeTab={this.state.currentTab} className="col-12 content-wrap">
          <TabPane tabId="AllProjects">
-           <AllProjects projects={this.state.menuData} filter={this.props.filter}/>
+           <AllProjects projects={this.state.menuData} filter={this.props.filter} moveItem={this.moveItem}/>
          </TabPane>
          <TabPane tabId="Workflow">
            <Workflow projects={this.state.menuData} filter={this.props.filter} moveItem={this.moveItem}/>
