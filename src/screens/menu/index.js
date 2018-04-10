@@ -34,12 +34,16 @@ class Menu extends Component {
     this.props.onFilterMenuData(currentCompany)
   }
 
-
-  render() {
+  itemCounter() {
     let counter = [];
     for (let project in this.props.menuData) {
       counter.push(this.props.menuData[project].filter(item => item.company.includes(this.props.filter)).length);
     }
+    return counter
+  }
+
+
+  render() {
     return (
      <section className="d-flex justify-content-center menu-section flex-wrap containers">
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
@@ -53,7 +57,7 @@ class Menu extends Component {
              }}>
                <span className="menu-links">All Projects</span>
                ({
-               counter.length > 0 ? counter.reduce(function (acc, item) {
+               this.itemCounter().length > 0 ? this.itemCounter().reduce(function (acc, item) {
                  return acc + item;
                }, 0) : 0
              })
