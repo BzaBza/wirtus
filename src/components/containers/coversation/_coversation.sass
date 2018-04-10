@@ -1,47 +1,60 @@
 .coversation-section
-  overflow-y: hidden
+  overflow: hidden
+  position: relative
 
 .coversation-item-wrap
   overflow-y: scroll
-  height: 75vh
+  height: 73vh
 
 .coversation-item-wrap::-webkit-scrollbar
   display: none
 
 .coversation-wrap-btn
-  position: fixed
-  bottom: 0
+  width: 23.59%
   border-top: 1px solid rgba(77, 80, 95, 0.3)
   padding: 1em 1em 1em 1em
-  width: 24%
   background-color: #2b2d3c
   display: flex
   justify-content: center
+  position: fixed
+  bottom: 0
 
 .coversation-btn
-  text-overflow: ellipsis
   padding: .5em 0
   border: none
 
 .coversation-toggle-btn
   display: none
   width: 1%
-  height: 90vh
+  height: 20vh
   position: fixed
+  top: 45%
   background: #2481ce
-  transition: width  1s
+  transition: width  1s, border-radius .5s
+  border-top-right-radius: 100%
+  border-bottom-right-radius: 100%
 
 .coversation-toggle-btn:hover
   width: 4%
-  transition: width  1s
+  transition: width  1s, border-radius .5s
   cursor: pointer
+  border-top-right-radius: 50%
+  border-bottom-right-radius: 50%
+
+@media (max-width: 1400px)
+  .coversation-wrap-btn
+    width: 23%
 
 @media (max-width: 850px)
   .coversation-toggle-btn
     display: block
   .coversation-hidden
     display: none
+  .coversation-wrap-btn
+    width: 22.5%
 
 @media (max-width: 550px)
   .coversation-btn-cov
     display: none
+  .coversation-wrap-btn
+    width: 19%

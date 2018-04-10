@@ -9,11 +9,11 @@ import {getTrendingData} from '../../redux/actions/trendingAct';
 class Trending extends Component {
   render() {
     let chartCustomHeight;
-    window.screen.width <= 1500 ? chartCustomHeight = 400 : chartCustomHeight = 600;
+    window.screen.width <= 1500 ? chartCustomHeight = 600 : window.screen.width <= 1200 ? chartCustomHeight = 400 : chartCustomHeight = 620;
     return (
      <section className="containers trending-section">
        <TrendingCharts chartCustomHeight={chartCustomHeight}/>
-       <TrendingTable trendingData={this.props.trendingData} onGetTrendingData={this.props.onGetTrendingData()} />
+       <TrendingTable trendingData={this.props.trendingData} onGetTrendingData={this.props.onGetTrendingData()}/>
      </section>
     );
   }
