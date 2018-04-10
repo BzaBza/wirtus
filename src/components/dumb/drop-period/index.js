@@ -35,7 +35,7 @@ export default class DropPeriod extends Component {
        <DropdownToggle size="sm" className="bg-transparent gray border-0">
          <FaEllipsisV/>
        </DropdownToggle>
-       <DropdownMenu>
+       <DropdownMenu right={true}>
          {value}
        </DropdownMenu>
      </ButtonDropdown>

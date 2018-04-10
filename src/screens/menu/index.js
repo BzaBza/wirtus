@@ -57,7 +57,6 @@ class Menu extends Component {
   }
 
   moveItem(to, id, from) {
-    console.log(to, id, from);
     const projects = this.props.menuData;
 
     const [removed] = projects[from].splice(from, 1);
