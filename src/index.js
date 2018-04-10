@@ -18,7 +18,6 @@ WebFont.load({
   }
 });
 
-
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(

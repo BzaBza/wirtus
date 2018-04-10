@@ -3,7 +3,8 @@ import React from 'react';
 import FaSearch from 'react-icons/lib/fa/search';
 import TiBell from 'react-icons/lib/ti/bell';
 import UserMenu from '../../dumb/user-menu/index';
-import Logo from "../../dumb/logo/index";
+import Logo from "../../dumb/logo";
+import Search from "../../dumb/search";
 import ButtonAdd from "../../dumb/main-header-add-btn";
 
 class MainHeader extends React.Component {
@@ -33,7 +34,9 @@ class MainHeader extends React.Component {
              <button type="button" className="drop-menu text-white" onClick={this.handleSearchClick}>
                <FaSearch className="icon"/>
              </button>
-             <input type="text" className={this.state.searchToggle ? 'hide' : ''}/>
+             <div className={this.state.searchToggle ? 'hide' : ''}>
+               <Search/>
+             </div>
            </li>
            <li>
              <button type="button" className="drop-menu text-white">
