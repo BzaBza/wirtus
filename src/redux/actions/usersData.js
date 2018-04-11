@@ -1,6 +1,6 @@
 var mocUsersData = [
   {
-    userName: 'Lyall Roach',
+    userName: 'Dron Roach',
     position: 'UX/UI Designer',
     adress: '65 Lorem St, Warsaw, PL',
     active: true,

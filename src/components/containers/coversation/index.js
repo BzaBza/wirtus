@@ -18,7 +18,7 @@ class Coversation extends Component {
 
   render() {
     return (
-     <section className="text-white coversation-section d-flex">
+     <aside className="text-white coversation-section d-flex">
         <div className="coversation-wrap">
           <div className={`coversation-item-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
             {this.props.chatData.map((value, index) =>
@@ -30,7 +30,7 @@ class Coversation extends Component {
           <button className="col-md-10 btn-primary coversation-btn">+ New <span className="coversation-btn-cov">coversation</span></button>
         </div>
        <div className="coversation-toggle-btn" onClick={this.coversationToggle}/>
-     </section>
+     </aside>
     );
   }
 }

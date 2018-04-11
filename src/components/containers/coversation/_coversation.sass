@@ -10,7 +10,7 @@
   display: none
 
 .coversation-wrap-btn
-  width: 23.59%
+  width: 425px
   border-top: 1px solid rgba(77, 80, 95, 0.3)
   padding: 1em 1em 1em 1em
   background-color: #2b2d3c
@@ -33,6 +33,7 @@
   transition: width  1s, border-radius .5s
   border-top-right-radius: 100%
   border-bottom-right-radius: 100%
+  z-index: 999999
 
 .coversation-toggle-btn:hover
   width: 4%
@@ -41,9 +42,13 @@
   border-top-right-radius: 50%
   border-bottom-right-radius: 50%
 
-@media (max-width: 1400px)
+@media (max-width: 1100px)
   .coversation-wrap-btn
-    width: 23%
+    width: 400px
+
+@media (max-width: 880px)
+  .coversation-wrap-btn
+    width: 45%
 
 @media (max-width: 850px)
   .coversation-toggle-btn
@@ -51,10 +56,15 @@
   .coversation-hidden
     display: none
   .coversation-wrap-btn
-    width: 22.5%
+    width: 44%
+
 
 @media (max-width: 550px)
   .coversation-btn-cov
     display: none
   .coversation-wrap-btn
-    width: 19%
+    width: 125px
+
+@media (max-width: 450px)
+  .coversation-wrap-btn
+    width: 110px

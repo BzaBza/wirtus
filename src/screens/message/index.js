@@ -4,9 +4,11 @@ import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 import {connect} from "react-redux";
 import Coversation from "../../components/containers/coversation";
 import MessageContent from "../../components/containers/message-content";
+import MessageUserData from "../../components/containers/message-user-data";
 import SockJsClient from 'react-stomp';
 import {getChatData} from "../../redux/actions/chatAct";
 import {getNewMessageData} from "../../redux/actions/fetchNewMessage";
+import {getUsersData} from "../../redux/actions/usersData";
 
 
 class Message extends Component {
@@ -20,7 +22,8 @@ class Message extends Component {
   }
 
   componentWillMount(){
-    this.props.onGetChatData()
+    this.props.onGetChatData();
+    this.props.onGetUsersData();
   }
 
   toggleTab(tab) {
@@ -82,14 +85,14 @@ class Message extends Component {
          </div>
        </header>
        <div className="content-wrap d-flex message-content">
-          <div className="col-3 message-content-coversation">
+          <div className="message-content-coversation">
             <Coversation chatData={this.props.chatData}/>
           </div>
          <div className="col-6 text-white">
            <MessageContent chatData={this.props.chatData} clientRef={this.clientRef}/>
          </div>
-         <div className="col-3 text-white">
-           USER DATA
+         <div>
+           <MessageUserData userData={this.props.usersData}/>
          </div>
        </div>
      </section>
@@ -99,6 +102,7 @@ class Message extends Component {
 export default connect(
  state => ({
    chatData: state.chat,
+   usersData: state.users,
  }),
  dispatch => ({
    onGetChatData: () => {
@@ -106,5 +110,8 @@ export default connect(
    },
    onGetNewMessageData: (msg) => {
      dispatch(getNewMessageData(msg));
+   },
+   onGetUsersData: () => {
+     dispatch(getUsersData());
    },
  }))(Message);
