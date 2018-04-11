@@ -11,9 +11,9 @@ class MessageContentItem extends Component {
 
   render() {
     return (
-       <ul>
-         {}
-       </ul>
+       <div>
+         {this.props.messageData.content}
+       </div>
     );
   }
 }

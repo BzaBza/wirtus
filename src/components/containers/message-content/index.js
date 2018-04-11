@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import SockJsClient from 'react-stomp';
+import MessageContentItem from "../../dumb/message-content-item";
 
 class MessageContent extends Component {
   constructor(props) {
@@ -25,22 +25,23 @@ class MessageContent extends Component {
        </div>
        <div>
          <ul>
-           <h1>MESSAGE</h1>
+           {this.props.chatData.map((value, index) =>
+            <li key={index}>
+              <MessageContentItem messageData={value}/>
+            </li>
+           )}
          </ul>
        </div>
-       <div>
+       <div className="send-message-form-wrap">
          <form onSubmit={this.addMessage}>
-           <input
-            type='text'
-            placeholder="Add message"
+           <textarea
+            placeholder="Write a message"
             ref={(input => {
               this.message = input
             })}
+            className="send-message-input"
            />
-           <button type="submit"
-                   className="btn btn-primary authentication-button bg-transparent text-dark">
-             Enter
-           </button>
+           <button type="submit" className="send-message-btn"/>
          </form>
        </div>
      </section>

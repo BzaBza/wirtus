@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import axios from "axios/index";
 
 import TiAt from 'react-icons/lib/ti/at';
-import MdAccountCircle from 'react-icons/lib/md/account-circle';
 import MdCallEnd from 'react-icons/lib/md/call-end';
 import MdHttps from 'react-icons/lib/md/https';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
