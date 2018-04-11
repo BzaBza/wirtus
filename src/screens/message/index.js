@@ -2,9 +2,12 @@ import React, {Component} from 'react';
 import {NavItem, Nav, NavLink} from 'reactstrap';
 import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 import {connect} from "react-redux";
-import {getChatData} from "../../redux/actions/chatAct";
 import Coversation from "../../components/containers/coversation";
 import MessageContent from "../../components/containers/message-content";
+import SockJsClient from 'react-stomp';
+import {getChatData} from "../../redux/actions/chatAct";
+import {getNewMessageData} from "../../redux/actions/fetchNewMessage";
+
 
 class Message extends Component {
   constructor(props) {
@@ -31,6 +34,14 @@ class Message extends Component {
   render() {
     return (
      <section className="message-section message-section d-flex justify-content-center flex-wrap containers">
+       <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/public']}
+                     onMessage={(msg) => {
+                       this.props.onGetNewMessageData(msg)
+                     }}
+                     ref={(client) => {
+                       this.clientRef = client
+                     }}
+       />
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
          <Nav tabs className="pointer side-header-nav align-items-center">
            <NavItem className={(this.state.currentTab === 'Inbox') ?
@@ -75,7 +86,7 @@ class Message extends Component {
             <Coversation chatData={this.props.chatData}/>
           </div>
          <div className="col-6 text-white">
-           <MessageContent chatData={this.props.chatData}/>
+           <MessageContent chatData={this.props.chatData} clientRef={this.clientRef}/>
          </div>
          <div className="col-3 text-white">
            USER DATA
@@ -92,5 +103,8 @@ export default connect(
  dispatch => ({
    onGetChatData: () => {
      dispatch(getChatData());
+   },
+   onGetNewMessageData: (msg) => {
+     dispatch(getNewMessageData(msg));
    },
  }))(Message);

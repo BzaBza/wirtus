@@ -1,122 +1,54 @@
 var mocChatData = [
   {
-    interlocutor: 'Michelle Stewart',
-    interlocutorMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:32 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:40 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:50 PM'
-      }
-    ],
-    userMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:41 PM'
-      }
-    ],
+    id: new Date(),
+    type: "CHAT",
+    content: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
+    date: '4 April 2016, 5:32 PM',
+    user: {
+      name: 'Michelle Stewart',
+      id: new Date(),
+    },
   },
   {
-    interlocutor: 'Michelle Stewart',
-    interlocutorMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2013, 22:32 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:40 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:50 PM'
-      }
-    ],
-    userMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:41 PM'
-      }
-    ],
+    id: new Date(),
+    type: "CHAT",
+    content: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
+    date: '4 April 2016, 5:32 PM',
+    user: {
+      name: 'Michelle Stewart',
+      id: new Date(),
+    },
   },
   {
-    interlocutor: 'Michelle Stewart',
-    interlocutorMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2011, 2:32 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:40 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:50 PM'
-      }
-    ],
-    userMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:41 PM'
-      }
-    ],
-
+    id: new Date(),
+    type: "CHAT",
+    content: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
+    date: '4 April 2016, 5:32 PM',
+    user: {
+      name: 'Michelle Stewart',
+      id: new Date(),
+    },
   },
   {
-    interlocutor: 'Michelle Stewart',
-    interlocutorMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2011, 2:32 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:40 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:50 PM'
-      }
-    ],
-    userMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:41 PM'
-      }
-    ],
-
+    id: new Date(),
+    type: "CHAT",
+    content: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
+    date: '4 April 2016, 5:32 PM',
+    user: {
+      name: 'Michelle Stewart',
+      id: new Date(),
+    },
   },
   {
-    interlocutor: 'Michelle Stewart',
-    interlocutorMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2011, 2:32 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:40 PM'
-      },
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:50 PM'
-      }
-    ],
-    userMessages: [
-      {
-        message: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-        date: '4 April 2016, 5:41 PM'
-      }
-    ],
-
-  }
+    id: new Date(),
+    type: "CHAT",
+    content: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
+    date: '4 April 2016, 5:32 PM',
+    user: {
+      name: 'Michelle Stewart',
+      id: new Date(),
+    },
+  },
 ];
 
 export const getChatData = () => dispatch => {

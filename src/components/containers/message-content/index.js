@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SockJsClient from 'react-stomp';
+// import SockJsClient from 'react-stomp';
 
 class MessageContent extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class MessageContent extends Component {
   }
 
   sendMessage(msg) {
-    this.clientRef.sendMessage('/app/chat.sendMessage', JSON.stringify({sender: "Username", content: msg, type: 'CHAT'}));
+    this.props.clientRef.sendMessage('/app/chat.sendMessage', JSON.stringify({sender: "Username", content: msg, type: 'CHAT'}));
   };
 
   addMessage(event) {
@@ -22,14 +22,6 @@ class MessageContent extends Component {
     return (
      <section className="text-white message-content-section">
        <div>
-         <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/public']}
-                       onMessage={(msg) => {
-                         console.log(msg);
-                       }}
-                       ref={(client) => {
-                         this.clientRef = client
-                       }}
-         />
        </div>
        <div>
          <ul>

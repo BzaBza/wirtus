@@ -11,15 +11,15 @@ class CoversationItem extends Component {
              <img src="#" alt="interlocutor"/>
            </div>
            <div className="interlocutor">
-             {this.props.coversationData.interlocutor}
+             {this.props.coversationData.user.name}
            </div>
          </div>
          <div className="last-date">
-           {this.props.coversationData.interlocutorMessages[0].date}
+           {this.props.coversationData.date}
          </div>
        </div>
        <div className="gray coversation-last-message">
-         {this.props.coversationData.interlocutorMessages[0].message}
+         {this.props.coversationData.content}
        </div>
      </div>
     );
