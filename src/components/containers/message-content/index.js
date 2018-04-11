@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MessageContentItem from "../../dumb/message-content-item";
+import {connect} from "react-redux";
 
 class MessageContent extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class MessageContent extends Component {
          </ul>
        </div>
        <div className="send-message-form-wrap">
-         <form onSubmit={this.addMessage}>
+         <form onSubmit={this.addMessage} className="send-message-form-">
            <textarea
             placeholder="Write a message"
             ref={(input => {
@@ -48,5 +49,7 @@ class MessageContent extends Component {
     );
   }
 }
-
-export default MessageContent;
+export default connect(
+ state => ({
+   clientRef: state.clientRef,
+ }))(MessageContent);

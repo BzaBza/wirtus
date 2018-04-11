@@ -58,7 +58,6 @@ class Login extends Component {
     this.setState({password: event.target.value});
   }
 
-
   handelLoginChange(event) {
     this.setState({username: event.target.value});
   }
@@ -103,4 +102,5 @@ class Login extends Component {
     );
   }
 }
+
 export default Login;

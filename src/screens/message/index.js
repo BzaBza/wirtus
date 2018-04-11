@@ -5,9 +5,7 @@ import {connect} from "react-redux";
 import Coversation from "../../components/containers/coversation";
 import MessageContent from "../../components/containers/message-content";
 import MessageUserData from "../../components/containers/message-user-data";
-import SockJsClient from 'react-stomp';
 import {getChatData} from "../../redux/actions/chatAct";
-import {getNewMessageData} from "../../redux/actions/fetchNewMessage";
 import {getUsersData} from "../../redux/actions/usersData";
 
 
@@ -26,6 +24,7 @@ class Message extends Component {
     this.props.onGetUsersData();
   }
 
+
   toggleTab(tab) {
     if (this.state.currentTab !== tab) {
       this.setState({
@@ -37,14 +36,6 @@ class Message extends Component {
   render() {
     return (
      <section className="message-section message-section d-flex justify-content-center flex-wrap containers">
-       <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/public']}
-                     onMessage={(msg) => {
-                       this.props.onGetNewMessageData(msg)
-                     }}
-                     ref={(client) => {
-                       this.clientRef = client
-                     }}
-       />
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
          <Nav tabs className="pointer side-header-nav align-items-center">
            <NavItem className={(this.state.currentTab === 'Inbox') ?
@@ -84,14 +75,14 @@ class Message extends Component {
                             data={['date']}/>
          </div>
        </header>
-       <div className="content-wrap d-flex message-content">
+       <div className="content-wrap d-flex message-content justify-content-between">
           <div className="message-content-coversation">
             <Coversation chatData={this.props.chatData}/>
           </div>
-         <div className="col-6 text-white">
-           <MessageContent chatData={this.props.chatData} clientRef={this.clientRef}/>
+         <div className="col-md-6 text-white">
+           <MessageContent chatData={this.props.chatData}/>
          </div>
-         <div>
+         <div className="message-wrap">
            <MessageUserData userData={this.props.usersData}/>
          </div>
        </div>
@@ -107,9 +98,6 @@ export default connect(
  dispatch => ({
    onGetChatData: () => {
      dispatch(getChatData());
-   },
-   onGetNewMessageData: (msg) => {
-     dispatch(getNewMessageData(msg));
    },
    onGetUsersData: () => {
      dispatch(getUsersData());

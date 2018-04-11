@@ -12,8 +12,8 @@ class MessageUserData extends Component {
 
   render() {
     return (
-     <aside className="text-white message-user-data">
-       <ul className="message-user-data-list">
+     <aside>
+       <ul className="message-user-data-list text-white">
          {this.props.userData.filter(item => item.userName.includes('Dron Roach')).map((value, index) =>
          <li key={index}>
            <MessageUserDataItem user={value}/>

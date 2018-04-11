@@ -3,9 +3,14 @@
   list-style: none
   background-color: #2b2d3c
   box-shadow: 0 3px 80px rgba(23, 24, 32, 0.3)
-  height: 83vh
-  position: fixed
-  bottom: 0
-  right: 0
-  width: 25%
+  height: 100%
   margin: 0
+  overflow-y: scroll
+  width: 300px
+
+.message-user-data-list::-webkit-scrollbar
+  display: none
+
+@media (max-width: 1236px)
+  .message-user-data-list
+    display: none
