@@ -19,8 +19,7 @@ class App extends Component {
     return (
      <Router history={customHistory}>
        <div className="d-flex">
-         <Route exact path='/' render={(routeProps) => <Sign routeProps={routeProps}
-                                                             setUserData={this.setUserData}/>}/>
+         <Route exact path='/' render={(routeProps) => <Sign routeProps={routeProps}/>}/>
          <Route strict path='/:page' render={(routeProps) => <Navigation routeProps={routeProps}/>}/>
          <Route strict path='/:page' render={(routeProps) => <MainHeader routeProps={routeProps}/>}/>
 

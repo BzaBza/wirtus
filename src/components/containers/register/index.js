@@ -42,7 +42,7 @@ class Register extends Component {
     this.organization.value = '';
     this.description.value = '';
 
-    axios.post('api/users/register',
+    axios.post('http://aelmod.sytes.net:8080/users/register',
      JSON.stringify(this.state.userData),
      {
        headers: {
@@ -51,7 +51,7 @@ class Register extends Component {
      }
     )
      .then(function () {
-       this.setState({isSubmit: true})
+       console.log('register finish')
      })
      .catch(console.log)
   }

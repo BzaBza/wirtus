@@ -7,6 +7,7 @@ import MessageContent from "../../components/containers/message-content";
 import MessageUserData from "../../components/containers/message-user-data";
 import {getChatData} from "../../redux/actions/chatAct";
 import {getUsersData} from "../../redux/actions/usersData";
+import axios from "axios/index";
 
 
 class Message extends Component {
@@ -22,6 +23,14 @@ class Message extends Component {
   componentWillMount(){
     this.props.onGetChatData();
     this.props.onGetUsersData();
+
+    axios.get('http://aelmod.sytes.net:8080/conversations?userId=0')
+     .then(function (response) {
+       console.log(response);
+     })
+     .catch(function (error) {
+       console.log(error);
+     });
   }
 
 
@@ -79,7 +88,7 @@ class Message extends Component {
           <div className="message-content-coversation">
             <Coversation chatData={this.props.chatData}/>
           </div>
-         <div className="col-md-6 text-white">
+         <div className="message-content-wrap">
            <MessageContent chatData={this.props.chatData}/>
          </div>
          <div className="message-wrap">

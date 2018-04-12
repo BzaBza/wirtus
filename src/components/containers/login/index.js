@@ -22,12 +22,8 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // const userLoginInfo = {
-    //   username: this.state.username,
-    //   password: this.state.password,
-    // };
-
-    axios.post('api/users/authenticate',
+    this.password.value = '';
+    axios.post('http://aelmod.sytes.net:8080/users/login',
      JSON.stringify(this.state),
      {
        headers: {
@@ -35,22 +31,12 @@ class Login extends Component {
        }
 
      },
-     this.password.value = ''
-    );
+    )
+     .then(this.props.routeProps.history.push('/home'))
+     .catch(function () {
+      alert('OOPS login failed')
+     })
 
-    // axios.get('http://aelmod.sytes.net:8080/users')
-    //  .then(function (response) {
-    //    console.log(response);
-    //    if (userLoginInfo.username === response.data.value.username && response.data.value.password === userLoginInfo.password) {
-    //      this.props.setRootUserData(response);
-    //      this.props.routeProps.history.push('/home');
-    //    } else {
-    //      alert('Login failed');
-    //    }
-    //  })
-    //  .catch(function (error) {
-    //    console.log(error);
-    //  });
   }
 
 

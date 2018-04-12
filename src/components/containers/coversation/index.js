@@ -23,15 +23,15 @@ class Coversation extends Component {
   render() {
     return (
      <aside className="text-white coversation-section d-flex">
-       <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/public']}
-                     onMessage={(msg) => {
-                       this.props.onGetNewMessageData(msg)
-                     }}
-                     ref={(client) => {
-                       this.clientRef = client;
-                       this.props.onGetClientRef(this.clientRef)
-                     }}
-       />
+       {/*<SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/public']}*/}
+                     {/*onMessage={(msg) => {*/}
+                       {/*this.props.onGetNewMessageData(msg)*/}
+                     {/*}}*/}
+                     {/*ref={(client) => {*/}
+                       {/*this.clientRef = client;*/}
+                       {/*this.props.onGetClientRef(this.clientRef)*/}
+                     {/*}}*/}
+       {/*/>*/}
         <div className="coversation-wrap">
           <div className={`coversation-item-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
             {this.props.chatData.map((value, index) =>

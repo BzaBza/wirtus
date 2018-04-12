@@ -63,7 +63,7 @@ class Sign extends Component {
              <Register/>
            </TabPane>
            <TabPane tabId="login">
-             <Login routeProps={this.props.routeProps} setRootUserData={this.props.setUserData}/>
+             <Login routeProps={this.props.routeProps}/>
            </TabPane>
          </TabContent>
        </div>

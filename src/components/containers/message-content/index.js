@@ -25,7 +25,7 @@ class MessageContent extends Component {
        <div>
        </div>
        <div>
-         <ul>
+         <ul className="message-content-item-list">
            {this.props.chatData.map((value, index) =>
             <li key={index}>
               <MessageContentItem messageData={value}/>
