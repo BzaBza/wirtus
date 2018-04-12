@@ -22,7 +22,7 @@ class AllUsers extends Component {
        <ul className="tasks-list">
          <li className="d-flex gray projects-title justify-content-between">
            <div className="col-lg-2">User name/Position</div>
-           <div className="col-lg-2">Adress</div>
+           <div className="col-lg-2">Address</div>
            <div className="col-lg-1">Active</div>
            <div className="col-lg-2">Phone</div>
            <div className="col-lg-3">Email</div>
@@ -37,17 +37,17 @@ class AllUsers extends Component {
                  }}>
               <div className="d-flex user-photo">
                 <div>
-                  <img src={value.url} alt="developer"/>
+                  <img src={'./workflow/photo-1457084882212-4a6bb2240588.png'} alt="developer"/>
                 </div>
                 <div>
-                  <div className="user-name">{value.userName}</div>
+                  <div className="user-name">{value.name}</div>
                   <div className="gray">{value.position}</div>
                 </div>
               </div>
             </div>
             <div className="col-lg-2">
               <div className='align-items-center d-flex'>
-                {value.adress}
+                {value.address}
               </div>
             </div>
             <div className="col-lg-1 project-table">

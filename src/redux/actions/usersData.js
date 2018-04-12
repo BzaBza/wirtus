@@ -1,8 +1,10 @@
+import axios from "axios/index";
+
 var mocUsersData = [
   {
-    userName: 'Dron Roach',
+    name: 'Dron Roach',
     position: 'UX/UI Designer',
-    adress: '65 Lorem St, Warsaw, PL',
+    address: '65 Lorem St, Warsaw, PL',
     active: true,
     phone: '+48 500 400 300',
     email: 'lyallroach@gmail.com',
@@ -16,9 +18,9 @@ var mocUsersData = [
     'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ' +
     'sunt in culpa qui officia deserunt mollit anim id est laborum. .'
   }, {
-    userName: 'Michelle Stewart',
+    name: 'Michelle Stewart',
     position: 'UX/UI Designer',
-    adress: '65 Lorem St, Warsaw, PL',
+    address: '65 Lorem St, Warsaw, PL',
     active: false,
     phone: '+48 500 400 300',
     email: 'lyallroach@gmail.com',
@@ -32,9 +34,9 @@ var mocUsersData = [
     'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ' +
     'sunt in culpa qui officia deserunt mollit anim id est laborum. .'
   }, {
-    userName: 'Jolene Slater',
+    name: 'Jolene Slater',
     position: 'UX/UI Designer',
-    adress: '65 Lorem St, Warsaw, PL',
+    address: '65 Lorem St, Warsaw, PL',
     active: true,
     phone: '+48 500 400 300',
     email: 'lyallroach@gmail.com',
@@ -48,9 +50,9 @@ var mocUsersData = [
     'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ' +
     'sunt in culpa qui officia deserunt mollit anim id est laborum. .'
   }, {
-    userName: 'Dominic Lynton',
+    name: 'Dominic Lynton',
     position: 'UX/UI Designer',
-    adress: '65 Lorem St, Warsaw, PL',
+    address: '65 Lorem St, Warsaw, PL',
     active: true,
     phone: '+48 500 400 300',
     email: 'lyallroach@gmail.com',
@@ -64,9 +66,9 @@ var mocUsersData = [
     'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ' +
     'sunt in culpa qui officia deserunt mollit anim id est laborum. .'
   }, {
-    userName: 'Ivan Roach',
+    name: 'Ivan Roach',
     position: 'UX/UI Designer',
-    adress: '65 Lorem St, Warsaw, PL',
+    address: '65 Lorem St, Warsaw, PL',
     active: true,
     phone: '+48 500 400 300',
     email: 'lyallroach@gmail.com',
@@ -80,9 +82,9 @@ var mocUsersData = [
     'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ' +
     'sunt in culpa qui officia deserunt mollit anim id est laborum. .'
   }, {
-    userName: 'Grisha Roach',
+    name: 'Grisha Roach',
     position: 'UX/UI Designer',
-    adress: '65 Lorem St, Warsaw, PL',
+    address: '65 Lorem St, Warsaw, PL',
     active: true,
     phone: '+48 500 400 300',
     email: 'lyallroach@gmail.com',
@@ -98,10 +100,16 @@ var mocUsersData = [
   },
 ];
 
+axios.get('http://aelmod.sytes.net:8080/users')
+ .then(function (response) {
+   mocUsersData = response.data;
+ })
+ .catch(function (error) {
+   console.log(error);
+ });
+
 export const getUsersData = () => dispatch => {
-  setTimeout(() => {
     dispatch(
      {type: 'FETCH_USERS_DATA_SUCCESS', payload: mocUsersData}
     );
-  }, 500)
 };

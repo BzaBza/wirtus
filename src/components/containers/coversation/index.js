@@ -10,13 +10,20 @@ class Coversation extends Component {
     super(props);
     this.state = {
       coversationVisibility: true,
+      newCoversationListVisibility: false
     };
-    this.coversationToggle = this.coversationToggle.bind(this)
+    this.coversationToggle = this.coversationToggle.bind(this);
+    this.openNewCoversationList = this.openNewCoversationList.bind(this);
   }
 
   coversationToggle(event){
     this.setState({
       coversationVisibility: !this.state.coversationVisibility
+    })
+  }
+  openNewCoversationList(){
+    this.setState({
+      newCoversationListVisibility: !this.state.newCoversationListVisibility
     })
   }
 
@@ -40,7 +47,19 @@ class Coversation extends Component {
           </div>
         </div>
         <div className={`coversation-wrap-btn  ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-flex'}`}>
-          <button className="col-md-10 btn-primary coversation-btn">+ New <span className="coversation-btn-cov">coversation</span></button>
+          <button className="col-md-10 btn-primary coversation-btn" onClick={this.openNewCoversationList}>+ New <span className="coversation-btn-cov">coversation</span></button>
+          <ul className={`add-new-coversation ${this.state.newCoversationListVisibility ? 'd-block' : 'd-none'}`}>
+            {
+              this.props.usersData.map((value, index)=>
+               <li key={index}>
+                 <button className="add-new-coversation-user d-flex justify-content-between">
+                   <span className="d-block">{value.name}</span>
+                   <span className="d-block">+</span>
+                 </button>
+               </li>
+              )
+            }
+          </ul>
         </div>
        <div className="coversation-toggle-btn" onClick={this.coversationToggle}/>
      </aside>

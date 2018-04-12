@@ -23,14 +23,6 @@ class Message extends Component {
   componentWillMount(){
     this.props.onGetChatData();
     this.props.onGetUsersData();
-
-    axios.get('http://aelmod.sytes.net:8080/conversations?userId=0')
-     .then(function (response) {
-       console.log(response);
-     })
-     .catch(function (error) {
-       console.log(error);
-     });
   }
 
 
