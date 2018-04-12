@@ -6,6 +6,8 @@ import MdHttps from 'react-icons/lib/md/https';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
 
 import Title from '../../dumb/title/index';
+import {connect} from "react-redux";
+import {getUserData} from "../../../redux/actions/getUserData";
 
 class Login extends Component {
   constructor(props) {
@@ -29,12 +31,14 @@ class Login extends Component {
        headers: {
          'Content-Type': 'application/json',
        }
-
      },
     )
+     .then(function (response) {
+       this.props.onGetUserData(response)
+     })
      .then(this.props.routeProps.history.push('/home'))
      .catch(function () {
-      alert('OOPS login failed')
+       alert('OOPS login failed')
      })
 
   }
@@ -88,5 +92,10 @@ class Login extends Component {
     );
   }
 }
+export default connect(
 
-export default Login;
+ dispatch => ({
+   onGetUserData: (userData) => {
+     dispatch(getUserData(userData));
+   },
+ }))(Login);
