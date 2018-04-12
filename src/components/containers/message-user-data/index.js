@@ -12,7 +12,7 @@ class MessageUserData extends Component {
   render() {
     return (
      <aside>
-       {this.props.currentAddressee  !== null ?
+       {this.props.currentAddressee !== null ?
         <ul className="message-user-data-list text-white">
           {this.props.usersData.map((value, index) =>
            <li key={index}>
@@ -20,12 +20,14 @@ class MessageUserData extends Component {
            </li>
           )}
         </ul>
-        : <div/>
+        :
+        <div/>
        }
      </aside>
     );
   }
 }
+
 export default connect(
  state => ({
    usersData: state.users.filter(item => item.id === state.addressee),

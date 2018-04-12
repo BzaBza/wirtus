@@ -43,7 +43,6 @@ class Coversation extends Component {
   }
 
   render() {
-    console.log(this.props.chatData);
     return (
      <aside className="text-white coversation-section d-flex">
        <div className="coversation-wrap">

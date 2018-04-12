@@ -9,6 +9,7 @@ import chat from './chat';
 import newCoversation from './newCoversation';
 import currentCoversation from './currentCoversationId';
 import addressee from './addressee';
+import clientRef from './clientRef';
 
 export default combineReducers({
   allTrending,
@@ -20,5 +21,6 @@ export default combineReducers({
   newCoversation,
   currentCoversation,
   addressee,
+  clientRef,
 
 });
