@@ -33,7 +33,6 @@ class Register extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    localStorage.setItem('userData', JSON.stringify(this.state.userData));
     this.login.value = '';
     this.password.value = '';
     this.phone.value = '';

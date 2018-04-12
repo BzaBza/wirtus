@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 // import SockJsClient from 'react-stomp';
 import CoversationItem from "../../dumb/coversation-item";
 import {connect} from "react-redux";
-import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
-import {getClientRef} from "../../../redux/actions/clientRef";
-import {addNewCoversation} from "../../../redux/actions/addNewCoversation";
+// import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
+// import {getClientRef} from "../../../redux/actions/clientRef";
+import {getCoversationData} from "../../../redux/actions/coversationData";
 
 class Coversation extends Component {
   constructor(props) {
@@ -31,9 +31,24 @@ class Coversation extends Component {
   }
 
   addNewCoversation(addresseeId) {
+    let senderId = JSON.parse(localStorage.getItem('session')).id;
     this.props.onAddNewCoversation(
-     JSON.stringify({senderId: 0, addresseeId: addresseeId})
-    )
+     JSON.stringify({senderId: senderId, addresseeId: addresseeId})
+    );
+
+    // this.props.onGetChatData(
+    //  {
+    //    id: addresseeId,
+    //    type: "CHAT",
+    //    content: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
+    //    date: '4 April 2016, 5:32 PM',
+    //    user: {
+    //      name: 'Michelle Stewart',
+    //      id: new Date(),
+    //    }
+    //  }
+    // );
+    console.log(this.props.chatData)
   }
 
 
@@ -52,9 +67,10 @@ class Coversation extends Component {
        <div className="coversation-wrap">
          <div
           className={`coversation-item-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
-           {this.props.chatData.map((value, index) =>
+           {
+             this.props.chatData.map((value, index) =>
             <CoversationItem coversationData={value} key={index}/>
-           )}
+             )}
          </div>
        </div>
        <div className={`coversation-wrap-btn  ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-flex'}`}>
@@ -88,13 +104,16 @@ export default connect(
    usersData: state.users,
  }),
  dispatch => ({
-   onGetNewMessageData: (msg) => {
-     dispatch(getNewMessageData(msg));
-   },
-   onGetClientRef: (clientRef) => {
-     dispatch(getClientRef(clientRef));
-   },
+   // onGetNewMessageData: (msg) => {
+   //   dispatch(getNewMessageData(msg));
+   // },
+   // onGetChatData: (msg) => {
+   //   dispatch(getChatData(msg));
+   // },
+   // onGetClientRef: (clientRef) => {
+   //   dispatch(getClientRef(clientRef));
+   // },
    onAddNewCoversation: (coversationData) => {
-     dispatch(addNewCoversation(coversationData));
+     dispatch(getCoversationData(coversationData));
    },
  }))(Coversation);

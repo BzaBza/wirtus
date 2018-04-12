@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 // import SearchInput, {createFilter} from 'react-search-input'
-
 import {connect} from "react-redux";
-import {getChatData} from "../../../redux/actions/chatAct";
 
 // const KEYS_TO_FILTERS = ['user.name', 'subject', 'dest.name'];
 
@@ -32,9 +30,4 @@ class Search extends Component {
 export default connect(
  state => ({
    chatData: state.chat,
- }),
- dispatch => ({
-   onGetChatData: () => {
-     dispatch(getChatData());
-   },
  }))(Search);

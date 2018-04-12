@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import Coversation from "../../components/containers/coversation";
 import MessageContent from "../../components/containers/message-content";
 import MessageUserData from "../../components/containers/message-user-data";
-import {getChatData} from "../../redux/actions/chatAct";
 import {getUsersData} from "../../redux/actions/usersData";
 import axios from "axios/index";
 
@@ -21,7 +20,6 @@ class Message extends Component {
   }
 
   componentWillMount(){
-    this.props.onGetChatData();
     this.props.onGetUsersData();
   }
 
@@ -80,12 +78,12 @@ class Message extends Component {
           <div className="message-content-coversation">
             <Coversation chatData={this.props.chatData}/>
           </div>
-         <div className="message-content-wrap">
-           <MessageContent chatData={this.props.chatData}/>
-         </div>
-         <div className="message-wrap">
-           <MessageUserData userData={this.props.usersData}/>
-         </div>
+         {/*<div className="message-content-wrap">*/}
+           {/*<MessageContent chatData={this.props.chatData}/>*/}
+         {/*</div>*/}
+         {/*<div className="message-wrap">*/}
+           {/*<MessageUserData userData={this.props.usersData}/>*/}
+         {/*</div>*/}
        </div>
      </section>
     );
@@ -97,9 +95,6 @@ export default connect(
    usersData: state.users,
  }),
  dispatch => ({
-   onGetChatData: () => {
-     dispatch(getChatData());
-   },
    onGetUsersData: () => {
      dispatch(getUsersData());
    },

@@ -6,8 +6,6 @@ import MdHttps from 'react-icons/lib/md/https';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
 
 import Title from '../../dumb/title/index';
-import {connect} from "react-redux";
-import {getUserData} from "../../../redux/actions/getUserData";
 
 class Login extends Component {
   constructor(props) {
@@ -34,7 +32,7 @@ class Login extends Component {
      },
     )
      .then(function (response) {
-       this.props.onGetUserData(response)
+       localStorage.setItem('session', JSON.stringify(response.data));
      })
      .then(this.props.routeProps.history.push('/home'))
      .catch(function () {
@@ -92,10 +90,4 @@ class Login extends Component {
     );
   }
 }
-export default connect(
-
- dispatch => ({
-   onGetUserData: (userData) => {
-     dispatch(getUserData(userData));
-   },
- }))(Login);
+export default Login;
