@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import MessageContentItem from "../../dumb/message-content-item";
 import {connect} from "react-redux";
+import SockJsClient from 'react-stomp';
+import MessageContentItem from "../../dumb/message-content-item";
+import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
 
 class MessageContent extends Component {
   constructor(props) {
@@ -10,18 +12,31 @@ class MessageContent extends Component {
     this.sendMessage = this.sendMessage.bind(this);
   }
 
-  sendMessage(msg) {
-    this.props.clientRef.sendMessage('/app/chat.sendMessage', JSON.stringify({sender: "Username", content: msg, type: 'CHAT'}));
+  sendMessage(chatMessage) {
+    this.clientRef.sendMessage("/app/chat/send/" + this.props.coversationId, JSON.stringify({chatMessage})
+    )
   };
 
   addMessage(event) {
     event.preventDefault();
-    this.sendMessage(this.message.value)
+    let chatMessage = {
+      user: {username: JSON.parse(localStorage.getItem('session')).name},
+      content: this.message.value,
+    };
+    this.sendMessage(chatMessage)
   }
 
   render() {
     return (
      <section className="text-white message-content-section">
+       <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/' + this.props.coversationId]}
+                     onMessage={(msg) => {
+                       console.log(msg);
+                     }}
+                     ref={(client) => {
+                       this.clientRef = client;
+                     }}
+       />
        <div>
        </div>
        <div>
@@ -49,7 +64,14 @@ class MessageContent extends Component {
     );
   }
 }
+
 export default connect(
  state => ({
-   clientRef: state.clientRef,
+   coversationId: state.currentCoversation,
+   chatData: state.chat,
+ }),
+ dispatch => ({
+   onGetNewMessageData: () => {
+     dispatch(getNewMessageData());
+   },
  }))(MessageContent);

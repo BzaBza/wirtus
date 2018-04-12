@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-// import SockJsClient from 'react-stomp';
 import CoversationItem from "../../dumb/coversation-item";
 import {connect} from "react-redux";
-// import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
-// import {getClientRef} from "../../../redux/actions/clientRef";
 import {getCoversationData} from "../../../redux/actions/coversationData";
+import {getCurrentCoversationId} from "../../../redux/actions/getCurrentConversationId";
+import {getCurrentAddressee} from "../../../redux/actions/currentAddressee";
+
 
 class Coversation extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class Coversation extends Component {
     this.coversationToggle = this.coversationToggle.bind(this);
     this.openNewCoversationList = this.openNewCoversationList.bind(this);
     this.addNewCoversation = this.addNewCoversation.bind(this);
+    this.openCoversation = this.openCoversation.bind(this);
   }
 
   coversationToggle(event) {
@@ -35,41 +36,27 @@ class Coversation extends Component {
     this.props.onAddNewCoversation(
      JSON.stringify({senderId: senderId, addresseeId: addresseeId})
     );
-
-    // this.props.onGetChatData(
-    //  {
-    //    id: addresseeId,
-    //    type: "CHAT",
-    //    content: 'Ut pariaturquia voluptas sit asaerat voluptatem.',
-    //    date: '4 April 2016, 5:32 PM',
-    //    user: {
-    //      name: 'Michelle Stewart',
-    //      id: new Date(),
-    //    }
-    //  }
-    // );
-    console.log(this.props.chatData)
   }
 
+  openCoversation(coversationId) {
+    this.props.onGetCurrentCoversation(coversationId);
+  }
 
   render() {
+    console.log(this.props.chatData);
     return (
      <aside className="text-white coversation-section d-flex">
-       {/*<SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/public']}*/}
-       {/*onMessage={(msg) => {*/}
-       {/*this.props.onGetNewMessageData(msg)*/}
-       {/*}}*/}
-       {/*ref={(client) => {*/}
-       {/*this.clientRef = client;*/}
-       {/*this.props.onGetClientRef(this.clientRef)*/}
-       {/*}}*/}
-       {/*/>*/}
        <div className="coversation-wrap">
          <div
           className={`coversation-item-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
            {
              this.props.chatData.map((value, index) =>
-            <CoversationItem coversationData={value} key={index}/>
+              <div key={index} onClick={() => {
+                this.openCoversation(value.id);
+                this.props.onGetCurrentAddressee(value.addressee.id)
+              }}>
+                <CoversationItem coversationData={value}/>
+              </div>
              )}
          </div>
        </div>
@@ -82,7 +69,7 @@ class Coversation extends Component {
               <li key={index}>
                 <button className="add-new-coversation-user d-flex justify-content-between"
                         onClick={() => {
-                         this.addNewCoversation(value.id);
+                          this.addNewCoversation(value.id);
                         }}>
                   <span className="d-block">{value.name}</span>
                   <span className="d-block">+</span>
@@ -104,16 +91,13 @@ export default connect(
    usersData: state.users,
  }),
  dispatch => ({
-   // onGetNewMessageData: (msg) => {
-   //   dispatch(getNewMessageData(msg));
-   // },
-   // onGetChatData: (msg) => {
-   //   dispatch(getChatData(msg));
-   // },
-   // onGetClientRef: (clientRef) => {
-   //   dispatch(getClientRef(clientRef));
-   // },
    onAddNewCoversation: (coversationData) => {
      dispatch(getCoversationData(coversationData));
+   },
+   onGetCurrentCoversation: (id) => {
+     dispatch(getCurrentCoversationId(id));
+   },
+   onGetCurrentAddressee: (id) => {
+     dispatch(getCurrentAddressee(id));
    },
  }))(Coversation);

@@ -16,7 +16,7 @@ class MessageUserDataItem extends Component {
             <img src={this.props.user.url} alt="user" className="message-user-data-item-photo"/>
           </div>
           <div>
-            <div>{this.props.user.userName}</div>
+            <div>{this.props.user.name}</div>
             <div className="gray">{this.props.user.position}</div>
           </div>
           <div className="gray message-user-data-item-main-description">
@@ -32,7 +32,7 @@ class MessageUserDataItem extends Component {
           </div>
           <div>
             <p className="gray message-user-data-item-description">Address</p>
-            <h6>{this.props.user.adress}</h6>
+            <h6>{this.props.user.address}</h6>
           </div>
           <div>
             <p className="gray message-user-data-item-description">Organization</p>

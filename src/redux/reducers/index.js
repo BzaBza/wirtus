@@ -6,8 +6,9 @@ import menuFilter from './menuFilter';
 import periodFilter from './periodFilter';
 import users from './users';
 import chat from './chat';
-import clientRef from './clientRef';
 import newCoversation from './newCoversation';
+import currentCoversation from './currentCoversationId';
+import addressee from './addressee';
 
 export default combineReducers({
   allTrending,
@@ -16,7 +17,8 @@ export default combineReducers({
   periodFilter,
   users,
   chat,
-  clientRef,
   newCoversation,
+  currentCoversation,
+  addressee,
 
 });
