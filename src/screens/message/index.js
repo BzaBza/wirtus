@@ -81,9 +81,7 @@ class Message extends Component {
          </div>
        </header>
        <div className="content-wrap d-flex message-content justify-content-between">
-         <div className="message-content-coversation">
            <Coversation chatData={this.props.chatData}/>
-         </div>
          <div className="message-content-wrap col-xl-7">
            <MessageContent chatData={this.props.chatData}/>
          </div>

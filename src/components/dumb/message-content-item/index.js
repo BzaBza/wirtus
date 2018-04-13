@@ -7,13 +7,10 @@ class MessageContentItem extends Component {
     this.state = {};
   }
 
-
   render() {
     return (
      <div>
-       <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eum illo nobis? Amet, corporis, dicta
-         distinctio dolor, eaque error explicabo fuga pariatur quibusdam quidem recusandae reiciendis repellat similique
-         voluptatibus voluptatum.</h3>
+       {this.props.messageData.content}
      </div>
     );
   }

@@ -4,7 +4,7 @@ import SockJsClient from 'react-stomp';
 import PropTypes from "prop-types";
 
 import MessageContentItem from "../../dumb/message-content-item";
-import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
+import {fetchCurrentMessages} from "../../../redux/actions/fetchCurrentMessages";
 
 class MessageContent extends Component {
   static defaultProps = {
@@ -19,9 +19,9 @@ class MessageContent extends Component {
   }
 
   sendMessage(chatMessage) {
+    console.log(this.props.coversationId)
     this.clientRef.sendMessage("/app/chat/send/" + this.props.coversationId, JSON.stringify(chatMessage));
     this.message.value = '';
-    console.log(chatMessage)
   };
 
   addMessage(event) {
@@ -38,8 +38,7 @@ class MessageContent extends Component {
      <section className="text-white message-content-section">
        <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/' + this.props.coversationId]}
                      onMessage={(msg) => {
-                       console.log(msg);
-                       this.props.onGetNewMessageData(msg)
+                       this.props.onFetchCurrentMessages(msg);
                      }}
                      ref={(client) => {
                        this.clientRef = client;
@@ -49,7 +48,7 @@ class MessageContent extends Component {
        </div>
        <div>
          <ul className="message-content-item-list">
-           {this.props.chatData.map((value, index) =>
+           {this.props.currentMessages.map((value, index) =>
             <li key={index}>
               <MessageContentItem messageData={value}/>
             </li>
@@ -76,14 +75,16 @@ class MessageContent extends Component {
 MessageContent.propTypes = {
   chatData: PropTypes.array,
   coversationId: PropTypes.number,
+  currentMessages: PropTypes.array,
 };
 export default connect(
  state => ({
    coversationId: state.currentCoversation,
    chatData: state.chat,
+   currentMessages: state.currentConvarsationMessages
  }),
  dispatch => ({
-   onGetNewMessageData: (msg) => {
-     dispatch(getNewMessageData(msg));
+   onFetchCurrentMessages: (message) => {
+     dispatch(fetchCurrentMessages(message));
    },
  }))(MessageContent);

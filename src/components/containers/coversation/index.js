@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import CoversationItem from "../../dumb/coversation-item";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
+import CoversationItem from "../../dumb/coversation-item";
 import {getCoversationData} from "../../../redux/actions/coversationData";
 import {getCurrentCoversationId} from "../../../redux/actions/getCurrentConversationId";
 import {getCurrentAddressee} from "../../../redux/actions/currentAddressee";
-import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
-
+import {fetchCurrentConversationMessages} from "../../../redux/actions/fetchCurrentConversationMessages";
+import axios from "axios/index";
 
 class Coversation extends Component {
   static defaultProps = {
     chatData: [],
-    usersData:[]
+    usersData: []
   };
 
   constructor(props) {
@@ -49,6 +49,16 @@ class Coversation extends Component {
   }
 
   openCoversation(coversationId) {
+    axios.get('http://aelmod.sytes.net:8080//chat/conversation?conversationId=' + coversationId)
+     .then(
+      (response)=>{
+        this.props.onFetchCurrentConversationMessages(response.data);
+      }
+     )
+     .catch(function (error) {
+       console.log(error);
+     });
+    // const allCurrentCoversationMessages = this.props.chatData.filter(item => item.id === coversationId)[0].messages;
     this.props.onGetCurrentCoversation(coversationId);
     this.setState({
       coversationActive: coversationId
@@ -60,29 +70,25 @@ class Coversation extends Component {
     for (let i = 0; i < this.props.chatData.length; i++) {
       usedAddressee.push(this.props.chatData[i].addressee.id)
     }
-
     return this.props.usersData.filter(item => !usedAddressee.includes(item.id));
   }
 
   render() {
-    console.log(this.props.chatData)
     return (
      <aside className="text-white coversation-section d-flex">
-       <div className="coversation-wrap">
-         <div
-          className={`coversation-items-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
-           {
-             this.props.chatData.map((value, index) =>
-              <div key={index} onClick={() => {
-                this.openCoversation(value.id);
-                this.props.onGetCurrentAddressee(value.addressee.id)
-              }}
-                   className={`coversation-item-wrapper ${this.state.coversationActive === value.id ? 'coversationActive' : ''}`}
-              >
-                <CoversationItem coversationData={value}/>
-              </div>
-             )}
-         </div>
+       <div
+        className={`coversation-items-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
+         {
+           this.props.chatData.map((value, index) =>
+            <div key={index} onClick={() => {
+              this.openCoversation(value.id);
+              this.props.onGetCurrentAddressee(value.addressee.id)
+            }}
+                 className={`coversation-item-wrapper ${this.state.coversationActive === value.id ? 'coversationActive' : ''}`}
+            >
+              <CoversationItem coversationData={value}/>
+            </div>
+           )}
        </div>
        <div className={`coversation-wrap-btn  ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-flex'}`}>
          <button className="col-md-10 btn-primary coversation-btn" onClick={this.openNewCoversationList}>+ New <span
@@ -128,7 +134,7 @@ export default connect(
    onGetCurrentAddressee: (id) => {
      dispatch(getCurrentAddressee(id));
    },
-   onGetNewMessageData: (coversationId) => {
-     dispatch(getNewMessageData(coversationId));
-   },
+   onFetchCurrentConversationMessages: (msg) => {
+     dispatch(fetchCurrentConversationMessages(msg));
+   }
  }))(Coversation);
