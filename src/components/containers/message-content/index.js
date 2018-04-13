@@ -51,6 +51,7 @@ class MessageContent extends Component {
        <div className="send-message-form-wrap">
          <form onSubmit={this.addMessage} className="send-message-form col-7">
            <textarea
+            rows="3"
             placeholder="Write a message"
             ref={(input => {
               this.message = input
