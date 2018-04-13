@@ -11,7 +11,7 @@ export const getCoversationData = (coversationData) => dispatch => {
   )
    .then(function (response) {
      dispatch(
-      {type: 'FETCH_COVERSATION_DATA_SUCCESS', payload: response.data},
+      {type: 'FETCH_NEW_COVERSATION_DATA_SUCCESS', payload: response.data},
      )
    })
    .catch(

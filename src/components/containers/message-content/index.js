@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import SockJsClient from 'react-stomp';
 import MessageContentItem from "../../dumb/message-content-item";
 import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
 
@@ -12,7 +13,7 @@ class MessageContent extends Component {
   }
 
   sendMessage(chatMessage) {
-    this.props.clientRef.sendMessage("/app/chat/send/" + this.props.coversationId, JSON.stringify(chatMessage));
+    this.clientRef.sendMessage("/app/chat/send/" + this.props.coversationId, JSON.stringify(chatMessage));
   };
 
   addMessage(event) {
@@ -25,9 +26,17 @@ class MessageContent extends Component {
   }
 
   render() {
-    console.log(this.props.chatData);
     return (
      <section className="text-white message-content-section">
+       <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/app/topic/' + this.props.coversationId]}
+                     onMessage={(msg) => {
+                       console.log(msg);
+                       this.props.onGetNewMessageData(msg)
+                     }}
+                     ref={(client) => {
+                       this.clientRef = client;
+                     }}
+       />
        <div>
        </div>
        <div>
@@ -60,10 +69,9 @@ export default connect(
  state => ({
    coversationId: state.currentCoversation,
    chatData: state.chat,
-   clientRef: state.clientRef
  }),
  dispatch => ({
-   onGetNewMessageData: () => {
-     dispatch(getNewMessageData());
+   onGetNewMessageData: (msg) => {
+     dispatch(getNewMessageData(msg));
    },
  }))(MessageContent);

@@ -1,7 +1,13 @@
 const initialState = [];
 
 export default function chatData(state = initialState, action) {
-  if (action.type === 'FETCH_COVERSATION_DATA_SUCCESS') {
+  if (action.type === 'FETCH_ALL_COVERSATION_DATA_SUCCESS') {
+    return Object.assign([], state,
+     ...state,
+     action.payload
+    )
+  }
+  if (action.type === 'FETCH_NEW_COVERSATION_DATA_SUCCESS') {
     return Object.assign([], state,
      [
        ...state,
@@ -10,15 +16,9 @@ export default function chatData(state = initialState, action) {
     )
   }
   if (action.type === 'FETCH_NEW_MESSAGE_SUCCESS') {
-    return Object.assign([{}], state,
-    {
-      messages:[
-        ...state,
-        action.payload
-      ]
+    return Object.assign(state, {messages: action.payload}
 
-  }
-  )
+    )
   }
   return state;
 };

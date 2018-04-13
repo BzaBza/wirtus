@@ -3,6 +3,9 @@
   position: relative
 
 .coversation-item-wrap
+  width: 425px
+
+.coversation-item-wrap
   overflow-y: scroll
   height: 75vh
 
@@ -67,10 +70,8 @@
 @media (max-width: 1100px)
   .coversation-wrap-btn
     width: 400px
-
-@media (max-width: 880px)
-  .coversation-wrap-btn
-    width: 45%
+  .coversation-item-wrap
+    width: 400px
 
 @media (max-width: 1250px)
   .coversation-toggle-btn
@@ -78,15 +79,26 @@
   .coversation-hidden
     display: none
   .coversation-wrap-btn
-    width: 44%
+    width: 370px
+  .coversation-item-wrap
+    width: 370px
 
+@media (max-width: 880px)
+  .coversation-wrap-btn
+    width: 250px
+  .coversation-item-wrap
+    width: 250px
 
 @media (max-width: 550px)
   .coversation-btn-cov
     display: none
   .coversation-wrap-btn
     width: 125px
+  .coversation-item-wrap
+    width: 125px
 
 @media (max-width: 450px)
   .coversation-wrap-btn
+    width: 110px
+  .coversation-item-wrap
     width: 110px

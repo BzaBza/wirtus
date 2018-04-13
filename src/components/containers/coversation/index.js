@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import CoversationItem from "../../dumb/coversation-item";
 import {connect} from "react-redux";
+import axios from "axios/index";
+
 import {getCoversationData} from "../../../redux/actions/coversationData";
 import {getCurrentCoversationId} from "../../../redux/actions/getCurrentConversationId";
 import {getCurrentAddressee} from "../../../redux/actions/currentAddressee";
+import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
 
 
 class Coversation extends Component {
@@ -39,7 +42,9 @@ class Coversation extends Component {
   }
 
   openCoversation(coversationId) {
+    // this.props.onGetNewMessageData(coversationId);
     this.props.onGetCurrentCoversation(coversationId);
+    console.log(this.props.chatData);
   }
 
   render() {
@@ -98,5 +103,8 @@ export default connect(
    },
    onGetCurrentAddressee: (id) => {
      dispatch(getCurrentAddressee(id));
+   },
+   onGetNewMessageData: (coversationId) => {
+     dispatch(getNewMessageData(coversationId));
    },
  }))(Coversation);

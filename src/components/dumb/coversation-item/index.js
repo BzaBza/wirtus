@@ -11,7 +11,7 @@ class CoversationItem extends Component {
              <img src="#" alt="interlocutor"/>
            </div>
            <div className="interlocutor">
-             {this.props.coversationData.addressee.name}
+             {this.props.coversationData.length !==0 && this.props.coversationData.addressee ? this.props.coversationData.addressee.name : ''}
            </div>
          </div>
          <div className="last-date">
