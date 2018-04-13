@@ -9,8 +9,9 @@ import {fetchCurrentMessages} from "../../../redux/actions/fetchCurrentMessages"
 class MessageContent extends Component {
   static defaultProps = {
     coversationId: null,
-    chatData:[]
+    chatData: []
   };
+
   constructor(props) {
     super(props);
     this.state = {};
@@ -31,7 +32,6 @@ class MessageContent extends Component {
     };
     this.sendMessage(chatMessage)
   }
-
   render() {
     return (
      <section className="text-white message-content-section">
@@ -71,6 +71,7 @@ class MessageContent extends Component {
     );
   }
 }
+
 MessageContent.propTypes = {
   chatData: PropTypes.array,
   coversationId: PropTypes.number,
@@ -86,4 +87,5 @@ export default connect(
    onFetchCurrentMessages: (message) => {
      dispatch(fetchCurrentMessages(message));
    },
- }))(MessageContent);
+ }),
+)(MessageContent);

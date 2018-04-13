@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import axios from "axios/index";
 
 import CoversationItem from "../../dumb/coversation-item";
 import {getCoversationData} from "../../../redux/actions/coversationData";
 import {getCurrentCoversationId} from "../../../redux/actions/getCurrentConversationId";
 import {getCurrentAddressee} from "../../../redux/actions/currentAddressee";
 import {fetchCurrentConversationMessages} from "../../../redux/actions/fetchCurrentConversationMessages";
-import axios from "axios/index";
+import {getAllCoversationData} from "../../../redux/actions/getAllCoversations";
 
 class Coversation extends Component {
   static defaultProps = {
@@ -27,6 +28,10 @@ class Coversation extends Component {
     this.addNewCoversation = this.addNewCoversation.bind(this);
     this.openCoversation = this.openCoversation.bind(this);
     this.getUnusedAddressee = this.getUnusedAddressee.bind(this);
+  }
+
+  componentWillMount(){
+    this.props.onAllGetCoversations()
   }
 
   coversationToggle(event) {
@@ -59,6 +64,7 @@ class Coversation extends Component {
        console.log(error);
      });
     this.props.onGetCurrentCoversation(coversationId);
+
     this.setState({
       coversationActive: coversationId
     })
@@ -135,5 +141,8 @@ export default connect(
    },
    onFetchCurrentConversationMessages: (msg) => {
      dispatch(fetchCurrentConversationMessages(msg));
-   }
+   },
+   onAllGetCoversations: () => {
+     dispatch(getAllCoversationData());
+   },
  }))(Coversation);

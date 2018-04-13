@@ -31,10 +31,10 @@ class Login extends Component {
        }
      },
     )
-     .then(function (response) {
+     .then((response) => {
        localStorage.setItem('session', JSON.stringify(response.data));
+       this.props.routeProps.history.push('/home');
      })
-     .then(this.props.routeProps.history.push('/home'))
      .catch(function () {
        alert('OOPS login failed')
      })
