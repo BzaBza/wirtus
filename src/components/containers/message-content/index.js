@@ -21,6 +21,7 @@ class MessageContent extends Component {
   sendMessage(chatMessage) {
     this.clientRef.sendMessage("/app/chat/send/" + this.props.coversationId, JSON.stringify(chatMessage));
     this.message.value = '';
+    console.log(chatMessage)
   };
 
   addMessage(event) {

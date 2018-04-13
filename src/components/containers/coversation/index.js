@@ -61,10 +61,11 @@ class Coversation extends Component {
       usedAddressee.push(this.props.chatData[i].addressee.id)
     }
 
-    return this.props.usersData.filter(item => item.id === usedAddressee );
+    return this.props.usersData.filter(item => !usedAddressee.includes(item.id));
   }
 
   render() {
+    console.log(this.props.chatData)
     return (
      <aside className="text-white coversation-section d-flex">
        <div className="coversation-wrap">
