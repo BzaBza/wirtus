@@ -23,7 +23,7 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.password.value = '';
-    axios.post('http://aelmod.sytes.net:8080/users/login',
+    axios.post('http://165.227.134.105:8080/users/login',
      JSON.stringify(this.state),
      {
        headers: {

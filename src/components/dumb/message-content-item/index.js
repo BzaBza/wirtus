@@ -9,8 +9,17 @@ class MessageContentItem extends Component {
 
   render() {
     return (
-     <div>
-       {this.props.messageData.content}
+     <div
+      className={`${this.props.messageData.user.id === JSON.parse(localStorage.getItem('session')).id ? 'user-message-wrap' : 'addressee-message-wrap'}`}>
+       <div className={`${this.props.messageData.user.id === JSON.parse(localStorage.getItem('session')).id ? 'user-message-content-wrap' : 'addressee-message-content-wrap'}`}>
+         <div
+          className={`${this.props.messageData.user.id === JSON.parse(localStorage.getItem('session')).id ? 'user-message' : 'addressee-message'}`}>
+           {this.props.messageData.content}
+         </div>
+         <div className={`${this.props.messageData.user.id === JSON.parse(localStorage.getItem('session')).id ? 'text-right' : 'text-left'}`}>
+           {this.props.messageData.date}
+         </div>
+       </div>
      </div>
     );
   }

@@ -49,7 +49,7 @@ class Coversation extends Component {
   }
 
   openCoversation(coversationId) {
-    axios.get('http://aelmod.sytes.net:8080//chat/conversation?conversationId=' + coversationId)
+    axios.get('http://165.227.134.105:8080/chat/conversation?conversationId=' + coversationId)
      .then(
       (response)=>{
         this.props.onFetchCurrentConversationMessages(response.data);
@@ -58,7 +58,6 @@ class Coversation extends Component {
      .catch(function (error) {
        console.log(error);
      });
-    // const allCurrentCoversationMessages = this.props.chatData.filter(item => item.id === coversationId)[0].messages;
     this.props.onGetCurrentCoversation(coversationId);
     this.setState({
       coversationActive: coversationId

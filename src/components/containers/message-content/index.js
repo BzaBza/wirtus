@@ -19,7 +19,6 @@ class MessageContent extends Component {
   }
 
   sendMessage(chatMessage) {
-    console.log(this.props.coversationId)
     this.clientRef.sendMessage("/app/chat/send/" + this.props.coversationId, JSON.stringify(chatMessage));
     this.message.value = '';
   };
@@ -36,7 +35,7 @@ class MessageContent extends Component {
   render() {
     return (
      <section className="text-white message-content-section">
-       <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/' + this.props.coversationId]}
+       <SockJsClient url='http://165.227.134.105:8080/ws' topics={['/topic/' + this.props.coversationId]}
                      onMessage={(msg) => {
                        this.props.onFetchCurrentMessages(msg);
                      }}

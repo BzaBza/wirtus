@@ -1,7 +1,7 @@
 import axios from "axios/index";
 
 export const getCoversationData = (coversationData) => dispatch => {
-  axios.post('http://aelmod.sytes.net:8080/conversations/create',
+  axios.post('http://165.227.134.105:8080/conversations/create',
    coversationData,
    {
      headers: {

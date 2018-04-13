@@ -41,7 +41,7 @@ class Register extends Component {
     this.organization.value = '';
     this.description.value = '';
 
-    axios.post('http://aelmod.sytes.net:8080/users/register',
+    axios.post('http://165.227.134.105:8080/users/register',
      JSON.stringify(this.state.userData),
      {
        headers: {
