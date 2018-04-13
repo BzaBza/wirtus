@@ -54,14 +54,14 @@ class Coversation extends Component {
      <aside className="text-white coversation-section d-flex">
        <div className="coversation-wrap">
          <div
-          className={`coversation-item-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
+          className={`coversation-items-wrap ${this.state.coversationVisibility ? 'coversation-hidden' : 'd-block'}`}>
            {
              this.props.chatData.map((value, index) =>
               <div key={index} onClick={() => {
                 this.openCoversation(value.id);
                 this.props.onGetCurrentAddressee(value.addressee.id)
               }}
-              className={`${this.state.coversationActive === value.id ? 'coversationActive' : ''}`}
+              className={`coversation-item-wrapper ${this.state.coversationActive === value.id ? 'coversationActive' : ''}`}
               >
                 <CoversationItem coversationData={value}/>
               </div>

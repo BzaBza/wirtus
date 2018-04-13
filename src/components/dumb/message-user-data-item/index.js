@@ -10,10 +10,9 @@ class MessageUserDataItem extends Component {
 
   render() {
     return (
-       <div className="message-user-data-item d-flex align-items-center">
-        <div className="text-center col-12">
-          <div>
-            <img src={this.props.user.url} alt="user" className="message-user-data-item-photo"/>
+       <div className="message-user-data-item text-center">
+          <div className="co-md-9">
+            <img src={'./workflow/photo-1457459588520-2ae325c92c09.png'} alt="user" className="message-user-data-item-photo"/>
           </div>
           <div>
             <div>{this.props.user.name}</div>
@@ -38,7 +37,6 @@ class MessageUserDataItem extends Component {
             <p className="gray message-user-data-item-description">Organization</p>
             <h6>{this.props.user.organization}</h6>
           </div>
-        </div>
        </div>
     );
   }

@@ -6,9 +6,9 @@ class CoversationItem extends Component {
     return (
      <div className="text-white coversation-item">
        <div className="d-flex justify-content-between">
-         <div>
-           <div className="coversation-user-image">
-             <img src="#" alt="interlocutor"/>
+         <div className="d-flex coversation-item-header">
+           <div className="coversation-image-wrap">
+             <img src={'./workflow/photo-1457459588520-2ae325c92c09.png'} alt="interlocutor" className="coversation-user-image"/>
            </div>
            <div className="interlocutor">
              {this.props.coversationData.length !== 0 && this.props.coversationData.addressee ? this.props.coversationData.addressee.name : ''}

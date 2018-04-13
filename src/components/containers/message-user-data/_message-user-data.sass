@@ -44,11 +44,14 @@
   display: none
 
 .message-user-data-aside
-  min-width: 17%
-
+  width: 17%
 
 @media (max-width: 1436px)
   .message-data-hidden
-    display: none
+    display: none!important
   .message-data-toggle-btn
     display: block
+
+@media (max-width: 1636px)
+  .message-user-data-aside
+    width: auto

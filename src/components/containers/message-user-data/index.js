@@ -7,7 +7,7 @@ class MessageUserData extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messageUserDataItem: false
+      messageUserDataItemVisibility: true
     };
     this.messageUserDataItemToggle = this.messageUserDataItemToggle.bind(this)
   }

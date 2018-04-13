@@ -2,12 +2,11 @@
   overflow: hidden
   position: relative
 
-.coversation-item-wrap
-  width: 425px
+.coversation-items-wrap
   overflow-y: scroll
   height: 75vh
 
-.coversation-item-wrap::-webkit-scrollbar
+.coversation-items-wrap::-webkit-scrollbar
   display: none
 
 .coversation-wrap-btn
@@ -62,11 +61,19 @@
   color: #ffffff
   width: 100%
   padding: 5px 10px 5px 10px
+  overflow: hidden
+  button
+    min-width: 64px
+    text-overflow: ellipsis
+
 
 .add-new-coversation-user:hover
   background-color: #53596e
 
-
+.coversation-item-wrapper
+  height: 131px
+  width: 425px
+  border-bottom: 1px solid rgba(156, 161, 178, 0.3)
 
 @media (max-width: 1100px)
   .coversation-wrap-btn
@@ -81,13 +88,13 @@
     display: none
   .coversation-wrap-btn
     width: 370px
-  .coversation-item-wrap
+  .coversation-item-wrapper
     width: 370px
 
 @media (max-width: 880px)
   .coversation-wrap-btn
     width: 250px
-  .coversation-item-wrap
+  .coversation-item-wrapper
     width: 250px
 
 @media (max-width: 550px)
@@ -95,11 +102,11 @@
     display: none
   .coversation-wrap-btn
     width: 125px
-  .coversation-item-wrap
+  .coversation-item-wrapper
     width: 125px
 
 @media (max-width: 450px)
   .coversation-wrap-btn
     width: 110px
-  .coversation-item-wrap
+  .coversation-item-wrapper
     width: 110px
