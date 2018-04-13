@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import {Bar} from 'react-chartjs-2';
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
+
 import DropdownSideBtn from "../../dumb/dropdown-side-btn";
 import chartData from '../../../redux/config/sales-report-chartdata-data'
 import chartOptions from '../../../redux/config/sales-report-charts-options'
 
+
 class SalesReport extends Component {
+  static defaultProps = {
+    filter: '',
+  };
   constructor(props) {
     super(props);
     this.filterPeriodData = this.filterPeriodData.bind(this);
@@ -48,7 +54,9 @@ class SalesReport extends Component {
     );
   }
 }
-
+SalesReport.propTypes = {
+  filter: PropTypes.string,
+};
 export default connect(
  state => ({
    filter: state.periodFilter

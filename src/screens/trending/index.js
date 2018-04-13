@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from "prop-types";
 
 import TrendingCharts from "../../components/containers/trending-charts";
 import TrendingTable from "../../components/containers/trending-table";
 import {getTrendingData} from '../../redux/actions/trendingAct';
-
 
 class Trending extends Component {
   render() {
@@ -18,7 +18,9 @@ class Trending extends Component {
     );
   }
 }
-
+Trending.propTypes = {
+  trendingData: PropTypes.array,
+};
 export default connect(
  state => ({
    trendingData: state.allTrending,

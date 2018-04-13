@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
+
 import MessageUserDataItem from "../../dumb/message-user-data-item";
 
-
 class MessageUserData extends Component {
+  static defaultProps = {
+    currentAddressee: null,
+    usersData:[]
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -40,7 +45,10 @@ class MessageUserData extends Component {
     );
   }
 }
-
+MessageUserData.propTypes = {
+  usersData: PropTypes.array,
+  currentAddressee: PropTypes.number,
+};
 export default connect(
  state => ({
    usersData: state.users.filter(item => item.id === state.addressee),

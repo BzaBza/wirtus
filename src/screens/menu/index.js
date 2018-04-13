@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
 import {connect} from 'react-redux';
+import PropTypes from "prop-types";
 
 import AllProjects from "../../components/containers/all-projects";
 import Workflow from "../../components/containers/workflow";
 import {getMenuData} from '../../redux/actions/menuAct';
 import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
-
 
 class Menu extends Component {
   constructor(props) {
@@ -120,7 +120,10 @@ class Menu extends Component {
     );
   }
 }
-
+Menu.propTypes = {
+  menuData: PropTypes.object,
+  filter: PropTypes.string
+};
 export default connect(
  state => ({
    menuData: state.menu,

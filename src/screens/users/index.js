@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
+
 import AllUsers from "../../components/containers/all-users";
 import {getUsersData} from "../../redux/actions/usersData";
-import {connect} from "react-redux";
 
 class UsersPage extends Component {
   componentWillMount(){
@@ -19,7 +21,9 @@ class UsersPage extends Component {
     );
   }
 }
-
+UsersPage.propTypes = {
+  usersData: PropTypes.array,
+};
 export default connect(
  state => ({
    usersData: state.users,

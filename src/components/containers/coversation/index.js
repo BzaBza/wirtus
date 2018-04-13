@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CoversationItem from "../../dumb/coversation-item";
 import {connect} from "react-redux";
-import axios from "axios/index";
+import PropTypes from "prop-types";
 
 import {getCoversationData} from "../../../redux/actions/coversationData";
 import {getCurrentCoversationId} from "../../../redux/actions/getCurrentConversationId";
@@ -10,6 +10,11 @@ import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
 
 
 class Coversation extends Component {
+  static defaultProps = {
+    chatData: [],
+    usersData:[]
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -60,7 +65,6 @@ class Coversation extends Component {
   }
 
   render() {
-    console.log(this.getUnusedAddressee());
     return (
      <aside className="text-white coversation-section d-flex">
        <div className="coversation-wrap">
@@ -104,6 +108,10 @@ class Coversation extends Component {
   }
 }
 
+Coversation.propTypes = {
+  usersData: PropTypes.array,
+  chatData: PropTypes.array,
+};
 export default connect(
  state => ({
    chatData: state.chat,

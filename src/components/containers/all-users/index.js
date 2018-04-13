@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 
 class AllUsers extends Component {
   constructor(props) {
@@ -78,4 +79,7 @@ class AllUsers extends Component {
   }
 }
 
+AllUsers.propTypes = {
+  usersData: PropTypes.array,
+};
 export default AllUsers;

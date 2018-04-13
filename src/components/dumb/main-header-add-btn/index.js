@@ -105,9 +105,6 @@ class ButtonAdd extends Component {
 }
 
 export default connect(
- state => ({
-   menuData: state.menu,
- }),
  dispatch => ({
    onAddProjectData: (project) => {
      dispatch(addProjectData(project));

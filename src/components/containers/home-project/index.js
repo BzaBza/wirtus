@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
+
 import HomeProjectsItem from "../../dumb/home-projects-item";
 import {getMenuData} from "../../../redux/actions/menuAct";
 
 class HomeProject extends Component {
+  static defaultProps = {
+    menuData: {},
+  };
 
   componentWillMount() {
     this.props.onGetMenuData()
@@ -30,7 +35,9 @@ class HomeProject extends Component {
     );
   }
 }
-
+HomeProject.propTypes = {
+  menuData: PropTypes.object,
+};
 export default connect(
  state => ({
    menuData: state.menu,

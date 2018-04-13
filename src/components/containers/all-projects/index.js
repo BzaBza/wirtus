@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
+
 import DropPeriod from "../../dumb/drop-period/index";
 import ProgressBar from "../../dumb/progress-bar/index";
+
 
 class AllProjects extends Component {
   constructor(props) {
@@ -105,4 +108,7 @@ class AllProjects extends Component {
   }
 }
 
+AllProjects.propTypes = {
+  projects: PropTypes.object,
+};
 export default AllProjects;

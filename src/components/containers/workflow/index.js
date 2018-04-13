@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import PropTypes from "prop-types";
+
 import WorkflowItem from '../../dumb/workflow-item/index.js';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
+
 
 class Workflow extends Component {
   constructor(props) {
@@ -117,5 +120,7 @@ class Workflow extends Component {
     );
   }
 }
-
+Workflow.propTypes = {
+  projects: PropTypes.object,
+};
 export default Workflow;

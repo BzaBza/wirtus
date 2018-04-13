@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {NavItem, Nav, NavLink} from 'reactstrap';
 import DropdownSideBtn from "../../components/dumb/dropdown-side-btn";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
+
 import Coversation from "../../components/containers/coversation";
 import MessageContent from "../../components/containers/message-content";
 import MessageUserData from "../../components/containers/message-user-data";
@@ -91,7 +93,9 @@ class Message extends Component {
     );
   }
 }
-
+Message.propTypes = {
+  chatData: PropTypes.array,
+};
 export default connect(
  state => ({
    chatData: state.chat,

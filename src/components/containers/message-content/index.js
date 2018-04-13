@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import SockJsClient from 'react-stomp';
+import PropTypes from "prop-types";
+
 import MessageContentItem from "../../dumb/message-content-item";
 import {getNewMessageData} from "../../../redux/actions/fetchNewMessage";
 
 class MessageContent extends Component {
+  static defaultProps = {
+    coversationId: null,
+    chatData:[]
+  };
   constructor(props) {
     super(props);
     this.state = {};
@@ -66,7 +72,10 @@ class MessageContent extends Component {
     );
   }
 }
-
+MessageContent.propTypes = {
+  chatData: PropTypes.array,
+  coversationId: PropTypes.number,
+};
 export default connect(
  state => ({
    coversationId: state.currentCoversation,

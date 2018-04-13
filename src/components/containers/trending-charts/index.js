@@ -86,9 +86,6 @@ class TrendingCharts extends Component {
 }
 
 export default connect(
- state => ({
-   filter: state.periodFilter
- }),
  dispatch => ({
    onFilterPeriod: (currentPeriod) => {
      dispatch({type: 'FILTER_PERIOD_DATA', payload: currentPeriod});

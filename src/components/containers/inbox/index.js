@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
+
 import HomeInboxItem from "../../dumb/home-inbox-item";
 
 class HomeInbox extends Component {
+  static defaultProps = {
+    menuData: {},
+  };
 
   render() {
     const data = [
@@ -41,7 +46,9 @@ class HomeInbox extends Component {
     );
   }
 }
-
+HomeInbox.propTypes = {
+  menuData: PropTypes.object,
+};
 export default connect(
  state => ({
    menuData: state.menu,

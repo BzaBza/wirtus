@@ -1,4 +1,4 @@
-const initialState = '';
+const initialState = null;
 
 export default function currentCoversation(state = initialState, action) {
   if (action.type === 'GET_CURRENT_COVERSATION') {

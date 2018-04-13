@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
+
 import FaAngleUp from 'react-icons/lib/fa/angle-up';
 import FaAngleDown from 'react-icons/lib/fa/angle-down';
+
 
 class TrendingTable extends Component {
   constructor(props) {
@@ -120,5 +123,7 @@ class TrendingTable extends Component {
     );
   }
 }
-
+TrendingTable.propTypes = {
+  trendingData: PropTypes.array,
+};
 export default TrendingTable;
