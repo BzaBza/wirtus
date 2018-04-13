@@ -17,7 +17,7 @@ class Message extends Component {
     this.toggleTab = this.toggleTab.bind(this);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.props.onGetUsersData();
   }
 
@@ -73,20 +73,19 @@ class Message extends Component {
          </div>
        </header>
        <div className="content-wrap d-flex message-content justify-content-between">
-          <div className="message-content-coversation">
-            <Coversation chatData={this.props.chatData}/>
-          </div>
-         <div className="message-content-wrap">
+         <div className="message-content-coversation">
+           <Coversation chatData={this.props.chatData}/>
+         </div>
+         <div className="message-content-wrap col-xl-7">
            <MessageContent chatData={this.props.chatData}/>
          </div>
-         <div className="message-wrap">
-           <MessageUserData/>
-         </div>
+         <MessageUserData/>
        </div>
      </section>
     );
   }
 }
+
 export default connect(
  state => ({
    chatData: state.chat,

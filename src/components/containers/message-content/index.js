@@ -49,7 +49,7 @@ class MessageContent extends Component {
          </ul>
        </div>
        <div className="send-message-form-wrap">
-         <form onSubmit={this.addMessage} className="send-message-form-">
+         <form onSubmit={this.addMessage} className="send-message-form col-7">
            <textarea
             placeholder="Write a message"
             ref={(input => {

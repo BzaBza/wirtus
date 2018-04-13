@@ -11,6 +11,44 @@
 .message-user-data-list::-webkit-scrollbar
   display: none
 
-@media (max-width: 1236px)
-  .message-wrap
+.message-data-toggle-btn
+  display: none
+  width: 1.5%
+  height: 20vh
+  position: fixed
+  top: 45%
+  right: 0
+  background: #2481ce
+  transition: width  1s, border-radius .5s
+  border-top-left-radius: 100%
+  border-bottom-left-radius: 100%
+  z-index: 999999
+
+.message-data-toggle-btn:hover
+  width: 4%
+  transition: width  1s, border-radius .5s
+  cursor: pointer
+  border-top-left-radius: 50%
+  border-bottom-left-radius: 50%
+
+.message-user-data-wrap
+  padding: 0
+  list-style: none
+  background-color: #2b2d3c
+  box-shadow: 0 3px 80px rgba(23, 24, 32, 0.3)
+  margin: 0
+  overflow-y: auto
+  height: 82vh
+
+.message-user-data-wrap::-webkit-scrollbar
+  display: none
+
+.message-user-data-aside
+  min-width: 17%
+
+
+@media (max-width: 1436px)
+  .message-data-hidden
     display: none
+  .message-data-toggle-btn
+    display: block

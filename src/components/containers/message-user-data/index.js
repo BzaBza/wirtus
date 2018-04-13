@@ -6,23 +6,36 @@ import MessageUserDataItem from "../../dumb/message-user-data-item";
 class MessageUserData extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      messageUserDataItem: false
+    };
+    this.messageUserDataItemToggle = this.messageUserDataItemToggle.bind(this)
   }
 
+  messageUserDataItemToggle(event) {
+    this.setState({
+      messageUserDataItemVisibility: !this.state.messageUserDataItemVisibility
+    })
+  }
   render() {
     return (
-     <aside>
+     <aside className="message-user-data-aside">
+       <div className={`message-user-data-wrap ${this.state.messageUserDataItemVisibility ? 'message-data-hidden ' : 'd-block'}`}>
        {this.props.currentAddressee !== null ?
-        <ul className="message-user-data-list text-white">
-          {this.props.usersData.map((value, index) =>
-           <li key={index}>
-             <MessageUserDataItem user={value}/>
-           </li>
-          )}
-        </ul>
+        <div>
+          <ul className="message-user-data-list text-white">
+            {this.props.usersData.map((value, index) =>
+             <li key={index}>
+               <MessageUserDataItem user={value}/>
+             </li>
+            )}
+          </ul>
+        </div>
         :
         <div/>
        }
+       </div>
+       <div className="message-data-toggle-btn" onClick={this.messageUserDataItemToggle}/>
      </aside>
     );
   }
