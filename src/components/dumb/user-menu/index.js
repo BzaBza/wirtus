@@ -9,6 +9,7 @@ export default class UserMenu extends React.Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+    this.logOut = this.logOut.bind(this);
     this.state = {
       dropdownOpen: false,
     };
@@ -19,7 +20,9 @@ export default class UserMenu extends React.Component {
       dropdownOpen: !this.state.dropdownOpen,
     });
   }
-
+  logOut(){
+    localStorage.removeItem('session');
+  }
   render() {
     return (
      <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="border-0">
@@ -28,7 +31,7 @@ export default class UserMenu extends React.Component {
          <FaAngleDown/>
        </DropdownToggle>
        <DropdownMenu className="text-center">
-           <div className="text-center">
+           <div className="text-center" onClick={this.logOut}>
              <Link to='/'>Logout</Link>
            </div>
            <div className="text-center">

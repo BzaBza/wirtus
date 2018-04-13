@@ -16,7 +16,7 @@ class MessageContentItem extends Component {
           className={`${this.props.messageData.user.id === JSON.parse(localStorage.getItem('session')).id ? 'user-message' : 'addressee-message'}`}>
            {this.props.messageData.content}
          </div>
-         <div className={`${this.props.messageData.user.id === JSON.parse(localStorage.getItem('session')).id ? 'text-right' : 'text-left'}`}>
+         <div className={`message-content-item-date ${this.props.messageData.user.id === JSON.parse(localStorage.getItem('session')).id ? 'text-right' : 'text-left'}`}>
            {this.props.messageData.date}
          </div>
        </div>

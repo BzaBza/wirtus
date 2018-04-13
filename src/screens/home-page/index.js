@@ -5,6 +5,8 @@ import HomeProject from "../../components/containers/home-project";
 import SalesReport from "../../components/containers/sales-report";
 import HomeInbox from "../../components/containers/inbox";
 import Calendar from "../../components/containers/calendar";
+import {connect} from "react-redux";
+import {getAllCoversationData} from "../../redux/actions/getAllCoversations";
 
 
 class HomePage extends Component {
@@ -16,6 +18,10 @@ class HomePage extends Component {
     };
 
     this.toggleTab = this.toggleTab.bind(this);
+  }
+
+  componentWillMount(){
+    this.props.onAllGetCoversations()
   }
 
   toggleTab(tab) {
@@ -48,4 +54,12 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default connect(
+ state => ({
+   coversationId: state.currentCoversation,
+ }),
+ dispatch => ({
+   onAllGetCoversations: () => {
+     dispatch(getAllCoversationData());
+   },
+ }))(HomePage);
