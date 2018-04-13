@@ -21,6 +21,7 @@ class Coversation extends Component {
     this.openNewCoversationList = this.openNewCoversationList.bind(this);
     this.addNewCoversation = this.addNewCoversation.bind(this);
     this.openCoversation = this.openCoversation.bind(this);
+    this.getUnusedAddressee = this.getUnusedAddressee.bind(this);
   }
 
   coversationToggle(event) {
@@ -49,7 +50,17 @@ class Coversation extends Component {
     })
   }
 
+  getUnusedAddressee() {
+    const usedAddressee = [];
+    for (let i = 0; i < this.props.chatData.length; i++) {
+      usedAddressee.push(this.props.chatData[i].addressee.id)
+    }
+
+    return this.props.usersData.filter(item => item.id === usedAddressee );
+  }
+
   render() {
+    console.log(this.getUnusedAddressee());
     return (
      <aside className="text-white coversation-section d-flex">
        <div className="coversation-wrap">
@@ -61,7 +72,7 @@ class Coversation extends Component {
                 this.openCoversation(value.id);
                 this.props.onGetCurrentAddressee(value.addressee.id)
               }}
-              className={`coversation-item-wrapper ${this.state.coversationActive === value.id ? 'coversationActive' : ''}`}
+                   className={`coversation-item-wrapper ${this.state.coversationActive === value.id ? 'coversationActive' : ''}`}
               >
                 <CoversationItem coversationData={value}/>
               </div>
@@ -73,7 +84,7 @@ class Coversation extends Component {
           className="coversation-btn-cov">coversation</span></button>
          <ul className={`add-new-coversation ${this.state.newCoversationListVisibility ? 'd-block' : 'd-none'}`}>
            {
-             this.props.usersData.map((value, index) =>
+             this.getUnusedAddressee().map((value, index) =>
               <li key={index}>
                 <button className="add-new-coversation-user d-flex justify-content-between"
                         onClick={() => {

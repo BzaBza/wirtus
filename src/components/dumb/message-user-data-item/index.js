@@ -11,8 +11,9 @@ class MessageUserDataItem extends Component {
   render() {
     return (
        <div className="message-user-data-item text-center">
-          <div className="co-md-9">
+          <div className="message-user-data-item-header">
             <img src={'./workflow/photo-1457459588520-2ae325c92c09.png'} alt="user" className="message-user-data-item-photo"/>
+            <div className={`user-active ${this.props.user.active ? 'bg-success' : 'bg-danger'}`}/>
           </div>
           <div>
             <div>{this.props.user.name}</div>

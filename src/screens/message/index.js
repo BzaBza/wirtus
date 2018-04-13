@@ -6,6 +6,9 @@ import Coversation from "../../components/containers/coversation";
 import MessageContent from "../../components/containers/message-content";
 import MessageUserData from "../../components/containers/message-user-data";
 import {getUsersData} from "../../redux/actions/usersData";
+import IoAndroidDelete from "react-icons/lib/io/android-delete";
+import IoPaperAirplane from "react-icons/lib/io/paper-airplane";
+import IoAndroidArchive from "react-icons/lib/io/android-archive";
 
 class Message extends Component {
   constructor(props) {
@@ -34,7 +37,7 @@ class Message extends Component {
     return (
      <section className="message-section message-section d-flex justify-content-center flex-wrap containers">
        <header className="side-header-wrap d-flex justify-content-between align-items-center">
-         <Nav tabs className="pointer side-header-nav align-items-center">
+         <Nav tabs className="pointer side-header-nav align-items-center flex-nowrap">
            <NavItem className={(this.state.currentTab === 'Inbox') ?
             'active-side-header-link' : ''}>
              <NavLink
@@ -42,6 +45,7 @@ class Message extends Component {
                'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('Inbox');
              }}>
+               <IoAndroidArchive className="message-side-header-icon"/>
                <span className="menu-links">Inbox </span> ()
              </NavLink>
            </NavItem>
@@ -52,6 +56,7 @@ class Message extends Component {
                'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('Sent');
              }}>
+               <IoPaperAirplane className="message-side-header-icon"/>
                <span className="menu-links">Sent</span>
              </NavLink>
            </NavItem>
@@ -62,6 +67,7 @@ class Message extends Component {
                'active-side-header-link' : ''} onClick={() => {
                this.toggleTab('Trash');
              }}>
+               <IoAndroidDelete className="message-side-header-icon"/>
                <span className="menu-links">Trash</span>
              </NavLink>
            </NavItem>

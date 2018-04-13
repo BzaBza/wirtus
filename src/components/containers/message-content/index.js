@@ -14,6 +14,7 @@ class MessageContent extends Component {
 
   sendMessage(chatMessage) {
     this.clientRef.sendMessage("/app/chat/send/" + this.props.coversationId, JSON.stringify(chatMessage));
+    this.message.value = '';
   };
 
   addMessage(event) {
@@ -28,7 +29,7 @@ class MessageContent extends Component {
   render() {
     return (
      <section className="text-white message-content-section">
-       <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/app/topic/' + this.props.coversationId]}
+       <SockJsClient url='http://aelmod.sytes.net:8080/ws' topics={['/topic/' + this.props.coversationId]}
                      onMessage={(msg) => {
                        console.log(msg);
                        this.props.onGetNewMessageData(msg)
