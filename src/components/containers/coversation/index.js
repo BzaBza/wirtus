@@ -14,7 +14,8 @@ class Coversation extends Component {
     super(props);
     this.state = {
       coversationVisibility: true,
-      newCoversationListVisibility: false
+      newCoversationListVisibility: false,
+      coversationActive: '',
     };
     this.coversationToggle = this.coversationToggle.bind(this);
     this.openNewCoversationList = this.openNewCoversationList.bind(this);
@@ -42,9 +43,10 @@ class Coversation extends Component {
   }
 
   openCoversation(coversationId) {
-    // this.props.onGetNewMessageData(coversationId);
     this.props.onGetCurrentCoversation(coversationId);
-    console.log(this.props.chatData);
+    this.setState({
+      coversationActive: coversationId
+    })
   }
 
   render() {
@@ -58,7 +60,9 @@ class Coversation extends Component {
               <div key={index} onClick={() => {
                 this.openCoversation(value.id);
                 this.props.onGetCurrentAddressee(value.addressee.id)
-              }}>
+              }}
+              className={`${this.state.coversationActive === value.id ? 'coversationActive' : ''}`}
+              >
                 <CoversationItem coversationData={value}/>
               </div>
              )}

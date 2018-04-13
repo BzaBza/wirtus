@@ -11,7 +11,7 @@ class MessageUserDataItem extends Component {
   render() {
     return (
        <div className="message-user-data-item d-flex align-items-center">
-        <div className="text-center">
+        <div className="text-center col-12">
           <div>
             <img src={this.props.user.url} alt="user" className="message-user-data-item-photo"/>
           </div>
