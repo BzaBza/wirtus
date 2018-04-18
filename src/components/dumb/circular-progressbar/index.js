@@ -8,6 +8,7 @@ class MyCircularProgressbar extends Component {
     this.state = {
       chartData: {},
     };
+    this.getChartData = this.getChartData.bind(this);
   }
 
   getChartData() {

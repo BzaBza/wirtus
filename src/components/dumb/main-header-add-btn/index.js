@@ -34,8 +34,7 @@ class ButtonAdd extends Component {
        url: './workflow/photo-1457084882212-4a6bb2240588.png',
        id: new Date() + '',
      }
-    )
-    ;
+    );
   }
 
 
@@ -87,8 +86,6 @@ class ButtonAdd extends Component {
                     ref={(input => {
                       this.deadline = input
                     })}
-                    required
-                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
              />
            </li>
            <li className="d-flex justify-content-center">
@@ -105,6 +102,9 @@ class ButtonAdd extends Component {
 }
 
 export default connect(
+ state => ({
+   menuData: state.menu,
+ }),
  dispatch => ({
    onAddProjectData: (project) => {
      dispatch(addProjectData(project));

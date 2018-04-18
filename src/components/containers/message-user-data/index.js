@@ -14,7 +14,7 @@ class MessageUserData extends Component {
     this.state = {
       messageUserDataItemVisibility: true
     };
-    this.messageUserDataItemToggle = this.messageUserDataItemToggle.bind(this)
+    this.messageUserDataItemToggle = this.messageUserDataItemToggle.bind(this);
   }
 
   messageUserDataItemToggle(event) {

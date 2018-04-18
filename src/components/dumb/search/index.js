@@ -10,7 +10,7 @@ class Search extends Component {
     this.state = {
       searchTerm: ''
     };
-    this.searchUpdated = this.searchUpdated.bind(this)
+    this.searchUpdated = this.searchUpdated.bind(this);
   }
 
   render () {

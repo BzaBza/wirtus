@@ -14,11 +14,11 @@ class MainHeader extends React.Component {
       searchToggle: true,
     };
     this.handleSearchClick = this.handleSearchClick.bind(this);
-  }
+  };
 
   handleSearchClick() {
     this.setState({searchToggle: !this.state.searchToggle});
-  }
+  };
 
   render() {
     return (

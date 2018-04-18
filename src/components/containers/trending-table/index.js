@@ -12,7 +12,7 @@ class TrendingTable extends Component {
       trendingData: props.trendingData,
       activeSort: ''
     };
-    this.customSort = this.customSort.bind(this)
+    this.customSort = this.customSort.bind(this);
   }
 
   componentWillReceiveProps() {

@@ -15,9 +15,10 @@ class MessageContent extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+
     this.addMessage = this.addMessage.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
-  }
+  };
 
   sendMessage(chatMessage) {
     this.clientRef.sendMessage("/app/chat/send/" + this.props.coversationId, JSON.stringify(chatMessage));
@@ -31,7 +32,8 @@ class MessageContent extends Component {
       content: this.message.value,
     };
     this.sendMessage(chatMessage)
-  }
+  };
+
   render() {
     return (
      <section className="text-white message-content-section">
